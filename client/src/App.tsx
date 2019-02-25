@@ -1,14 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import Lobby from './components/Lobby/Lobby';
+import NavigationBar from "./components/NavigationBar/NavigationBar";
 
-const Test = styled.p`
-    font-size: 50px;
-`;
-
-export default function App() {
+export const App: React.FC = () => {
     return (
         <>
-            <Test>Hello World</Test>
+            <NavigationBar/>
+            <Lobby/>
         </>
     );
 }
+
+export default App;
