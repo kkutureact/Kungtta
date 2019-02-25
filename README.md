@@ -1,2 +1,13 @@
 # KKutuReact
-끄투 리뉴얼
+
+## client
+- React
+- TypeScript
+- styled-components
+- Babel
+
+## server
+- TypeScript
+- socketio
+- passport.js
+- Sequelize
