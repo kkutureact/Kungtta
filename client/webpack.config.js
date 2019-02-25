@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.tsx',
+    entry: ['@babel/polyfill', './src/index.tsx'],
 
     output: {
         path: __dirname + '/dist',
@@ -26,7 +26,16 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     {
-                        loader: 'ts-loader',
+                        loader: 'ts-loader'
+                    }
+                ]
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader'
                     }
                 ]
             },
