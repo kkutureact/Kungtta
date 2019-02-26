@@ -9,7 +9,7 @@ const Menu = styled.div`
 	height: 30px;
 	box-shadow: 0px 2px 2px #111111;
 	background-color: #7CC4F8;
-`
+`;
 
 const MenuButton = styled.a`
 	float: left;
@@ -37,7 +37,7 @@ const MenuButton = styled.a`
         height: auto; 
         box-shadow: 0px 2px 2px #141414;
 	}
-`
+`;
 
 const Login = styled.div`
 	float: right;
@@ -53,7 +53,7 @@ const Login = styled.div`
 	&:hover {
 	    color: white;
 	}
-`
+`;
 
 export const NavigationBar: React.FC = () => {
     return (
