@@ -3,7 +3,7 @@ import styled, {keyframes} from 'styled-components';
 import backgroundimage from '../../images/kkutu/gamebg.png';
 import logo from '../../images/kkutu/short_logo.png';
 import Jjoriping from "./Jjoriping";
-import ServerList from "./ServerList";
+import ServerList from "./ServerList/ServerList";
 
 const BackgroundScrollAnimation = keyframes`
     from {
@@ -15,7 +15,7 @@ const BackgroundScrollAnimation = keyframes`
 `;
 
 const Style = styled.div`
-    margin-left: 129px;
+    margin-left: 350px;
     width: 1010px;
     margin-top: 50px;
     float: left;
@@ -34,12 +34,6 @@ const Background = styled.div`
 	background-image: url(${backgroundimage});
 	
 	animation: ${BackgroundScrollAnimation} 4s linear infinite;
-`;
-
-const Line = styled.div`
-    float: left;
-    width: 100%;
-    margin: 5px 0px;
 `;
 
 const TopInfo = styled.div`
@@ -61,7 +55,6 @@ const Title = styled.h3`
 	text-align: center;
 	text-shadow: 0px 0px 4px #333;
 	font-weight: bold;
-	color: #EEEEEE;
 	font-size: 15px;
 	margin: 0px;
 `
@@ -69,7 +62,7 @@ const Title = styled.h3`
 export const Lobby: React.FC = () => {
     return (
         <Style>
-            <Line/>
+            <br/>
             <TopInfo>
                 <StartBanner>
                     <Title>글자로 놀자! 끄투온라인</Title>
