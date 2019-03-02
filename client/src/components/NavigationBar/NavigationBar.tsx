@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+
+import Notice from './Notice';
 
 const Menu = styled.div`
     position: fixed;
@@ -26,7 +30,7 @@ const MenuButton = styled.a`
 	font-size: 15px;
 	text-align: center;
 	text-decoration: none;
-	color: black;
+	color: #111111;
 	
 	background-color: #7CC4F8;
 	
@@ -40,6 +44,7 @@ const MenuButton = styled.a`
 `;
 
 const Login = styled.div`
+    color: #444444;
 	float: right;
 	padding-top: 8px;
 	width: 80px;
@@ -51,16 +56,19 @@ const Login = styled.div`
 	transition: color 300ms ease;
 	
 	&:hover {
-	    color: white;
+	    color: #EEEEEE;
 	}
 `;
 
 export const NavigationBar: React.FC = () => {
     return (
-        <Menu>
-            <MenuButton href={"/"}>HOME</MenuButton>
-            <Login>로그인</Login>
-        </Menu>
+        <>
+            <Menu>
+                <MenuButton href={"/"}><FontAwesomeIcon icon={faHome}/></MenuButton>
+                <Login>로그인</Login>
+                <Notice>dd</Notice>
+            </Menu>
+        </>
     );
 }
 

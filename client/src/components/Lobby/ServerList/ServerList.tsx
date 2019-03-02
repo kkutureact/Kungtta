@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Server from './Server';
 
-import blue from '../../../images/blue_gauge.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
 const List = styled.div`
     float: right;
@@ -43,12 +44,17 @@ const Servers = styled.div`
     }
 `;
 
+const Icon = styled(FontAwesomeIcon)`
+    margin: 0px 5px;
+    cursor: pointer;
+`;
+
 export const ServerList: React.FC = () => {
     return (
         <List>
             <ListBox>
                 <ListTitle>
-                    <i>아이콘</i>
+                    <Icon icon={faSyncAlt}/>
                     <label>서버 목록</label>
                     <CountPeople>&nbsp; 총 0명</CountPeople>
                 </ListTitle>

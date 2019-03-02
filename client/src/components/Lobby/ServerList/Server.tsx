@@ -46,8 +46,6 @@ const StatusEnter = styled.div`
     text-align: center;
 `;
 
-
-
 export const Server: React.FC<Props> = ({ name, isOnline, size }) => {
     return(
         <>
@@ -59,7 +57,7 @@ export const Server: React.FC<Props> = ({ name, isOnline, size }) => {
             </StatusGraph>
             <StatusEnter>{isOnline ? '접속' : '-'}</StatusEnter>
         </>
-    )
+    );
 }
 
 export default Server;
