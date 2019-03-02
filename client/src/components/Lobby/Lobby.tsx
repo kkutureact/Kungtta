@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import logo from '../../images/kkutu/short_logo.png';
 import Jjoriping from "./Jjoriping";
 import ServerList from "./ServerList/ServerList";
+import UpdateLog from "./UpdateLog";
 
 const Container = styled.div`
     margin: 0 auto;
@@ -49,6 +50,7 @@ export const Lobby: React.FC = () => {
                 <Jjoriping/>
                 <ServerList/>
             </Top>
+            <UpdateLog/>
         </Container>
     );
 }

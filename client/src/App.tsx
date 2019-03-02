@@ -2,7 +2,7 @@ import React from 'react';
 import styled, {keyframes} from "styled-components";
 
 import Lobby from './components/Lobby/Lobby';
-import NavigationBar from "./components/NavigationBar/NavigationBar";
+import NavigationBar from "./components/Header/NavigationBar";
 
 import backgroundimage from "./images/kkutu/gamebg.png";
 
