@@ -2,12 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 import blue from "../../../images/blue_gauge.png";
 
-interface Props {
-    readonly name: string;
-    readonly isOnline: boolean;
-    readonly size: number;
-}
-
 const StatusIcon = styled.div<{ isOnline: boolean }>`
     background-color: ${props => props.isOnline ? '#3E3' : '#777'};
     border-radius: 6px;
@@ -45,6 +39,12 @@ const StatusEnter = styled.div`
     width: 50px;
     text-align: center;
 `;
+
+interface Props {
+    readonly name: string;
+    readonly isOnline: boolean;
+    readonly size: number;
+}
 
 export const Server: React.FC<Props> = ({ name, isOnline, size }) => {
     return(
