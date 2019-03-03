@@ -2,6 +2,19 @@ import React from 'react';
 import styled from "styled-components";
 import blue from "../../../images/blue_gauge.png";
 
+const Container = styled.div`
+    float: left;
+    margin: 2px 0px;
+    width: 320px;
+    height: 16px;
+    font-size: 13px;
+    cursor: pointer;
+    
+    &>div {
+        float: left;
+    }
+`;
+
 const StatusIcon = styled.div<{ isOnline: boolean }>`
     background-color: ${props => props.isOnline ? '#3E3' : '#777'};
     border-radius: 6px;
@@ -48,7 +61,7 @@ interface Props {
 
 export const Server: React.FC<Props> = ({ name, isOnline, size }) => {
     return(
-        <>
+        <Container>
             <StatusIcon isOnline={isOnline}/>
             <StatusName>{name}</StatusName>
             <StatusGraph>
@@ -56,7 +69,7 @@ export const Server: React.FC<Props> = ({ name, isOnline, size }) => {
                 <label>{isOnline ? '현재인원/전체인원' : '-'}</label>
             </StatusGraph>
             <StatusEnter>{isOnline ? '접속' : '-'}</StatusEnter>
-        </>
+        </Container>
     );
 }
 

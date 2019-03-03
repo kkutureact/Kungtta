@@ -7,7 +7,7 @@ import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
 const List = styled.div`
     float: right;
-    margin-top: -120px;
+    margin-top: -130px;
     width: 50%;
 `;
 
@@ -31,19 +31,6 @@ const CountPeople = styled.label`
     font-size: 13px;
 `;
 
-const Servers = styled.div`
-    float: left;
-    margin: 2px 0px;
-    width: 320px;
-    height: 16px;
-    font-size: 13px;
-    cursor: pointer;
-    
-    &>div {
-        float: left;
-    }
-`;
-
 const Icon = styled(FontAwesomeIcon)`
     margin: 0px 5px;
     cursor: pointer;
@@ -58,9 +45,13 @@ export const ServerList: React.FC = () => {
                     <label>서버 목록</label>
                     <CountPeople>&nbsp; 총 0명</CountPeople>
                 </ListTitle>
-                <Servers>
-                    <Server name={"감자"} isOnline={true} size={5}/>
-                </Servers>
+                <div>
+                    <Server name={"테스트1"} isOnline={true} size={5}/>
+                    <Server name={"테스트2"} isOnline={true} size={10}/>
+                    <Server name={"테스트3"} isOnline={true} size={15}/>
+                    <Server name={"테스트4"} isOnline={true} size={20}/>
+                    <Server name={"테스트5"} isOnline={true} size={25}/>
+                </div>
             </ListBox>
         </List>
     );
