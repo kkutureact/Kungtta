@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import LeftEyeImage from '../../images/jjoeyeL.png';
-import RightEyeImage from '../../images/jjoeyeR.png';
-import NoseImage from '../../images/jjonose.png';
+import LeftEyeImage from '../../assets/images/jjoeyeL.png';
+import RightEyeImage from '../../assets/images/jjoeyeR.png';
+import NoseImage from '../../assets/images/jjonose.png';
 
 const JJO = styled.div`
     margin-top: 40px;

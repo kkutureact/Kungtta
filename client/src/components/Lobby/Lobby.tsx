@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../../images/kkutu/short_logo.png';
+import logo from '../../assets/images/kkutu/short_logo.png';
 import Jjoriping from "./Jjoriping";
 import ServerList from "./ServerList/ServerList";
 import UpdateLog from "./UpdateLog";

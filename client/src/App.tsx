@@ -4,7 +4,7 @@ import styled, {keyframes} from "styled-components";
 import Lobby from './components/Lobby/Lobby';
 import NavigationBar from "./components/Header/NavigationBar";
 
-import backgroundimage from "./images/kkutu/gamebg.png";
+import backgroundimage from "./assets/images/kkutu/gamebg.png";
 
 
 const BackgroundScrollAnimation = keyframes`

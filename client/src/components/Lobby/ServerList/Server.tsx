@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import blue from "../../../images/blue_gauge.png";
+import blue from "../../../assets/images/blue_gauge.png";
 
 const Container = styled.div`
     float: left;
