@@ -1,0 +1,27 @@
+{
+  "name": "kkutureact-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "nodemon --watch src --delay 1 --exec ts-node src/index.ts",
+    "start": "node dist/main.bundle.js",
+    "build": "webpack --mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "log4js": "^4.0.2",
+    "passport": "^0.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.10.5",
+    "nodemon": "^1.18.10",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3333",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  }
+}
