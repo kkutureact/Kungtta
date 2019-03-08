@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Tooltip from '../Util/Tooltip';
 
 const Bar = styled.div`
     padding: 3px 0px;
@@ -12,7 +13,7 @@ const Bar = styled.div`
     z-index: 100;
 `;
 
-export const Notice: React.FC = ({ children }) => {
+export const Notice: React.FC = ({children}) => {
     return (
         <>
             <Bar>

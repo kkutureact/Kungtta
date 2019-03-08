@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import BannerButton from './BannerButton';
+import KkutuButton from '../../Util/KkutuButton';
 
 const Container = styled.div`
     float: right;
@@ -30,13 +30,13 @@ export const Banner: React.FC = () => {
         <Container>
             <Border>
                 <ButtonList>
-                    <BannerButton color={'#00b894'}>바로가기</BannerButton>
-                    <BannerButton color={'#00cec9'}>바로가기</BannerButton>
-                    <BannerButton color={'#0984e3'}>바로가기</BannerButton>
-                    <BannerButton color={'#6c5ce7'}>바로가기</BannerButton>
-                    <BannerButton color={'#ff7675'}>바로가기</BannerButton>
-                    <BannerButton color={'#fd79a8'}>바로가기</BannerButton>
-                    <BannerButton color={'#d63031'}>바로가기</BannerButton>
+                    <KkutuButton color={'#00b894'}>바로가기</KkutuButton>
+                    <KkutuButton color={'#00cec9'}>바로가기</KkutuButton>
+                    <KkutuButton color={'#0984e3'}>바로가기</KkutuButton>
+                    <KkutuButton color={'#6c5ce7'}>바로가기</KkutuButton>
+                    <KkutuButton color={'#ff7675'}>바로가기</KkutuButton>
+                    <KkutuButton color={'#fd79a8'}>바로가기</KkutuButton>
+                    <KkutuButton color={'#d63031'}>바로가기</KkutuButton>
                 </ButtonList>
             </Border>
         </Container>

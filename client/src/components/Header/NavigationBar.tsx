@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 import Notice from './Notice';
 
@@ -65,7 +66,7 @@ export const NavigationBar: React.FC = () => {
         <>
             <Menu>
                 <MenuButton href={"/"}><FontAwesomeIcon icon={faHome}/></MenuButton>
-                <Login>로그인</Login>
+                <Link to={'/login'}><Login><FontAwesomeIcon icon={faSignInAlt}/> 로그인</Login></Link>
                 <Notice>dd</Notice>
             </Menu>
         </>

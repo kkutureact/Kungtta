@@ -28,7 +28,7 @@ interface Props {
     readonly color: string;
 }
 
-export const BannerButton: React.FC<Props> = ({children, color}) => {
+export const KkutuButton: React.FC<Props> = ({children, color}) => {
     return (
         <>
             <Button color={color}>
@@ -38,4 +38,4 @@ export const BannerButton: React.FC<Props> = ({children, color}) => {
     );
 }
 
-export default BannerButton;
+export default KkutuButton;
