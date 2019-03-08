@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
-import Tooltip from '../Util/Tooltip';
 
-const Bar = styled.div`
+const Bar = styled.div<{ close: boolean }>`
+    visibility: ${props => props.close ? 'visible' : 'hidden'};
     padding: 3px 0px;
     margin-top: 30px;
     color: #111111;
@@ -14,9 +14,11 @@ const Bar = styled.div`
 `;
 
 export const Notice: React.FC = ({children}) => {
+    const [isClosed, setClose] = useState<boolean>(true);
+
     return (
         <>
-            <Bar>
+            <Bar close={isClosed} onClick={() => setClose(false)}>
                 <div>{children}</div>
             </Bar>
         </>
