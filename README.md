@@ -1,13 +1,16 @@
 # KKutuReact
+> 끄투 React 리메이크 프로젝트
 
-## client
+## Stack
+### client
+- create-react-app
 - React
 - TypeScript
 - styled-components
-- Babel
 
-## server
+### server
 - TypeScript
-- socketio
-- passport.js
+- Socketio
+- Passport.js
 - Sequelize
+- Express
