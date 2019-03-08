@@ -40,7 +40,7 @@ const StartDisplay = styled.div`
 `;
 
 const StartButton = styled.button`
-    display:block
+    display:block;
     box-sizing: inherit;
     font-family: inherit;
     transition: all 200ms ease;
@@ -62,7 +62,7 @@ const StartButton = styled.button`
 	background-color: rgba(0, 0, 0, 0.7);
 	
 	&:hover {
-	    font-size: 24px; 
+	    font-size: 24px;
 	    background-color: rgba(0, 0, 0, 0.5);
 	}
 `;

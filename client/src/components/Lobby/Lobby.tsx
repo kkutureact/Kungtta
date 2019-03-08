@@ -5,13 +5,9 @@ import Jjoriping from "./Jjoriping";
 import ServerList from "./ServerList/ServerList";
 import UpdateLog from "./UpdateLog";
 import Banner from "./Banner/Banner";
+import Container from '../Util/Container';
 
-const Container = styled.div`
-    margin: 0 auto;
-    position: relative;
-    max-width: 960px;
-    width: 960px;
-    
+const Box = styled.div`
     margin-top: 100px;
     
     @media (max-width: 600px) {
@@ -46,17 +42,19 @@ const Title = styled.h3`
 export const Lobby: React.FC = () => {
     return (
         <Container>
-            <br/>
-            <Top>
-                <StartBanner>
-                    <Title>글자로 놀자! 끄투온라인</Title>
-                    <KKutuLogo src={logo}></KKutuLogo>
-                </StartBanner>
-                <Jjoriping/>
-                <ServerList/>
-            </Top>
-            <UpdateLog/>
-            <Banner/>
+            <Box>
+                <br/>
+                <Top>
+                    <StartBanner>
+                        <Title>글자로 놀자! 끄투온라인</Title>
+                        <KKutuLogo src={logo}></KKutuLogo>
+                    </StartBanner>
+                    <Jjoriping/>
+                    <ServerList/>
+                </Top>
+                <UpdateLog/>
+                <Banner/>
+            </Box>
         </Container>
     );
 }

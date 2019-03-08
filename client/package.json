@@ -2,7 +2,7 @@
   "name": "kkutureact-client",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/index.tsx",
+  "main": "src/index.tsx",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

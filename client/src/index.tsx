@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import App from './App';
 import Login from "./components/Login/Login";
+import LoginError from "./components/Login/LoginError";
 
 ReactDOM.render(
     <>
@@ -11,6 +12,7 @@ ReactDOM.render(
             <Switch>
                 <Route exact path='/' component={App}/>
                 <Route exact path='/login' component={Login}/>
+                <Route exact path='/loginerror' component={LoginError}/>
             </Switch>
         </BrowserRouter>
     </>,

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import KkutuButton from "../Util/KkutuButton";
 import {Link} from "react-router-dom";
 import ColorBackground from "../Util/ColorBackground";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -11,8 +10,9 @@ const Box = styled.div`
     text-align: center;
 `;
 
-const LoginTitle = styled.h2`
+const Title = styled.h1`
     margin-top: 100px;
+    color: #e74c3c;
 `;
 
 const BackToLobby = styled(Link)`
@@ -25,12 +25,8 @@ export const Login: React.FC = () => {
         <>
             <Container>
                 <Box>
-                    <LoginTitle>로그인하기</LoginTitle>
-                    <p>소셜서비스를 이용하여 끄투에 로그인 해보세요!</p>
-
-                    <KkutuButton color={'#00C73C'}>네이버</KkutuButton>
-                    <br/>
-                    <KkutuButton color={'#ea4335'}>구글</KkutuButton>
+                    <Title>로그인 오류<i>!</i></Title>
+                    <p>오류로 인하여 로그인에 실패하였습니다. 관리자에게 문의하세요.</p>
 
                     <div>
                         <br/>

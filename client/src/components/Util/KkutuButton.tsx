@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = styled.button<{ color: string }>`    
+const Button = styled.a<{ color: string }>`    
     display:inline-block;
 
     width: 230px;
     height: 50px;
     font-size: 15px;
     background-color: ${props => props.color};
-    text-align: center;
+    line-height: 50px;
+    
 	color: #EEEEEE;
     cursor: pointer;
 	
