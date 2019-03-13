@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import LoginRouter from './routers/login';
 import auth from './auth/auth';
 import passport from 'passport';
+import config from './config/main.json';
 
 export const app = express();
 export const logger = log4js.getLogger();
@@ -14,7 +15,7 @@ logger.level = 'ALL';
 
 app.use(cookieParser());
 app.use(session({
-    secret: '',
+    secret: config.session_secret,
     resave: false,
     saveUninitialized: true
 }));

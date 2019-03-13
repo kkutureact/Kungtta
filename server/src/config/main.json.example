@@ -6,5 +6,6 @@
     "username": "",
     "password": ""
   },
-  "webserver_host": "http://example.example"
+  "webserver_host": "http://example.example",
+  "session_secret": ""
 }
