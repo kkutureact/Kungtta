@@ -27,12 +27,13 @@ const Button = styled.a<{ color: string }>`
 
 interface Props {
     readonly color: string;
+    readonly href?: string;
 }
 
-export const KkutuButton: React.FC<Props> = ({children, color}) => {
+export const KkutuButton: React.FC<Props> = ({children, color, href}) => {
     return (
         <>
-            <Button color={color}>
+            <Button color={color} href={href}>
                 {children}
             </Button>
         </>

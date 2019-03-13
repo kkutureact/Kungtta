@@ -30,7 +30,7 @@ export const Login: React.FC = () => {
 
                     <KkutuButton color={'#00C73C'}>네이버</KkutuButton>
                     <br/>
-                    <KkutuButton color={'#ea4335'}>구글</KkutuButton>
+                    <KkutuButton color={'#ea4335'} href={'http://localhost:8080/auth/google'}>구글</KkutuButton>
 
                     <div>
                         <br/>

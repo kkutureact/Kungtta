@@ -9,6 +9,11 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.json$/,
+                use: 'json-loader',
+                exclude: /node_modules/
             }
         ]
     },
@@ -16,7 +21,7 @@ module.exports = {
     devtool: 'source-map',
 
     resolve: {
-        extensions: [ '.ts', '.js' ]
+        extensions: [ '.ts', '.js', '.json' ]
     },
 
     output: {
