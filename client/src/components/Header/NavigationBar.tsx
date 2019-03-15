@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 import Notice from './Notice';
+import useLogin from '../../hooks/useLogin';
 
 const Menu = styled.div`
     position: fixed;
@@ -44,14 +45,15 @@ const MenuButton = styled.a`
 	}
 `;
 
-const Login = styled.div`
+const Login = styled.a`
     color: #444444;
 	float: right;
 	padding-top: 8px;
-	width: 80px;
+	margin-right: 10px;
 	
 	text-align: center;
 	font-size: 11px;
+	text-decoration: none;
 	
 	cursor: pointer;
 	transition: color 300ms ease;
@@ -61,12 +63,24 @@ const Login = styled.div`
 	}
 `;
 
+
+
 export const NavigationBar: React.FC = () => {
+    const user = useLogin();
+
+    const AccountButton = () => {
+        if(user !== undefined) {
+            return <Login href='http://localhost:8080/logout'><FontAwesomeIcon icon={faSignOutAlt}/>  환영합니다! {user.user.nickname}님</Login>;
+        } else {
+            return <Link to={'/login'}><Login><FontAwesomeIcon icon={faSignInAlt}/> 로그인</Login></Link>;
+        }
+    }
+
     return (
         <>
             <Menu>
                 <MenuButton href={"/"}><FontAwesomeIcon icon={faHome}/></MenuButton>
-                <Link to={'/login'}><Login><FontAwesomeIcon icon={faSignInAlt}/> 로그인</Login></Link>
+                <AccountButton/>
                 <Notice>dd</Notice>
             </Menu>
         </>

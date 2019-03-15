@@ -6,12 +6,15 @@ import LoginRouter from './routers/login';
 import auth from './auth/auth';
 import passport from 'passport';
 import config from './config/main.json';
+import cors from 'cors';
 
 export const app = express();
 export const logger = log4js.getLogger();
 const port = 8080;
 
 logger.level = 'ALL';
+
+app.use(cors({ origin: config.webserver_host, credentials: true }));
 
 app.use(cookieParser());
 app.use(session({
