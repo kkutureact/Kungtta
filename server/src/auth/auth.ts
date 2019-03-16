@@ -1,6 +1,6 @@
 import passport from 'passport';
 import authGoogle from './authGoogle';
-import User from '../database/Users/index';
+import Users from '../database/Users/index';
 import {logger} from '../index';
 import uuidv4 from 'uuid/v4';
 
@@ -17,8 +17,8 @@ export default () => {
 }
 
 export const onSuccess = (vendor: string, email: string, nickname: string, profileUrl: string, done: (error: any, user?: any) => void) => {
-    User.findOrCreate({
-        where: { email: email },
+    Users.findOrCreate({
+        where: {email: email},
         defaults: {
             uuid: uuidv4(),
             vendor: vendor,
@@ -26,15 +26,26 @@ export const onSuccess = (vendor: string, email: string, nickname: string, profi
             nickname: nickname,
             profile: profileUrl,
             isBanned: false,
-            isMuted: false
+            isMuted: false,
+            isAdmin: false
         }
-    }).spread((user, created) => {
+    }).spread((user: any, created) => {
+        const uuid = user.dataValues.uuid;
+
         if (created) {
-            logger.info('새로운 유저 가입');
+            logger.info(`${uuid} 사용자가 새로 가입하였습니다.`);
             done(null, user);
         } else {
-            logger.info('기존 유저 로그인');
-            done(null, user);
+            Users.findOne({where: {uuid: uuid}})
+                .then((data: any) => {
+                    if (data.dataValues.isBanned) {
+                        logger.info(`접근 차단된 ${uuid} 사용자가 로그인을 시도하였습니다.`);
+                        done('당신은 접근 차단된 사용자입니다. (Banned)');
+                    } else {
+                        logger.info(`${uuid} 사용자가 로그인하였습니다.`);
+                        done(null, user);
+                    }
+                });
         }
     });
 };

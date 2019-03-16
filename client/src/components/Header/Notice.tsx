@@ -23,6 +23,6 @@ export const Notice: React.FC = ({children}) => {
             </Bar>
         </>
     );
-}
+};
 
 export default Notice;

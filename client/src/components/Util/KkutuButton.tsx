@@ -12,6 +12,7 @@ const Button = styled.a<{ color: string }>`
     
 	color: #EEEEEE;
     cursor: pointer;
+    text-decoration: none;
 	
     border: none;
 	border-radius: 10px;

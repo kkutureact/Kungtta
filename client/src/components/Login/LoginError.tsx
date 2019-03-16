@@ -20,7 +20,7 @@ const BackToLobby = styled(Link)`
 	color: #EEEEEE;
 `;
 
-export const Login: React.FC = () => {
+export const LoginError: React.FC = () => {
     return (
         <>
             <Container>
@@ -39,4 +39,4 @@ export const Login: React.FC = () => {
     );
 }
 
-export default Login;
+export default LoginError;

@@ -14,6 +14,7 @@ const User = {
     },
     email: {
         type: Sequelize.STRING(80),
+        unique: true,
         allowNull: false
     },
     nickname: {
@@ -31,7 +32,11 @@ const User = {
     isMuted: {
         type: Sequelize.BOOLEAN,
         allowNull: false
-    }
+    },
+    isAdmin: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+    },
 };
 
 export default db.define('User', User, {timestamps: false});
