@@ -6,6 +6,7 @@ import App from './App';
 import Login from "./components/Login/Login";
 import LoginError from "./components/Login/LoginError";
 import Admin from './components/Admin/Admin';
+import Rooms from './components/Game/Rooms';
 
 ReactDOM.render(
     <>
@@ -15,6 +16,7 @@ ReactDOM.render(
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/loginerror' component={LoginError}/>
                 <Route exact path='/admin' component={Admin}/>
+                <Route exact path='/rooms' component={Rooms}/>
             </Switch>
         </BrowserRouter>
     </>,
