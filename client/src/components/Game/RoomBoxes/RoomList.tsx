@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import BoxTitle from '../BoxTitle';
-import BoxContent from '../BoxContent';
+import BoxTitle from '../../Util/ContentBox/BoxTitle';
+import BoxContent from '../../Util/ContentBox/BoxContent';
 
 const List = styled.div`
     color: #111111;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import KkutuButton from '../../Util/KkutuButton';
+import KkutuButton from '../../Util/Buttons/KkutuButton';
 
 const Container = styled.div`
     float: right;

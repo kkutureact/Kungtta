@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import KkutuButton from "../Util/KkutuButton";
+import KkutuButton from "../Util/Buttons/KkutuButton";
 import {Link} from "react-router-dom";
 import ColorBackground from "../Util/ColorBackground";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';

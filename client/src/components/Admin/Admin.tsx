@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import ColorBackground from '../Util/ColorBackground';
 import Container from '../Util/Container';
-import SmallButton from '../Util/SmallButton';
-import useLogin from '../../hooks/useLogin';
+import SmallButton from '../Util/Buttons/SmallButton';
+import {useUser} from '../../hooks/useUser';
 import AdminItem from './AdminItem';
 import Axios from 'axios';
 
@@ -23,7 +23,7 @@ export const Admin: React.FC = () => {
     const [uuid, setUuid] = useState<string>('');
     const [data, setData] = useState<string>('');
 
-    const user = useLogin();
+    const user = useUser();
     const isAdmin = user !== undefined ? user.user.isAdmin : false;
 
     const inputChangeHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,13 +43,10 @@ export const Admin: React.FC = () => {
             <>
                 <Container>
                     <h2>끄투 관리자패널</h2>
-                    <AdminItem name={'공지 설정'}>
-                        <TextArea rows={10} cols={80} placeholder={'공지 내용을 입력하세요.'}/>
-                        <SmallButton>적용하기</SmallButton>
-                    </AdminItem>
 
                     <AdminItem name={'유저 조회'}>
-                        <Input value={uuid} onChange={inputChangeHandler} placeholder={'UUID 입력 (공백 시 자신의 정보를 조회합니다.)'}/>
+                        <Input value={uuid} onChange={inputChangeHandler}
+                               placeholder={'UUID 입력 (공백 시 자신의 정보를 조회합니다.)'}/>
                         <SmallButton onClick={findUser}>조회하기</SmallButton>
                         <p>{data}</p>
                     </AdminItem>

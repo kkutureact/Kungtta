@@ -4,8 +4,11 @@ import backgroundimage from '../../assets/images/kkutu/gamebg.png';
 import NavigationBar from '../Header/NavigationBar';
 import Container from '../Util/Container';
 import TopMenuButton from './TopMenuButton';
-import UserList from './UserList/UserList';
-import RoomList from './RoomList/RoomList';
+import UserList from './RoomBoxes/UserList';
+import RoomList from './RoomBoxes/RoomList';
+import MyProfile from './RoomBoxes/MyProfile';
+import Chat from './RoomBoxes/Chat';
+
 
 const Background = styled.div`
 	position: fixed;
@@ -33,6 +36,8 @@ const TopMenus = styled.div`
 `;
 
 export const Rooms: React.FC = () => {
+
+
     return (
         <>
             <NavigationBar/>
@@ -50,8 +55,9 @@ export const Rooms: React.FC = () => {
                     </TopMenus>
 
                     <UserList/>
-
                     <RoomList/>
+                    <MyProfile/>
+                    <Chat/>
                 </Box>
             </Container>
             <Background/>
