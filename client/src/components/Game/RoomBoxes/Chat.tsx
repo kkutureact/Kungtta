@@ -80,7 +80,7 @@ const MessageBodyStyle = styled.div`
 const MessageFooterStyle = styled.div`
     float: left;
     padding-top: 2px;
-    width: 70px;
+    width: 75px;
     font-size: 11px;
     text-align: right;
     color: #999999;
@@ -114,6 +114,20 @@ export const Chat: React.FC = () => {
         }
     };
 
+    const getTime = () => {
+        const today = new Date();
+        let hours = today.getHours();
+        const mins = today.getMinutes();
+        let minsWithZero;
+        const amOrPM = hours >= 12 ? '오후' : '오전';
+
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        minsWithZero = mins < 10 ? '0' + mins : mins;
+
+        return `${amOrPM} ${hours}시 ${minsWithZero}분`;
+    };
+
     useEffect(() => {
         const handler = (data: any) => {
             setChatLog(chatlog => [...chatlog, data]);
@@ -138,7 +152,7 @@ export const Chat: React.FC = () => {
                                     <MessageStyle key={index}>
                                         <MessageHeaderStyle>{chat.nickname}</MessageHeaderStyle>
                                         <MessageBodyStyle>{chat.text}</MessageBodyStyle>
-                                        <MessageFooterStyle>time</MessageFooterStyle>
+                                        <MessageFooterStyle>{getTime()}</MessageFooterStyle>
                                     </MessageStyle>
                                 );
                             })

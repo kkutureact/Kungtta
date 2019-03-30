@@ -35,7 +35,7 @@ const Box = styled.div`
 `;
 
 
-export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match}) => {
+export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match, history}) => {
     const websocket = useWebSocket();
     const user = useUser();
 
@@ -47,6 +47,10 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match}
         });
         sound.play();
         Howler.volume(0.5);
+
+        history.listen(() => {
+            sound.stop();
+        })
     }, []);
 
     return (
