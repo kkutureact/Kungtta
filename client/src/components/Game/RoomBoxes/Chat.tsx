@@ -1,4 +1,4 @@
-import React, {createRef, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import BoxTitle from '../../Util/ContentBox/BoxTitle';
 import BoxContent from '../../Util/ContentBox/BoxContent';
@@ -97,8 +97,14 @@ export const Chat: React.FC = () => {
     const ws = useWebSocket();
     const user = useUser();
 
-    const inputChangeHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const onInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(evt.target.value);
+    };
+
+    const onEnterKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            sendChat();
+        }
     };
 
     const sendChat = () => {
@@ -138,7 +144,8 @@ export const Chat: React.FC = () => {
                             })
                         }
                     </MessagesStyle>
-                    <MessagesInputStyle value={inputValue} onChange={inputChangeHandler} placeholder={'전송할 메세지를 입력해주세요.'}/>
+                    <MessagesInputStyle value={inputValue} onChange={onInputChange} onKeyDown={onEnterKeyPress}
+                                        placeholder={'전송할 메세지를 입력해주세요.'}/>
                     <MessagesSendStyle onClick={sendChat}>전송</MessagesSendStyle>
                 </BoxContent>
             </ContainerStyle>
