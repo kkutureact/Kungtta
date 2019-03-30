@@ -47,23 +47,7 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match}
         });
         sound.play();
         Howler.volume(0.5);
-
-        if (user !== undefined) {
-            websocket.emit('join', user.uuid);
-        }
-
-        const handler = (foo: string) => {
-            console.log('테스트: ' + foo);
-        };
-
-        websocket.addListener('test', handler);
-
-        return () => {
-            websocket.removeListener('test', handler);
-        };
     }, []);
-
-
 
     return (
         <>
