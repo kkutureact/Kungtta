@@ -43,10 +43,9 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
         const sound = new Howl({
             src: [bgm],
             autoplay: true,
-            loop: true,
-            volume: 0.2
+            loop: true
         });
-        sound.play();
+        Howler.volume(0.5);
 
         history.listen(() => {
             sound.stop();
