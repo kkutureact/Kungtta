@@ -24,7 +24,7 @@ export const Admin: React.FC = () => {
     const [data, setData] = useState<string>('');
 
     const user = useUser();
-    const isAdmin = user !== undefined ? user.user.isAdmin : false;
+    const isAdmin = user !== undefined ? user.isAdmin : false;
 
     const inputChangeHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
         setUuid(evt.target.value);

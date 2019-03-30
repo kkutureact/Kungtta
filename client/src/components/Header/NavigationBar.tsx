@@ -66,10 +66,11 @@ const Login = styled.div`
 
 export const NavigationBar: React.FC = () => {
     const user = useUser();
+
     const AccountButton = () => {
-        if (user !== undefined) {
+        if (user !== undefined && user.vendor !== 'guest') {
             return <a href='http://localhost:8080/logout'><Login><FontAwesomeIcon
-                icon={faSignOutAlt}/> 환영합니다! {user.user.nickname}님</Login></a>;
+                icon={faSignOutAlt}/> 환영합니다! {user.nickname}님</Login></a>;
         } else {
             return <Link to={'/login'}><Login><FontAwesomeIcon icon={faSignInAlt}/> 로그인</Login></Link>;
         }
