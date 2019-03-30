@@ -11,6 +11,7 @@ const TopButton = styled.button<{ color: string, isTiny: boolean}>`
     
     box-sizing: inherit;
     font-family: inherit;
+    font-size: 12px;
     padding: 5px;
     cursor: pointer;
     
