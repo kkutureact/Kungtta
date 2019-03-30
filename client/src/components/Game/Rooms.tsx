@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {RouteComponentProps} from 'react-router-dom';
+import {RouteComponentProps, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 import backgroundimage from '../../assets/images/kkutu/gamebg.png';
 import NavigationBar from '../Header/NavigationBar';
@@ -11,7 +11,7 @@ import Chat from './RoomBoxes/Chat';
 import {useWebSocket} from '../../index';
 import {useUser} from '../../hooks/useUser';
 import TopMenus from './TopMenus';
-import {Howl, Howler} from 'howler';
+import {Howl} from 'howler';
 // @ts-ignore
 import bgm from '../../assets/audios/lobby.mp3';
 
@@ -43,14 +43,14 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
         const sound = new Howl({
             src: [bgm],
             autoplay: true,
-            loop: true
+            loop: true,
+            volume: 0.2
         });
         sound.play();
-        Howler.volume(0.5);
 
         history.listen(() => {
             sound.stop();
-        })
+        });
     }, []);
 
     return (
@@ -71,4 +71,4 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
     );
 };
 
-export default Rooms;
+export default withRouter(Rooms);

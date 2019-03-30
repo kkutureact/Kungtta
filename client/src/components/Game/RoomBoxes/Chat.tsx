@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import BoxTitle from '../../Util/ContentBox/BoxTitle';
 import BoxContent from '../../Util/ContentBox/BoxContent';
@@ -94,6 +94,7 @@ interface ChatDetail {
 export const Chat: React.FC = () => {
     const [inputValue, setInputValue] = useState<string>('');
     const [chatlog, setChatLog] = useState<ChatDetail[]>([]);
+    const ref = useRef<HTMLDivElement>(null);
     const ws = useWebSocket();
     const user = useUser();
 
@@ -128,6 +129,14 @@ export const Chat: React.FC = () => {
         return `${amOrPM} ${hours}시 ${minsWithZero}분`;
     };
 
+    const scroll = () => {
+        ref.current!!.scrollTop = 99999;
+    };
+
+    useEffect(() => {
+        scroll();
+    });
+
     useEffect(() => {
         const handler = (data: any) => {
             setChatLog(chatlog => [...chatlog, data]);
@@ -145,7 +154,7 @@ export const Chat: React.FC = () => {
             <ContainerStyle>
                 <BoxTitle>채팅</BoxTitle>
                 <BoxContent>
-                    <MessagesStyle>
+                    <MessagesStyle ref={ref}>
                         {
                             chatlog.map((chat, index) => {
                                 return (
