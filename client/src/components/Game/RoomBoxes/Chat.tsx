@@ -6,6 +6,10 @@ import BoxContent from '../../Util/ContentBox/BoxContent';
 import {useWebSocket} from '../../../index';
 import {useUser} from '../../../hooks/useUser';
 
+// @ts-ignore
+import pingEffect from '../../../assets/audios/effects/ping.mp3';
+import {Howl} from "howler";
+
 const ContainerStyle = styled.div`
     color: #111111;
     box-shadow: 0px 2px 1px #DDDDDD;
@@ -97,6 +101,9 @@ export const Chat: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);
     const ws = useWebSocket();
     const user = useUser();
+    const pingSoundEffect = new Howl({
+        src: [pingEffect]
+    });
 
     const onInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(evt.target.value);
@@ -140,6 +147,7 @@ export const Chat: React.FC = () => {
     useEffect(() => {
         const handler = (data: any) => {
             setChatLog(chatlog => [...chatlog, data]);
+            pingSoundEffect.play();
         };
 
         ws.addListener('chat', handler);
