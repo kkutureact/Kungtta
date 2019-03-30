@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../../assets/images/kkutu/short_logo.png';
-import Jjoriping from "./Jjoriping";
-import ServerList from "./ServerList/ServerList";
-import UpdateLog from "./UpdateLog";
-import Banner from "./Banner/Banner";
+import Jjoriping from './Jjoriping';
+import ServerList from './ServerList/ServerList';
+import UpdateLog from './UpdateLog';
+import Banner from './Banner/Banner';
 import Container from '../Util/Container';
 
 const Box = styled.div`
@@ -45,6 +45,7 @@ export const Lobby: React.FC = () => {
             <Box>
                 <br/>
                 <Top>
+
                     <StartBanner>
                         <Title>글자로 놀자! 끄투온라인</Title>
                         <KKutuLogo src={logo}></KKutuLogo>
@@ -57,6 +58,6 @@ export const Lobby: React.FC = () => {
             </Box>
         </Container>
     );
-}
+};
 
 export default Lobby;

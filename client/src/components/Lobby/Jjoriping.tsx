@@ -4,6 +4,7 @@ import styled from "styled-components";
 import LeftEyeImage from '../../assets/images/jjoeyeL.png';
 import RightEyeImage from '../../assets/images/jjoeyeR.png';
 import NoseImage from '../../assets/images/jjonose.png';
+import {Link} from 'react-router-dom';
 
 const JJO = styled.div`
     margin-top: 40px;
@@ -74,7 +75,9 @@ export const Jjoriping: React.FC = () => {
             <Nose src={NoseImage}></Nose>
             <RightEye src={RightEyeImage}></RightEye>
             <StartDisplay>
-                <StartButton>게임시작</StartButton>
+                <Link to={'/rooms/0'}>
+                    <StartButton>게임시작</StartButton>
+                </Link>
             </StartDisplay>
         </JJO>
     );

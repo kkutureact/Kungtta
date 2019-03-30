@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {RouteComponentProps} from 'react-router-dom';
 import styled from 'styled-components';
 import backgroundimage from '../../assets/images/kkutu/gamebg.png';
 import NavigationBar from '../Header/NavigationBar';
 import Container from '../Util/Container';
-import TopMenuButton from './TopMenuButton';
 import UserList from './RoomBoxes/UserList';
 import RoomList from './RoomBoxes/RoomList';
 import MyProfile from './RoomBoxes/MyProfile';
 import Chat from './RoomBoxes/Chat';
-
+import {useWebSocket} from '../../index';
+import {useUser} from '../../hooks/useUser';
+import TopMenus from './TopMenus';
+import {Howl, Howler} from 'howler';
+// @ts-ignore
+import bgm from '../../assets/audios/lobby.mp3';
 
 const Background = styled.div`
 	position: fixed;
@@ -29,13 +34,35 @@ const Box = styled.div`
     width: 1010px;
 `;
 
-const TopMenus = styled.div`
-    float: left;
-    width: 1010px;
-    height: 30px;
-`;
 
-export const Rooms: React.FC = () => {
+export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match}) => {
+    const websocket = useWebSocket();
+    const user = useUser();
+
+    useEffect(() => {
+        const sound = new Howl({
+            src: [bgm],
+            autoplay: true,
+            loop: true
+        });
+        sound.play();
+        Howler.volume(0.5);
+
+        if (user !== undefined) {
+            websocket.emit('join', user.uuid);
+        }
+
+        const handler = (foo: string) => {
+            console.log('테스트: ' + foo);
+        };
+
+        websocket.addListener('test', handler);
+
+        return () => {
+            websocket.removeListener('test', handler);
+        };
+    }, []);
+
 
 
     return (
@@ -43,16 +70,7 @@ export const Rooms: React.FC = () => {
             <NavigationBar/>
             <Container>
                 <Box>
-                    <TopMenus>
-                        <TopMenuButton color={'#cccccc'} isTiny={true}>가</TopMenuButton>
-                        <TopMenuButton color={'#daa9ff'} isTiny={true}>가</TopMenuButton>
-                        <TopMenuButton color={'#8ec0f3'} isTiny={false}>가</TopMenuButton>
-                        <TopMenuButton color={'#b0d2f3'} isTiny={false}>가</TopMenuButton>
-                        <TopMenuButton color={'#b3e7b7'} isTiny={false}>가</TopMenuButton>
-                        <TopMenuButton color={'#73d07a'} isTiny={false}>가</TopMenuButton>
-                        <TopMenuButton color={'#d9ff82'} isTiny={false}>가</TopMenuButton>
-                        <TopMenuButton color={'#ffb7d3'} isTiny={false}>가</TopMenuButton>
-                    </TopMenus>
+                    <TopMenus/>
 
                     <UserList/>
                     <RoomList/>
