@@ -5,3 +5,5 @@
 server/dist
 
 server/src/config/*.json
+
+client/src/config.ts
