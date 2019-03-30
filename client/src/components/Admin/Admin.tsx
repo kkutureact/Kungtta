@@ -6,6 +6,7 @@ import SmallButton from '../Util/Buttons/SmallButton';
 import {useUser} from '../../hooks/useUser';
 import AdminItem from './AdminItem';
 import Axios from 'axios';
+import config from '../../config';
 
 const TextArea = styled.textarea`
     font-family: inherit;
@@ -31,7 +32,7 @@ export const Admin: React.FC = () => {
     };
 
     const findUser = () => {
-        Axios.get(`http://localhost:8080/auth/profile/${uuid}`, {'withCredentials': true})
+        Axios.get(`${config.endpointHost}/auth/profile/${uuid}`, {'withCredentials': true})
             .then(res => {
                 setData(JSON.stringify(res.data));
             })

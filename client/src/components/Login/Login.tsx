@@ -6,6 +6,7 @@ import ColorBackground from "../Util/ColorBackground";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBackward} from '@fortawesome/free-solid-svg-icons';
 import Container from '../Util/Container';
+import config from '../../config';
 
 const Box = styled.div`
     text-align: center;
@@ -30,7 +31,7 @@ export const Login: React.FC = () => {
 
                     <KkutuButton color={'#00C73C'}>네이버</KkutuButton>
                     <br/>
-                    <KkutuButton color={'#ea4335'} href={'http://localhost:8080/auth/google'}>구글</KkutuButton>
+                    <KkutuButton color={'#ea4335'} href={`${config.endpointHost}/auth/google`}>구글</KkutuButton>
 
                     <div>
                         <br/>

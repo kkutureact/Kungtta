@@ -6,6 +6,7 @@ import {faHome, faSignInAlt, faSignOutAlt} from '@fortawesome/free-solid-svg-ico
 
 import Notice from './Notice';
 import {useUser} from '../../hooks/useUser';
+import config from '../../config';
 
 const Menu = styled.div`
     position: fixed;
@@ -69,7 +70,7 @@ export const NavigationBar: React.FC = () => {
 
     const AccountButton = () => {
         if (user !== undefined && user.vendor !== 'guest') {
-            return <a href='http://localhost:8080/logout'><Login><FontAwesomeIcon
+            return <a href={`${config.endpointHost}/logout`}><Login><FontAwesomeIcon
                 icon={faSignOutAlt}/> 환영합니다! {user.nickname}님</Login></a>;
         } else {
             return <Link to={'/login'}><Login><FontAwesomeIcon icon={faSignInAlt}/> 로그인</Login></Link>;

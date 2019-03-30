@@ -11,6 +11,7 @@ import {UserProvider} from './hooks/useUser';
 
 import {BinaryType, createWebSocket} from 'use-ws';
 import msgpack from 'msgpack-lite';
+import config from './config';
 
 const WebSocket = createWebSocket({
     binaryType: BinaryType.ArrayBuffer,
@@ -34,7 +35,7 @@ ReactDOM.render(
                 <Route exact path='/loginerror' component={LoginError}/>
                 <Route exact path='/admin' component={Admin}/>
                 <WebSocketProvider
-                    url={'ws://192.168.0.172:8080'}
+                    url={`${config.endpointWS}`}
                     onError={(event: any) => {
                         console.log(`WebSocket Error! ${JSON.stringify(event)}`);
                     }}>
