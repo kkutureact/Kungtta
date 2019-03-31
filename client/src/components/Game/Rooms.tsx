@@ -7,7 +7,7 @@ import Container from '../Util/Container';
 import UserList from './RoomBoxes/UserList';
 import RoomList from './RoomBoxes/RoomList';
 import MyProfile from './RoomBoxes/MyProfile';
-import Chat from './RoomBoxes/Chat';
+import Chat from './RoomBoxes/Chat/Chat';
 import TopMenus from './TopMenus';
 import {Howl} from 'howler';
 // @ts-ignore

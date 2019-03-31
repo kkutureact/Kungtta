@@ -1,14 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
-import BoxTitle from '../../Util/ContentBox/BoxTitle';
-import BoxContent from '../../Util/ContentBox/BoxContent';
+import BoxTitle from '../../../Util/ContentBox/BoxTitle';
+import BoxContent from '../../../Util/ContentBox/BoxContent';
 
-import {useWebSocket} from '../../../index';
-import {useUser} from '../../../hooks/useUser';
+import {useWebSocket} from '../../../../index';
+import {useUser} from '../../../../hooks/useUser';
 
 // @ts-ignore
-import pingEffect from '../../../assets/audios/effects/ping.mp3';
+import pingEffect from '../../../../assets/audios/effects/ping.mp3';
 import {Howl} from "howler";
+import Message from './Message';
 
 const ContainerStyle = styled.div`
     color: #111111;
@@ -166,11 +167,7 @@ export const Chat: React.FC = () => {
                         {
                             chatlog.map((chat, index) => {
                                 return (
-                                    <MessageStyle key={index}>
-                                        <MessageHeaderStyle>{chat.nickname}</MessageHeaderStyle>
-                                        <MessageBodyStyle>{chat.text}</MessageBodyStyle>
-                                        <MessageFooterStyle>{getTime()}</MessageFooterStyle>
-                                    </MessageStyle>
+                                    <Message key={index} nickname={chat.nickname} text={chat.text} time={getTime()}/>
                                 );
                             })
                         }
