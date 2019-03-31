@@ -27,21 +27,21 @@ const WebSocket = createWebSocket({
 export const {WebSocketProvider, useWebSocket} = WebSocket;
 
 ReactDOM.render(
-    <UserProvider>
-        <BrowserRouter>
-            <Switch>
-                <Route exact path='/' component={App}/>
-                <Route exact path='/login' component={Login}/>
-                <Route exact path='/loginerror' component={LoginError}/>
-                <Route exact path='/admin' component={Admin}/>
-                <WebSocketProvider
-                    url={`${config.endpointWS}`}
-                    onError={(event: any) => {
-                        console.log(`WebSocket Error! ${JSON.stringify(event)}`);
-                    }}>
+    <WebSocketProvider
+        url={`${config.endpointWS}`}
+        onError={(event: any) => {
+            console.log(`WebSocket Error! ${JSON.stringify(event)}`);
+        }}>
+        <UserProvider>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path='/' component={App}/>
+                    <Route exact path='/login' component={Login}/>
+                    <Route exact path='/loginerror' component={LoginError}/>
+                    <Route exact path='/admin' component={Admin}/>
                     <Route exact path='/rooms/:server' component={Rooms}/>
-                </WebSocketProvider>
-            </Switch>
-        </BrowserRouter>
-    </UserProvider>,
+                </Switch>
+            </BrowserRouter>
+        </UserProvider>
+    </WebSocketProvider>,
     document.getElementById('root'));
