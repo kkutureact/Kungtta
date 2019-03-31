@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.button`    
+const ButtonStyle = styled.button`    
     display: block;
     
     background-color: #EEEEEE;
@@ -18,11 +18,11 @@ interface Props {
 export const SmallButton: React.FC<Props> = ({children, href, onClick}) => {
     return (
         <>
-            <Button>
+            <ButtonStyle>
                 <a href={href} onClick={onClick}>
                     {children}
                 </a>
-            </Button>
+            </ButtonStyle>
         </>
     );
 };

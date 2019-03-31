@@ -7,7 +7,7 @@ import UpdateLog from './UpdateLog';
 import Banner from './Banner/Banner';
 import Container from '../Util/Container';
 
-const Box = styled.div`
+const BoxStyle = styled.div`
     margin-top: 100px;
     
     @media (max-width: 600px) {
@@ -15,22 +15,22 @@ const Box = styled.div`
     }
 `;
 
-const Top = styled.div`
+const TopStyle = styled.div`
     float: left;
     width: 100%;
 
 `;
 
-const StartBanner = styled.div`
+const StartBannerStyle = styled.div`
     float: left;
     padding-left: 70px;
 `;
 
-const KKutuLogo = styled.img`
+const KKutuLogoStyle = styled.img`
     margin-top: -20px;
 `;
 
-const Title = styled.h3`
+const TitleStyle = styled.h3`
     width: 200px;
 	text-align: center;
 	text-shadow: 0px 0px 4px #333;
@@ -42,20 +42,19 @@ const Title = styled.h3`
 export const Lobby: React.FC = () => {
     return (
         <Container>
-            <Box>
+            <BoxStyle>
                 <br/>
-                <Top>
-
-                    <StartBanner>
-                        <Title>글자로 놀자! 끄투온라인</Title>
-                        <KKutuLogo src={logo}></KKutuLogo>
-                    </StartBanner>
+                <TopStyle>
+                    <StartBannerStyle>
+                        <TitleStyle>글자로 놀자! 끄투온라인</TitleStyle>
+                        <KKutuLogoStyle src={logo}></KKutuLogoStyle>
+                    </StartBannerStyle>
                     <Jjoriping/>
                     <ServerList/>
-                </Top>
+                </TopStyle>
                 <UpdateLog/>
                 <Banner/>
-            </Box>
+            </BoxStyle>
         </Container>
     );
 };

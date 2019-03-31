@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import BoxTitle from '../../Util/ContentBox/BoxTitle';
 import BoxContent from '../../Util/ContentBox/BoxContent';
 
-const List = styled.div`
+const ListStyle = styled.div`
     color: #111111;
     box-shadow: 0px 2px 1px #DDDDDD;
     background-color: #EEEEEE;
@@ -17,7 +17,7 @@ const List = styled.div`
     }
 `;
 
-const RoomBox = styled.div<{ isMakeRoom: boolean }>`
+const RoomBoxStyle = styled.div<{ isMakeRoom: boolean }>`
     background-color: ${props => props.isMakeRoom ? '#8EC0F3' : '#E4E4E4'};
     padding: 5px;
     border-radius: 10px;
@@ -44,17 +44,17 @@ const RoomBox = styled.div<{ isMakeRoom: boolean }>`
 export const RoomList: React.FC = () => {
     return (
         <>
-            <List>
+            <ListStyle>
                 <BoxTitle>방 목록 [0개]</BoxTitle>
                 <BoxContent>
-                    <RoomBox isMakeRoom={true}>
+                    <RoomBoxStyle isMakeRoom={true}>
                         <div>방 만들기</div>
-                    </RoomBox>
-                    <RoomBox isMakeRoom={false}>
+                    </RoomBoxStyle>
+                    <RoomBoxStyle isMakeRoom={false}>
                         <div>방 만들기</div>
-                    </RoomBox>
+                    </RoomBoxStyle>
                 </BoxContent>
-            </List>
+            </ListStyle>
         </>
     );
 };

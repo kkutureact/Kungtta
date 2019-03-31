@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Update = styled.div`
+const UpdateStyle = styled.div`
     float: left;
     width: 60%;
     margin-top: 10px;
@@ -14,7 +14,7 @@ const Update = styled.div`
     }
 `;
 
-const Iframe = styled.iframe`
+const IframeStyle = styled.iframe`
     width: 100%;
     height: 400px;
     margin-bottom: -3px;
@@ -23,18 +23,18 @@ const Iframe = styled.iframe`
     border-radius: 10px;
 `;
 
-const Border = styled.div`
+const BorderStyle = styled.div`
     border: 8px solid #DEAF56;
     border-radius: 10px;
 `;
 
 export const UpdateLog: React.FC = () => {
     return (
-        <Update>
-            <Border>
-                <Iframe src={'/updatelog.html'}></Iframe>
-            </Border>
-        </Update>
+        <UpdateStyle>
+            <BorderStyle>
+                <IframeStyle src={'/updatelog.html'}></IframeStyle>
+            </BorderStyle>
+        </UpdateStyle>
     );
 }
 

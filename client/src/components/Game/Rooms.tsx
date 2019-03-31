@@ -8,14 +8,12 @@ import UserList from './RoomBoxes/UserList';
 import RoomList from './RoomBoxes/RoomList';
 import MyProfile from './RoomBoxes/MyProfile';
 import Chat from './RoomBoxes/Chat';
-import {useWebSocket} from '../../index';
-import {useUser} from '../../hooks/useUser';
 import TopMenus from './TopMenus';
 import {Howl} from 'howler';
 // @ts-ignore
 import bgm from '../../assets/audios/lobby.mp3';
 
-const Background = styled.div`
+const BackgroundStyle = styled.div`
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -28,17 +26,13 @@ const Background = styled.div`
 	background-image: url(${backgroundimage});
 `;
 
-const Box = styled.div`
+const BoxStyle = styled.div`
     float: left;
     margin-top: 80px;
     width: 1010px;
 `;
 
-
 export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match, history}) => {
-    const websocket = useWebSocket();
-    const user = useUser();
-
     useEffect(() => {
         const sound = new Howl({
             src: [bgm],
@@ -56,16 +50,16 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
         <>
             <NavigationBar/>
             <Container>
-                <Box>
+                <BoxStyle>
                     <TopMenus/>
 
                     <UserList/>
                     <RoomList/>
                     <MyProfile/>
                     <Chat/>
-                </Box>
+                </BoxStyle>
             </Container>
-            <Background/>
+            <BackgroundStyle/>
         </>
     );
 };

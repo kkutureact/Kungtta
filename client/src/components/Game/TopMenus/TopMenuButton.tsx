@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TopButton = styled.button<{ color: string, isTiny: boolean}>`
+const TopButtonStyle = styled.button<{ color: string, isTiny: boolean}>`
     background-color: ${props => props.color};
     float: left;
     border: none;
@@ -31,9 +31,9 @@ interface Props {
 export const TopMenuButton: React.FC<Props> = ({ children, color, isTiny }) => {
     return (
         <>
-            <TopButton color={color} isTiny={isTiny}>
+            <TopButtonStyle color={color} isTiny={isTiny}>
                 {children}
-            </TopButton>
+            </TopButtonStyle>
         </>
     );
 };

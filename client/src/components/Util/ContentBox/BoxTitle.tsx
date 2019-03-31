@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Title = styled.p`
+const TitleStyle = styled.p`
     border-bottom-color: #CCCCCC;
     border-radius: 5px;
     color: #222222;
@@ -16,9 +16,9 @@ const Title = styled.p`
 export const BoxTitle: React.FC = ({ children }) => {
     return (
         <>
-            <Title>
+            <TitleStyle>
                 {children}
-            </Title>
+            </TitleStyle>
         </>
     );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Content = styled.div`
+const ContentStyle = styled.div`
     padding: 5px 5px 0px 5px;
     font-size: 12px;
 `;
@@ -9,9 +9,9 @@ const Content = styled.div`
 export const BoxContent: React.FC = ({ children }) => {
     return (
         <>
-            <Content>
+            <ContentStyle>
                 {children}
-            </Content>
+            </ContentStyle>
         </>
     );
 };

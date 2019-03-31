@@ -6,30 +6,30 @@ import RightEyeImage from '../../assets/images/jjoeyeR.png';
 import NoseImage from '../../assets/images/jjonose.png';
 import {Link} from 'react-router-dom';
 
-const JJO = styled.div`
+const JJOStyle = styled.div`
     margin-top: 40px;
     width: 500px;
 `;
 
-const LeftEye = styled.img`
+const LeftEyeStyle = styled.img`
     position: relative;
     left: -270px;
     top: 11px;
 `;
 
-const Nose = styled.img`
+const NoseStyle = styled.img`
     position: relative;
     left: -170px;
     top: 9px;
 `;
 
-const RightEye = styled.img`
+const RightEyeStyle = styled.img`
     position: relative;
     left: -70px;
     top: 11px;
 `;
 
-const StartDisplay = styled.div`
+const StartDisplayStyle = styled.div`
     width: 325px;
     height: 85px;
     padding: 20px 5px 5px 5px;
@@ -40,7 +40,7 @@ const StartDisplay = styled.div`
 	background-color: #DEAF56;
 `;
 
-const StartButton = styled.button`
+const StartButtonStyle = styled.button`
     display:block;
     box-sizing: inherit;
     font-family: inherit;
@@ -53,11 +53,8 @@ const StartButton = styled.button`
     font-weight: bold;
     
     border: none;
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-	
+    border-radius: 10px;
 	padding: 8px 5px;
-	border-radius: 10px;
 	text-align: center;
 	color: #EEEEEE;
 	background-color: rgba(0, 0, 0, 0.7);
@@ -70,16 +67,16 @@ const StartButton = styled.button`
 
 export const Jjoriping: React.FC = () => {
     return (
-        <JJO>
-            <LeftEye src={LeftEyeImage}></LeftEye>
-            <Nose src={NoseImage}></Nose>
-            <RightEye src={RightEyeImage}></RightEye>
-            <StartDisplay>
+        <JJOStyle>
+            <LeftEyeStyle src={LeftEyeImage}></LeftEyeStyle>
+            <NoseStyle src={NoseImage}></NoseStyle>
+            <RightEyeStyle src={RightEyeImage}></RightEyeStyle>
+            <StartDisplayStyle>
                 <Link to={'/rooms/0'}>
-                    <StartButton>게임시작</StartButton>
+                    <StartButtonStyle>게임시작</StartButtonStyle>
                 </Link>
-            </StartDisplay>
-        </JJO>
+            </StartDisplayStyle>
+        </JJOStyle>
     );
 }
 

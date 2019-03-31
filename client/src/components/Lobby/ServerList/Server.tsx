@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import blue from "../../../assets/images/blue_gauge.png";
 
-const Container = styled.div`
+const ContainerStyle = styled.div`
     float: left;
     margin: 2px 0px;
     width: 320px;
@@ -15,7 +15,7 @@ const Container = styled.div`
     }
 `;
 
-const StatusIcon = styled.div<{ isOnline: boolean }>`
+const StatusIconStyle = styled.div<{ isOnline: boolean }>`
     background-color: ${props => props.isOnline ? '#3E3' : '#777'};
     border-radius: 6px;
     margin: 2px;
@@ -23,11 +23,11 @@ const StatusIcon = styled.div<{ isOnline: boolean }>`
     height: 12px;
 `;
 
-const StatusName = styled.div`
+const StatusNameStyle = styled.div`
     width: 60px;
 `;
 
-const StatusGraph = styled.div`
+const StatusGraphStyle = styled.div`
     width: 190px;
     height: 100%;
     box-shadow: 0px 1px 1px #141414;
@@ -42,13 +42,13 @@ const StatusGraph = styled.div`
     }
 `;
 
-const Graph = styled.div<{ width: number }>`
+const GraphStyle = styled.div<{ width: number }>`
     width: ${props => props.width}%;
     height: 100%;
     background-image: url(${blue});
 `;
 
-const StatusEnter = styled.div`
+const StatusEnterStyle = styled.div`
     width: 50px;
     text-align: center;
 `;
@@ -61,15 +61,15 @@ interface Props {
 
 export const Server: React.FC<Props> = ({ name, isOnline, size }) => {
     return(
-        <Container>
-            <StatusIcon isOnline={isOnline}/>
-            <StatusName>{name}</StatusName>
-            <StatusGraph>
-                <Graph width={size}/>
+        <ContainerStyle>
+            <StatusIconStyle isOnline={isOnline}/>
+            <StatusNameStyle>{name}</StatusNameStyle>
+            <StatusGraphStyle>
+                <GraphStyle width={size}/>
                 <label>{isOnline ? '현재인원/전체인원' : '-'}</label>
-            </StatusGraph>
-            <StatusEnter>{isOnline ? '접속' : '-'}</StatusEnter>
-        </Container>
+            </StatusGraphStyle>
+            <StatusEnterStyle>{isOnline ? '접속' : '-'}</StatusEnterStyle>
+        </ContainerStyle>
     );
 }
 

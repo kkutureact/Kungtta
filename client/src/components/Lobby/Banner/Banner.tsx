@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import KkutuButton from '../../Util/Buttons/KkutuButton';
 
-const Container = styled.div`
+const ContainerStyle = styled.div`
     float: right;
     width: 38%;
     margin-top: 10px;
@@ -11,7 +11,7 @@ const Container = styled.div`
     border-radius: 10px;
 `;
 
-const ButtonList = styled.div`
+const ButtonListStyle = styled.div`
     width: 100%;
     height: 400px;
     background-color: rgba(0, 0, 0, 0.7);
@@ -20,16 +20,16 @@ const ButtonList = styled.div`
     text-align: center;
 `;
 
-const Border = styled.div`
+const BorderStyle = styled.div`
     border: 8px solid #DEAF56;
     border-radius: 10px;
 `;
 
 export const Banner: React.FC = () => {
     return (
-        <Container>
-            <Border>
-                <ButtonList>
+        <ContainerStyle>
+            <BorderStyle>
+                <ButtonListStyle>
                     <KkutuButton color={'#00b894'}>바로가기</KkutuButton>
                     <KkutuButton color={'#00cec9'}>바로가기</KkutuButton>
                     <KkutuButton color={'#0984e3'}>바로가기</KkutuButton>
@@ -37,9 +37,9 @@ export const Banner: React.FC = () => {
                     <KkutuButton color={'#ff7675'}>바로가기</KkutuButton>
                     <KkutuButton color={'#fd79a8'}>바로가기</KkutuButton>
                     <KkutuButton color={'#d63031'}>바로가기</KkutuButton>
-                </ButtonList>
-            </Border>
-        </Container>
+                </ButtonListStyle>
+            </BorderStyle>
+        </ContainerStyle>
     );
 }
 

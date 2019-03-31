@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const Bar = styled.div<{ close: boolean }>`
+const BarStyle = styled.div<{ close: boolean }>`
     visibility: ${props => props.close ? 'visible' : 'hidden'};
     padding: 3px 0px;
     margin-top: 30px;
@@ -18,9 +18,9 @@ export const Notice: React.FC = ({children}) => {
 
     return (
         <>
-            <Bar close={isClosed} onClick={() => setClose(false)}>
+            <BarStyle close={isClosed} onClick={() => setClose(false)}>
                 <div>{children}</div>
-            </Bar>
+            </BarStyle>
         </>
     );
 };

@@ -8,12 +8,7 @@ import AdminItem from './AdminItem';
 import Axios from 'axios';
 import config from '../../config';
 
-const TextArea = styled.textarea`
-    font-family: inherit;
-    border-radius: 5px;
-`;
-
-const Input = styled.input`
+const InputStyle = styled.input`
     font-family: inherit;
     border-radius: 5px;
     
@@ -46,7 +41,7 @@ export const Admin: React.FC = () => {
                     <h2>끄투 관리자패널</h2>
 
                     <AdminItem name={'유저 조회'}>
-                        <Input value={uuid} onChange={inputChangeHandler}
+                        <InputStyle value={uuid} onChange={inputChangeHandler}
                                placeholder={'UUID 입력 (공백 시 자신의 정보를 조회합니다.)'}/>
                         <SmallButton onClick={findUser}>조회하기</SmallButton>
                         <p>{data}</p>

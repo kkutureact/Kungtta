@@ -8,15 +8,15 @@ import {faBackward} from '@fortawesome/free-solid-svg-icons';
 import Container from '../Util/Container';
 import config from '../../config';
 
-const Box = styled.div`
+const BoxStyle = styled.div`
     text-align: center;
 `;
 
-const LoginTitle = styled.h2`
+const LoginTitleStyle = styled.h2`
     margin-top: 100px;
 `;
 
-const BackToLobby = styled(Link)`
+const BackToLobbyStyle = styled(Link)`
     text-decoration: none;
 	color: #EEEEEE;
 `;
@@ -25,8 +25,8 @@ export const Login: React.FC = () => {
     return (
         <>
             <Container>
-                <Box>
-                    <LoginTitle>로그인하기</LoginTitle>
+                <BoxStyle>
+                    <LoginTitleStyle>로그인하기</LoginTitleStyle>
                     <p>소셜서비스를 이용하여 끄투에 로그인 해보세요!</p>
 
                     <KkutuButton color={'#00C73C'}>네이버</KkutuButton>
@@ -35,9 +35,9 @@ export const Login: React.FC = () => {
 
                     <div>
                         <br/>
-                        <BackToLobby to={'/'}><FontAwesomeIcon icon={faBackward}/> 로비로 돌아가기</BackToLobby>
+                        <BackToLobbyStyle to={'/'}><FontAwesomeIcon icon={faBackward}/> 로비로 돌아가기</BackToLobbyStyle>
                     </div>
-                </Box>
+                </BoxStyle>
             </Container>
             <ColorBackground color={'#111111'}/>
         </>

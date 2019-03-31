@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import BoxTitle from '../../Util/ContentBox/BoxTitle';
 import BoxContent from '../../Util/ContentBox/BoxContent';
 
-const List = styled.div`
+const ListStyle = styled.div`
     color: #111111;
     box-shadow: 0px 2px 1px #DDDDDD;
     background-color: #EEEEEE;
@@ -17,7 +17,7 @@ const List = styled.div`
     }
 `;
 
-const UserIcon = styled.div`
+const UserIconStyle = styled.div`
     background-image: url('');
     margin: 1px;
     width: 18px;
@@ -26,7 +26,7 @@ const UserIcon = styled.div`
     background-size: 100%;
 `;
 
-const UserName = styled.div`
+const UserNameStyle = styled.div`
     padding: 2px 0px 0px 3px;
     
     &:hover {
@@ -38,16 +38,16 @@ const UserName = styled.div`
 export const UserList: React.FC = () => {
     return (
         <>
-            <List>
+            <ListStyle>
                 <BoxTitle>
                     테스트
                 </BoxTitle>
                 <BoxContent>
-                    <UserIcon/>
-                    <UserIcon/>
-                    <UserName>유저네임</UserName>
+                    <UserIconStyle/>
+                    <UserIconStyle/>
+                    <UserNameStyle>유저네임</UserNameStyle>
                 </BoxContent>
-            </List>
+            </ListStyle>
         </>
     );
 };

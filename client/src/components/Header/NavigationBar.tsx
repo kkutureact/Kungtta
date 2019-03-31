@@ -8,7 +8,7 @@ import Notice from './Notice';
 import {useUser} from '../../hooks/useUser';
 import config from '../../config';
 
-const Menu = styled.div`
+const MenuStyle = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -18,7 +18,7 @@ const Menu = styled.div`
 	background-color: #7CC4F8;
 `;
 
-const MenuButton = styled.a`
+const MenuButtonStyle = styled.a`
 	float: left;
 	padding: 5px 5px 5px 5px;
 	
@@ -46,7 +46,7 @@ const MenuButton = styled.a`
 	}
 `;
 
-const Login = styled.div`
+const LoginStyle = styled.div`
     color: #444444;
 	float: right;
 	padding-top: 8px;
@@ -70,20 +70,20 @@ export const NavigationBar: React.FC = () => {
 
     const AccountButton = () => {
         if (user !== undefined && user.vendor !== 'guest') {
-            return <a href={`${config.endpointHost}/logout`}><Login><FontAwesomeIcon
-                icon={faSignOutAlt}/> 환영합니다! {user.nickname}님</Login></a>;
+            return <a href={`${config.endpointHost}/logout`}><LoginStyle><FontAwesomeIcon
+                icon={faSignOutAlt}/> 환영합니다! {user.nickname}님</LoginStyle></a>;
         } else {
-            return <Link to={'/login'}><Login><FontAwesomeIcon icon={faSignInAlt}/> 로그인</Login></Link>;
+            return <Link to={'/login'}><LoginStyle><FontAwesomeIcon icon={faSignInAlt}/> 로그인</LoginStyle></Link>;
         }
     };
 
     return (
         <>
-            <Menu>
-                <MenuButton href={'/'}><FontAwesomeIcon icon={faHome}/></MenuButton>
+            <MenuStyle>
+                <MenuButtonStyle href={'/'}><FontAwesomeIcon icon={faHome}/></MenuButtonStyle>
                 <AccountButton/>
                 <Notice>dd</Notice>
-            </Menu>
+            </MenuStyle>
         </>
     );
 };

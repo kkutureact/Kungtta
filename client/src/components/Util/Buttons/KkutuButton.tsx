@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = styled.a<{ color: string }>`    
+const ButtonStyle = styled.a<{ color: string }>`    
     display:inline-block;
 
     width: 230px;
@@ -34,9 +34,9 @@ interface Props {
 export const KkutuButton: React.FC<Props> = ({children, color, href}) => {
     return (
         <>
-            <Button color={color} href={href}>
+            <ButtonStyle color={color} href={href}>
                 {children}
-            </Button>
+            </ButtonStyle>
         </>
     );
 }

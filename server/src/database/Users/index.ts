@@ -22,7 +22,7 @@ const User = {
         allowNull: false
     },
     profile: {
-        type: Sequelize.CHAR(110),
+        type: Sequelize.STRING(150),
         allowNull: true
     },
     isBanned: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-const Div = styled.div<{ color: string }>`
+const DivStyle = styled.div<{ color: string }>`
     position: fixed;
 	top: 0px;
 	left: 0px;
@@ -18,7 +18,7 @@ interface Props {
 export const ColorBackground: React.FC<Props> = ({ color }) => {
     return(
         <>
-            <Div color={color}/>
+            <DivStyle color={color}/>
         </>
     );
 }

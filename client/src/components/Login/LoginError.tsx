@@ -6,16 +6,16 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBackward} from '@fortawesome/free-solid-svg-icons';
 import Container from '../Util/Container';
 
-const Box = styled.div`
+const BoxStyle = styled.div`
     text-align: center;
 `;
 
-const Title = styled.h1`
+const TitleStyle = styled.h1`
     margin-top: 100px;
     color: #e74c3c;
 `;
 
-const BackToLobby = styled(Link)`
+const BackToLobbyStyle = styled(Link)`
     text-decoration: none;
 	color: #EEEEEE;
 `;
@@ -24,15 +24,15 @@ export const LoginError: React.FC = () => {
     return (
         <>
             <Container>
-                <Box>
-                    <Title>로그인 오류<i>!</i></Title>
+                <BoxStyle>
+                    <TitleStyle>로그인 오류<i>!</i></TitleStyle>
                     <p>오류로 인하여 로그인에 실패하였습니다. 관리자에게 문의하세요.</p>
 
                     <div>
                         <br/>
-                        <BackToLobby to={'/'}><FontAwesomeIcon icon={faBackward}/> 로비로 돌아가기</BackToLobby>
+                        <BackToLobbyStyle to={'/'}><FontAwesomeIcon icon={faBackward}/> 로비로 돌아가기</BackToLobbyStyle>
                     </div>
-                </Box>
+                </BoxStyle>
             </Container>
             <ColorBackground color={'#111111'}/>
         </>
