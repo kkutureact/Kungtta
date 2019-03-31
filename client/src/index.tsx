@@ -28,7 +28,7 @@ export const {WebSocketProvider, useWebSocket} = WebSocket;
 
 ReactDOM.render(
     <WebSocketProvider
-        url={`${config.endpointWS}`}
+        url={config.endpointWS}
         onError={(event: any) => {
             console.log(`WebSocket Error! ${JSON.stringify(event)}`);
         }}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ContainerStyle = styled.div`
     margin: 0 auto;
@@ -8,14 +8,12 @@ const ContainerStyle = styled.div`
     width: 960px;
 `;
 
-export const Container: React.FC = ({ children }) => {
+export const Container: React.FC = ({children}) => {
     return (
-        <>
-            <ContainerStyle>
-                {children}
-            </ContainerStyle>
-        </>
+        <ContainerStyle>
+            {children}
+        </ContainerStyle>
     );
-}
+};
 
 export default Container;

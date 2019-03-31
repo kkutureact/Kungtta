@@ -12,6 +12,7 @@ import TopMenus from './TopMenus';
 import {Howl} from 'howler';
 // @ts-ignore
 import bgm from '../../assets/audios/lobby.mp3';
+import Footer from '../Footer/Footer';
 
 const BackgroundStyle = styled.div`
 	position: fixed;
@@ -59,6 +60,7 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
                     <Chat/>
                 </BoxStyle>
             </Container>
+            <Footer/>
             <BackgroundStyle/>
         </>
     );

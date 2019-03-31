@@ -6,6 +6,7 @@ import Lobby from './components/Lobby/Lobby';
 import NavigationBar from "./components/Header/NavigationBar";
 
 import backgroundimage from "./assets/images/kkutu/gamebg.png";
+import Footer from './components/Footer/Footer';
 
 const BackgroundScrollAnimation = keyframes`
     from {
@@ -36,6 +37,7 @@ export const App: React.FC = () => {
         <>
             <NavigationBar/>
             <Lobby/>
+            <Footer/>
             <Background/>
         </>
     );
