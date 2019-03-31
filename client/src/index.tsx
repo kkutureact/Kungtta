@@ -12,6 +12,7 @@ import {UserProvider} from './hooks/useUser';
 import {BinaryType, createWebSocket} from 'use-ws';
 import msgpack from 'msgpack-lite';
 import config from './config';
+import LoginBan from './components/Login/LoginBan';
 
 const WebSocket = createWebSocket({
     binaryType: BinaryType.ArrayBuffer,
@@ -38,6 +39,7 @@ ReactDOM.render(
                     <Route exact path='/' component={App}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/loginerror' component={LoginError}/>
+                    <Route exact path='/loginban' component={LoginBan}/>
                     <Route exact path='/admin' component={Admin}/>
                     <Route exact path='/rooms/:server' component={Rooms}/>
                 </Switch>

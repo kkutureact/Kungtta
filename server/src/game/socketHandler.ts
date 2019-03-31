@@ -9,9 +9,9 @@ export const SocketHandler = (client: any, action: string, data: string) => {
                 if (eachClient.readyState === WebSocket.OPEN) {
                     eachClient.send(JSON.stringify({action: 'chat', data: data}));
                 }
-            })
+            });
             break;
         default:
             break;
     }
-}
+};

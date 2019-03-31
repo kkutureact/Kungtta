@@ -10,8 +10,6 @@ export const Game = () => {
             const data = json.data;
 
             SocketHandler(client, action, data);
-
-            client.send(JSON.stringify({action: 'test', data: 'something'}));
         });
     });
 }
