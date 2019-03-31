@@ -22,14 +22,20 @@ export const Admin: React.FC = () => {
     const user = useUser();
     const isAdmin = user !== undefined ? user.isAdmin : false;
 
-    const inputChangeHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const onInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
         setUuid(evt.target.value);
+    };
+
+    const onEnterKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            findUser();
+        }
     };
 
     const findUser = () => {
         Axios.get(`${config.endpointHost}/auth/profile/${uuid}`, {'withCredentials': true})
             .then(res => {
-                setData(JSON.stringify(res.data));
+                setData(res.data);
             })
             .catch(err => setData('Error ' + err));
     };
@@ -41,10 +47,10 @@ export const Admin: React.FC = () => {
                     <h2>끄투 관리자패널</h2>
 
                     <AdminItem name={'유저 조회'}>
-                        <InputStyle value={uuid} onChange={inputChangeHandler}
-                               placeholder={'UUID 입력 (공백 시 자신의 정보를 조회합니다.)'}/>
+                        <InputStyle value={uuid} onChange={onInputChange} onKeyPress={onEnterKeyPress}
+                                    placeholder={'UUID 입력 (공백 시 자신의 정보를 조회합니다.)'}/>
                         <SmallButton onClick={findUser}>조회하기</SmallButton>
-                        <p>{data}</p>
+                        <pre>{JSON.stringify(data, null, "\t")}</pre>
                     </AdminItem>
                 </Container>
                 <ColorBackground color={'#111111'}/>

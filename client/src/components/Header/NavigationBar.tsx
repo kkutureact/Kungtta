@@ -18,7 +18,7 @@ const MenuStyle = styled.div`
 	background-color: #7CC4F8;
 `;
 
-const MenuButtonStyle = styled.a`
+const MenuButtonStyle = styled(Link)`
 	float: left;
 	padding: 5px 5px 5px 5px;
 	
@@ -80,7 +80,7 @@ export const NavigationBar: React.FC = () => {
     return (
         <>
             <MenuStyle>
-                <MenuButtonStyle href={'/'}><FontAwesomeIcon icon={faHome}/></MenuButtonStyle>
+                <MenuButtonStyle to={'/'}><FontAwesomeIcon icon={faHome}/></MenuButtonStyle>
                 <AccountButton/>
                 <Notice>dd</Notice>
             </MenuStyle>
