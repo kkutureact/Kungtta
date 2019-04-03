@@ -38,13 +38,8 @@ export const onSuccess = (vendor: string, email: string, nickname: string, profi
         } else {
             Users.findOne({where: {uuid: uuid}})
                 .then((data: any) => {
-                    if (data.dataValues.isBanned) {
-                        logger.info(`접근 차단된 ${uuid} 사용자가 로그인을 시도하였습니다.`);
-                        done('banned');
-                    } else {
-                        logger.info(`${uuid} 사용자가 로그인하였습니다.`);
-                        done(null, user);
-                    }
+                    logger.info(`${uuid} 사용자가 로그인하였습니다.`);
+                    done(null, user);
                 });
         }
     });

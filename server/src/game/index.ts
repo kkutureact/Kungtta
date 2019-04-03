@@ -5,7 +5,7 @@ import { SocketHandler } from './socketHandler';
 export const Game = () => {
     ws.on('connection', (client) => {
         client.on('message', (message: Buffer) => {
-            const json = JSON.parse(JSON.stringify(msgpack.decode(message)));
+            const json = msgpack.decode(message);
             const action = json.action;
             const data = json.data;
 

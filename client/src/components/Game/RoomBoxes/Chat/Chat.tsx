@@ -102,9 +102,6 @@ export const Chat: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);
     const ws = useWebSocket();
     const user = useUser();
-    const pingSoundEffect = new Howl({
-        src: [pingEffect]
-    });
 
     const onInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(evt.target.value);
@@ -118,7 +115,7 @@ export const Chat: React.FC = () => {
 
     const sendChat = () => {
         if (inputValue !== '') {
-            ws.emit('chat', {nickname: user !== undefined ? user.nickname : 'test', text: inputValue});
+            ws.emit('chat', {nickname: user!!.nickname, text: inputValue});
             setInputValue('');
         }
     };
@@ -137,15 +134,15 @@ export const Chat: React.FC = () => {
         return `${amOrPM} ${hours}시 ${minsWithZero}분`;
     };
 
-    const scroll = () => {
-        ref.current!!.scrollTop = 99999;
-    };
-
     useEffect(() => {
-        scroll();
+        ref.current!!.scrollTop = 99999;
     });
 
     useEffect(() => {
+        const pingSoundEffect = new Howl({
+            src: [pingEffect]
+        });
+
         const handler = (data: any) => {
             setChatLog(chatlog => [...chatlog, data]);
             pingSoundEffect.play();

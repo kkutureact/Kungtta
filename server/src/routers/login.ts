@@ -6,18 +6,6 @@ import Users from '../database/Users/index';
 
 const router = express.Router();
 
-const auth = (req: any, res: any, strategy: string) => {
-    passport.authenticate(strategy, {
-            successRedirect: config.webserver_host,
-            failureRedirect: `${config.webserver_host}/loginerror`
-        }, (err, user, info) => {
-            if (err === 'banned' && user === undefined) {
-                res.redirect(`${config.webserver_host}/loginban`);
-            }
-        }
-    )(req,res);
-};
-
 router.get('/logout', (req, res) => {
     req.logout();
     res.redirect(config.webserver_host);
@@ -59,8 +47,11 @@ router.get('/auth/google', passport.authenticate(
     }
 ));
 
-router.get('/auth/google/callback', (req, res) => {
-    auth(req, res, 'google');
-});
+router.get('/auth/google/callback', passport.authenticate('google',
+    {
+        successRedirect: config.webserver_host,
+        failureRedirect: `${config.webserver_host}/loginerror`
+    }
+));
 
 export default router;

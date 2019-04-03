@@ -11,9 +11,9 @@ export default() => {
             clientSecret: config.google.clientSecret,
             callbackURL: '/auth/google/callback'
         }, (accessToken, refreshToken, profile, done) => {
-            const email = profile.emails !== undefined ? profile.emails[0].value : ''
+            const email = profile.emails![0].value;
             const nickname = profile.displayName;
-            const profileUrl = profile.photos !== undefined ? profile.photos[0].value : '';
+            const profileUrl = profile.photos![0].value;
 
             onSuccess('google', email, nickname, profileUrl, done);
         }

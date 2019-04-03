@@ -1,5 +1,6 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import Axios from 'axios';
+import config from '../config';
 
 interface UserData {
     readonly uuid: string;
@@ -18,23 +19,23 @@ export const UserProvider: React.FC = ({children}) => {
     const [user, setUser] = useState<UserData | undefined>(undefined);
 
     useEffect(() => {
-        Axios.get('http://localhost:8080/auth/profile', {'withCredentials': true})
+        Axios.get(`${config.endpointHost}/auth/profile`, {'withCredentials': true})
             .then((res) => {
                 setUser(res.data.user);
             })
             .catch((error => {
                 if (error.response.status === 401) {
                     const guest = {
-                        uuid: '게스트UUID',
+                        uuid: '',
                         vendor: 'guest',
                         email: '',
-                        nickname: 'GUEST-RANDOM',
+                        nickname: 'GUEST' + Math.floor(Math.random() * 10) + 1 + Math.floor(Math.random() * 10) + 1, // TEST
                         profile: '',
                         isBanned: false,
                         isMuted: false,
                         isAdmin: false,
                     };
-                    
+
                     console.log('GUEST 로그인');
                     setUser(guest);
                     return;

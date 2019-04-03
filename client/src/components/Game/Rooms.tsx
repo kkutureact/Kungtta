@@ -13,6 +13,8 @@ import {Howl} from 'howler';
 // @ts-ignore
 import bgm from '../../assets/audios/lobby.mp3';
 import Footer from '../Footer/Footer';
+import {useWebSocket} from '../../index';
+import {useUser} from '../../hooks/useUser';
 
 const BackgroundStyle = styled.div`
 	position: fixed;
@@ -34,6 +36,9 @@ const BoxStyle = styled.div`
 `;
 
 export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match, history}) => {
+    const ws = useWebSocket();
+    const user = useUser();
+
     useEffect(() => {
         const sound = new Howl({
             src: [bgm],
@@ -42,9 +47,20 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
         });
         Howler.volume(0.5);
 
+        if (user !== undefined && user.vendor !== 'guest') ws.emit('join', {uuid: user.uuid});
+
+        const banHandler = (data: any) => {
+            history.push('/loginban');
+        };
+        ws.addListener('ban', banHandler);
+
         history.listen(() => {
             sound.stop();
         });
+
+        return () => {
+            ws.removeListener('ban', banHandler);
+        };
     }, []);
 
     return (

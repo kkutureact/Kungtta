@@ -32,10 +32,20 @@ export const Login: React.FC = () => {
                     <KkutuButton color={'#00C73C'}>네이버</KkutuButton>
                     <br/>
                     <KkutuButton color={'#ea4335'} href={`${config.endpointHost}/auth/google`}>구글</KkutuButton>
+                    <br/>
+                    <KkutuButton color={'#3b5998'} href={`${config.endpointHost}/auth/google`}>페이스북</KkutuButton>
+                    <br/>
+                    <KkutuButton color={'#7289da'} href={`${config.endpointHost}/auth/google`}>디스코드</KkutuButton>
+                    <br/>
+                    <KkutuButton color={'#333'} href={`${config.endpointHost}/auth/google`}>GitHub</KkutuButton>
 
                     <div>
                         <br/>
                         <BackToLobbyStyle to={'/'}><FontAwesomeIcon icon={faBackward}/> 로비로 돌아가기</BackToLobbyStyle>
+                    </div>
+
+                    <div>
+                        <p>개인정보처리약관 및 이용약관</p>
                     </div>
                 </BoxStyle>
             </Container>
