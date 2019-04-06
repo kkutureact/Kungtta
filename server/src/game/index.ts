@@ -1,6 +1,11 @@
 import {logger, ws} from '../index';
 import msgpack from 'msgpack-lite';
-import { SocketHandler } from './socketHandler';
+import {ISocket} from './socket/ISocket';
+import {ChatSocket, JoinSocket} from './socket/index';
+
+const socketHandleList: { [k: string]: ISocket } = {};
+socketHandleList.join = new JoinSocket();
+socketHandleList.chat = new ChatSocket();
 
 export const Game = () => {
     ws.on('connection', (client) => {
@@ -10,7 +15,7 @@ export const Game = () => {
             const data = json.data;
 
             logger.info(`[WebSocket] ${action} : ${JSON.stringify(data)}`);
-            SocketHandler(client, action, data);
+            socketHandleList[action].run(client, action, data);
         });
     });
-}
+};
