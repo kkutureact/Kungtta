@@ -3,6 +3,7 @@ import passport from 'passport';
 import google from 'passport-google-oauth';
 import config from '../config/main.json';
 import Users from '../database/Users/index';
+import uuidv4 from 'uuid/v4';
 
 const router = express.Router();
 
@@ -15,7 +16,13 @@ router.get('/auth/profile', (req, res) => {
     if (req.isAuthenticated()) {
         res.json({user: req.user});
     } else {
-        res.status(401).send('Login required.');
+        res.json({
+            user: {
+                uuid: uuidv4(),
+                vendor: 'guest',
+                nickname: 'GUEST' + Math.floor(Math.random() * 5)
+            }
+        });
     }
 });
 

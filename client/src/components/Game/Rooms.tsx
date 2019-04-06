@@ -47,7 +47,7 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
         });
         Howler.volume(0.5);
 
-        if (user !== undefined && user.vendor !== 'guest') ws.emit('join', {uuid: user.uuid});
+        if (user !== undefined) ws.emit('join', {uuid: user.uuid, vendor: user.vendor});
 
         const banHandler = (data: any) => {
             history.push('/loginban');

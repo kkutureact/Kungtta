@@ -24,23 +24,6 @@ export const UserProvider: React.FC = ({children}) => {
                 setUser(res.data.user);
             })
             .catch((error => {
-                if (error.response.status === 401) {
-                    const guest = {
-                        uuid: '',
-                        vendor: 'guest',
-                        email: '',
-                        nickname: 'GUEST' + Math.floor(Math.random() * 10) + 1 + Math.floor(Math.random() * 10) + 1, // TEST
-                        profile: '',
-                        isBanned: false,
-                        isMuted: false,
-                        isAdmin: false,
-                    };
-
-                    console.log('GUEST 로그인');
-                    setUser(guest);
-                    return;
-                }
-
                 console.log('유저 정보를 불러오지 못했습니다. ' + error);
                 setUser(undefined);
             }));

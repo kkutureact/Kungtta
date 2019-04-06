@@ -9,6 +9,7 @@ export const Game = () => {
             const action = json.action;
             const data = json.data;
 
+            logger.info(`[WebSocket] ${action} : ${JSON.stringify(data)}`);
             SocketHandler(client, action, data);
         });
     });
