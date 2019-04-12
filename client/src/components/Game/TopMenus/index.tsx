@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import TopMenuButton from './TopMenuButton';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCog, faUserFriends, faDiceThree, faPlay, faShoppingCart, faBook, faRedo, faTrophy} from '@fortawesome/free-solid-svg-icons';
+import Modal from '../../Util/Modal';
 
 const TopMenusStyle = styled.div`
     float: left;
@@ -11,9 +12,12 @@ const TopMenusStyle = styled.div`
 `;
 
 export const TopMenus: React.FC = () => {
+    const [options, setOptions] = useState(false);
+
     return (
         <TopMenusStyle>
-            <TopMenuButton color={'#cccccc'} isTiny={true}><FontAwesomeIcon icon={faCog}/></TopMenuButton>
+            <div onClick={() => setOptions(!options)}><TopMenuButton color={'#cccccc'} isTiny={true}><FontAwesomeIcon icon={faCog}/></TopMenuButton></div>
+            <Modal title={'설정'} isOpen={options} setBeOpen={setOptions}>내용</Modal>
             <TopMenuButton color={'#daa9ff'} isTiny={true}><FontAwesomeIcon icon={faUserFriends}/></TopMenuButton>
             <TopMenuButton color={'#8ec0f3'} isTiny={false}><FontAwesomeIcon className={'fa-fw'} icon={faDiceThree}/> 방 만들기</TopMenuButton>
             <TopMenuButton color={'#b0d2f3'} isTiny={false}><FontAwesomeIcon className={'fa-fw'} icon={faPlay}/> 빠른시작</TopMenuButton>

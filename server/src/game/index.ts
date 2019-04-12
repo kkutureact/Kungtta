@@ -1,11 +1,12 @@
 import {logger, ws} from '../index';
 import msgpack from 'msgpack-lite';
 import {ISocket} from './socket/ISocket';
-import {ChatSocket, JoinSocket} from './socket/index';
+import {ChatSocket, JoinSocket, QuitSocket} from './socket/index';
 
 const socketHandleList: { [k: string]: ISocket } = {};
 socketHandleList.join = new JoinSocket();
 socketHandleList.chat = new ChatSocket();
+socketHandleList.quit = new QuitSocket();
 
 export const Game = () => {
     ws.on('connection', (client) => {

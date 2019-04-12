@@ -56,6 +56,7 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
 
         history.listen(() => {
             sound.stop();
+            if (user !== undefined) ws.emit('quit', {uuid: user.uuid, vendor: user.vendor});
         });
 
         return () => {
