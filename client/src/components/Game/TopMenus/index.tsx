@@ -16,7 +16,7 @@ export const TopMenus: React.FC = () => {
 
     return (
         <TopMenusStyle>
-            <div onClick={() => setOptions(!options)}><TopMenuButton color={'#cccccc'} isTiny={true}><FontAwesomeIcon icon={faCog}/></TopMenuButton></div>
+            <TopMenuButton color={'#cccccc'} isTiny={true} onClick={() => setOptions(!options)}><FontAwesomeIcon icon={faCog}/></TopMenuButton>
             <Modal title={'설정'} isOpen={options} setBeOpen={setOptions}>내용</Modal>
             <TopMenuButton color={'#daa9ff'} isTiny={true}><FontAwesomeIcon icon={faUserFriends}/></TopMenuButton>
             <TopMenuButton color={'#8ec0f3'} isTiny={false}><FontAwesomeIcon className={'fa-fw'} icon={faDiceThree}/> 방 만들기</TopMenuButton>
