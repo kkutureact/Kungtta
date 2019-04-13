@@ -40,6 +40,10 @@ export const Footer: React.FC = () => {
                         <b><FooterLinkStyle href={termsOfService}>이용약관</FooterLinkStyle> &middot; <FooterLinkStyle href={privacyPolicy}>개인정보처리방침</FooterLinkStyle></b>
                         에 동의하는 것으로 간주합니다.
                     </FooterTextStyle>
+                    <FooterTextStyle>
+                        해당 서비스는 Internet Explorer 및 모바일 환경을 지원하지 않습니다. <br/>
+                        원활한 환경을 위해 Chrome 또는 Firefox 및 PC 환경을 사용해주세요.
+                    </FooterTextStyle>
                 </Container>
             </FooterStyle>
         </Container>
