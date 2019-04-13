@@ -43,6 +43,7 @@ export const TopMenus: React.FC = () => {
                 <ModalButton onClick={() => {
                     BackgroundSound.volume(volume*0.1);
                     ChatSound.volume(effectVolume*0.1);
+                    setOptions(false);
                 }}>적용</ModalButton>
             </Modal>
             <TopMenuButton color={'#daa9ff'} isTiny={true}><FontAwesomeIcon icon={faUserFriends}/></TopMenuButton>
