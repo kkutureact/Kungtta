@@ -12,7 +12,7 @@ const ButtonStyle = styled.button`
 
 interface Props {
     readonly href?: string;
-    readonly onClick?: () => void;
+    readonly onClick?: React.MouseEventHandler;
 }
 
 export const SmallButton: React.FC<Props> = ({children, href, onClick}) => {

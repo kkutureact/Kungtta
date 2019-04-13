@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import KkutuButton from "../Util/Buttons/KkutuButton";
+import ColorButton from "../Util/Buttons/ColorButton";
 import {Link} from "react-router-dom";
 import ColorBackground from "../Util/ColorBackground";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -29,15 +29,15 @@ export const Login: React.FC = () => {
                     <LoginTitleStyle>로그인하기</LoginTitleStyle>
                     <p>소셜서비스를 이용하여 끄투에 로그인 해보세요!</p>
 
-                    <KkutuButton color={'#00C73C'}>네이버</KkutuButton>
+                    <ColorButton color={'#00C73C'}>네이버</ColorButton>
                     <br/>
-                    <KkutuButton color={'#ea4335'} href={`${config.endpointHost}/auth/google`}>구글</KkutuButton>
+                    <ColorButton color={'#ea4335'} href={`${config.endpointHost}/auth/google`}>구글</ColorButton>
                     <br/>
-                    <KkutuButton color={'#3b5998'} href={`${config.endpointHost}/auth/google`}>페이스북</KkutuButton>
+                    <ColorButton color={'#3b5998'} href={`${config.endpointHost}/auth/google`}>페이스북</ColorButton>
                     <br/>
-                    <KkutuButton color={'#7289da'} href={`${config.endpointHost}/auth/google`}>디스코드</KkutuButton>
+                    <ColorButton color={'#7289da'} href={`${config.endpointHost}/auth/google`}>디스코드</ColorButton>
                     <br/>
-                    <KkutuButton color={'#333'} href={`${config.endpointHost}/auth/google`}>GitHub</KkutuButton>
+                    <ColorButton color={'#333'} href={`${config.endpointHost}/auth/google`}>GitHub</ColorButton>
 
                     <div>
                         <br/>

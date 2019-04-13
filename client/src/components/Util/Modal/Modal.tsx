@@ -55,9 +55,9 @@ interface Props {
 
 export const Modal: React.FC<Props> = ({isOpen, setBeOpen, title, children}) => {
     return (
-        <Draggable defaultPosition={{x: 200, y: 200}}>
+        <Draggable defaultPosition={{x: 200, y: 200}} handle={'.ModalDraggable'}>
             <ModalStyle isOpen={isOpen}>
-                <ModalHeadStyle>
+                <ModalHeadStyle className={'ModalDraggable'}>
                     <TitleStyle>{title}</TitleStyle>
                     <CloseButtonStyle onClick={() => setBeOpen(false)}/>
                 </ModalHeadStyle>

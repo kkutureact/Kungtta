@@ -31,7 +31,7 @@ interface Props {
     readonly href?: string;
 }
 
-export const KkutuButton: React.FC<Props> = ({children, color, href}) => {
+export const ColorButton: React.FC<Props> = ({children, color, href}) => {
     return (
         <>
             <ButtonStyle color={color} href={href}>
@@ -41,4 +41,4 @@ export const KkutuButton: React.FC<Props> = ({children, color, href}) => {
     );
 }
 
-export default KkutuButton;
+export default ColorButton;

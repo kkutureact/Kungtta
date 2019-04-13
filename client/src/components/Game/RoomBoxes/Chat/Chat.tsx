@@ -2,14 +2,10 @@ import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import BoxTitle from '../../../Util/ContentBox/BoxTitle';
 import BoxContent from '../../../Util/ContentBox/BoxContent';
-
 import {useWebSocket} from '../../../../index';
 import {useUser} from '../../../../hooks/useUser';
-
-// @ts-ignore
-import pingEffect from '../../../../assets/audios/effects/ping.mp3';
-import {Howl} from "howler";
 import Message from './Message';
+import {ChatSound} from '../../../Util/Sound';
 
 const ContainerStyle = styled.div`
     color: #111111;
@@ -54,41 +50,6 @@ const MessagesSendStyle = styled.button`
     border-radius: 0px 10px 10px 0px;
     background-color: #EEEEEE;
     transition: all 200ms ease;
-`;
-
-const MessageStyle = styled.div`
-    float: left;
-    margin: 2px 0px;
-    width: 100%;
-    overflow: hidden;
-`;
-
-const MessageHeaderStyle = styled.div`
-    float: left;
-    margin-right: 9px;
-    width: 100px;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    
-    &:hover {
-        background-color: #FFF;
-    }
-`;
-
-const MessageBodyStyle = styled.div`
-    float: left;
-    width: calc(100% - 190px);
-    min-height: 14px;
-`;
-
-const MessageFooterStyle = styled.div`
-    float: left;
-    padding-top: 2px;
-    width: 75px;
-    font-size: 11px;
-    text-align: right;
-    color: #999999;
 `;
 
 interface ChatDetail {
@@ -139,13 +100,9 @@ export const Chat: React.FC = () => {
     });
 
     useEffect(() => {
-        const pingSoundEffect = new Howl({
-            src: [pingEffect]
-        });
-
         const handler = (data: any) => {
             setChatLog(chatlog => [...chatlog, data]);
-            pingSoundEffect.play();
+            ChatSound.play();
         };
 
         ws.addListener('chat', handler);

@@ -9,12 +9,10 @@ import RoomList from './RoomBoxes/RoomList';
 import MyProfile from './RoomBoxes/MyProfile';
 import Chat from './RoomBoxes/Chat/Chat';
 import TopMenus from './TopMenus';
-import {Howl} from 'howler';
-// @ts-ignore
-import bgm from '../../assets/audios/lobby.mp3';
 import Footer from '../Footer/Footer';
 import {useWebSocket} from '../../index';
 import {useUser} from '../../hooks/useUser';
+import {BackgroundSound} from '../Util/Sound';
 
 const BackgroundStyle = styled.div`
 	position: fixed;
@@ -40,12 +38,6 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
     const user = useUser();
 
     useEffect(() => {
-        const sound = new Howl({
-            src: [bgm],
-            autoplay: true,
-            loop: true
-        });
-        Howler.volume(0.5);
 
         if (user !== undefined) ws.emit('join', {uuid: user.uuid, vendor: user.vendor});
 
@@ -55,7 +47,7 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
         ws.addListener('ban', banHandler);
 
         history.listen(() => {
-            sound.stop();
+            BackgroundSound.stop();
             if (user !== undefined) ws.emit('quit', {uuid: user.uuid, vendor: user.vendor});
         });
 
