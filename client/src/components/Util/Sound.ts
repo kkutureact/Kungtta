@@ -7,7 +7,6 @@ import pingEffect from '../../assets/audios/effects/ping.mp3';
 export const BackgroundSound = new Howl({
     src: [bgm],
     volume: 0.5,
-    autoplay: true,
     loop: true
 });
 

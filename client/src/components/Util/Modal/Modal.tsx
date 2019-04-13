@@ -22,12 +22,12 @@ const ModalHeadStyle = styled.div`
     color: #222222;
     font-size: 11px;
     background-color: #DDDDDD;
+    cursor: move;
 `;
 
 const TitleStyle = styled.div`
     width: 280px;
     float: left;
-    cursor: move;
 `;
 
 const CloseButtonStyle = styled.div`
@@ -37,6 +37,7 @@ const CloseButtonStyle = styled.div`
     width: 12px;
     height: 12px;
     background-color: #EE5555;
+    cursor: auto;
     
     &:hover {
       background-color: #EE7777;

@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
                     </FooterTextStyle>
                     <FooterTextStyle>
                         해당 서비스는 Internet Explorer 및 모바일 환경을 지원하지 않습니다. <br/>
-                        원활한 환경을 위해 Chrome 또는 Firefox 및 PC 환경을 사용해주세요.
+                        원활한 환경을 위해 <b><FooterLinkStyle href={'https://www.google.co.kr/chrome/'}>Chrome</FooterLinkStyle></b> 또는 <b><FooterLinkStyle href={'https://www.mozilla.org/ko/'}>Firefox</FooterLinkStyle></b> 및 PC 환경을 사용해주세요.
                     </FooterTextStyle>
                 </Container>
             </FooterStyle>

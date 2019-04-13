@@ -38,6 +38,7 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
     const user = useUser();
 
     useEffect(() => {
+        BackgroundSound.play();
 
         if (user !== undefined) ws.emit('join', {uuid: user.uuid, vendor: user.vendor});
 
