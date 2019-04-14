@@ -20,7 +20,8 @@ router.get('/auth/profile', (req, res) => {
             user: {
                 uuid: uuidv4(),
                 vendor: 'guest',
-                nickname: 'GUEST' + Math.floor(Math.random() * 10000)
+                nickname: 'GUEST' + Math.floor(Math.random() * 10000),
+                profile: 'guest'
             }
         });
     }

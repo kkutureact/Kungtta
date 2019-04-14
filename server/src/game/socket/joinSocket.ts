@@ -1,10 +1,14 @@
 import {ISocket} from './ISocket';
 import Users from '../../database/Users';
-import {logger} from '../../index';
+import {logger, ws} from '../../index';
+import WebSocket from 'ws';
+import UserManager from '../UserManager';
 
 export class JoinSocket implements ISocket {
     run(client: any, action: string, data: any): void {
         const uuid = data[0].uuid;
+        const nickname = data[0].nickname;
+        const profile = data[0].profile;
 
         Users.findOne({where: {uuid: uuid}})
             .then((data: any) => {
@@ -18,6 +22,12 @@ export class JoinSocket implements ISocket {
 
             });
 
-        //TODO: 접속 된 유저를 해당 채널 목록에 넣기
+        UserManager.addUser(uuid, nickname, profile);
+
+        ws.clients.forEach(eachClient => {
+            if (eachClient.readyState === WebSocket.OPEN) {
+                eachClient.send(JSON.stringify({action: 'user', data: [{ users: UserManager.get() }]}));
+            }
+        });
     }
 }

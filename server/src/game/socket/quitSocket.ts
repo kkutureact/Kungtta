@@ -1,12 +1,18 @@
 import {ISocket} from './ISocket';
-import {logger} from '../../index';
+import UserManager from '../UserManager';
+import {ws} from '../../index';
+import WebSocket from 'ws';
 
 export class QuitSocket implements ISocket {
     run(client: any, action: string, data: any): void {
         const uuid = data[0].uuid;
 
-        logger.info('나감 ' + uuid)
+        UserManager.removeUser(uuid);
 
-        //TODO: 나간 유저 목록에서 제거
+        ws.clients.forEach(eachClient => {
+            if (eachClient.readyState === WebSocket.OPEN) {
+                eachClient.send(JSON.stringify({action: 'user', data: [{ users: UserManager.get() }]}));
+            }
+        });
     }
 }

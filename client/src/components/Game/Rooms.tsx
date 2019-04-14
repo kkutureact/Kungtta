@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import backgroundimage from '../../assets/images/kkutu/gamebg.png';
 import NavigationBar from '../Header/NavigationBar';
 import Container from '../Util/Container';
-import UserList from './RoomBoxes/UserList';
+import UserList from './RoomBoxes/UserList/UserList';
 import RoomList from './RoomBoxes/RoomList';
 import MyProfile from './RoomBoxes/MyProfile';
 import Chat from './RoomBoxes/Chat/Chat';
@@ -38,23 +38,16 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
     const user = useUser();
 
     useEffect(() => {
+        if (user !== undefined) ws.emit('join', {uuid: user.uuid, nickname: user.nickname, profile: user.profile});
+
         BackgroundSound.play();
 
-        if (user !== undefined) ws.emit('join', {uuid: user.uuid, vendor: user.vendor});
-
-        const banHandler = (data: any) => {
-            history.push('/loginban');
-        };
-        ws.addListener('ban', banHandler);
+        ws.once('ban', () => history.push('/loginban'));
 
         history.listen(() => {
             BackgroundSound.stop();
             if (user !== undefined) ws.emit('quit', {uuid: user.uuid, vendor: user.vendor});
         });
-
-        return () => {
-            ws.removeListener('ban', banHandler);
-        };
     }, []);
 
     return (
