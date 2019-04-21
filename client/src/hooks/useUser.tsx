@@ -36,7 +36,4 @@ export const UserProvider: React.FC = ({children}) => {
     );
 };
 
-export const useUser = () => {
-    const user = useContext(context);
-    return user;
-};
+export const useUser = () => useContext(context);
