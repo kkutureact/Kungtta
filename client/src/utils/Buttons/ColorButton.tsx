@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const ButtonStyle = styled.a<{ color: string }>`    
     display:inline-block;
@@ -33,12 +33,10 @@ interface Props {
 
 export const ColorButton: React.FC<Props> = ({children, color, href}) => {
     return (
-        <>
-            <ButtonStyle color={color} href={href}>
-                {children}
-            </ButtonStyle>
-        </>
+        <ButtonStyle color={color} href={href}>
+            {children}
+        </ButtonStyle>
     );
-}
+};
 
 export default ColorButton;

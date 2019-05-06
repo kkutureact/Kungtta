@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const DivStyle = styled.div<{ color: string }>`
     position: fixed;
@@ -15,12 +15,10 @@ interface Props {
     readonly color: string;
 }
 
-export const ColorBackground: React.FC<Props> = ({ color }) => {
-    return(
-        <>
-            <DivStyle color={color}/>
-        </>
+export const ColorBackground: React.FC<Props> = ({color}) => {
+    return (
+        <DivStyle color={color}/>
     );
-}
+};
 
 export default ColorBackground;

@@ -32,7 +32,7 @@ export const UserList: React.FC = () => {
     useEffect(() => {
         const handler = (data: any) => {
             setUserList(Object.values(Object.values(data)[0]));
-        }
+        };
 
         ws.addListener('user', handler);
 
@@ -42,20 +42,19 @@ export const UserList: React.FC = () => {
     }, []);
 
     return (
-        <>
-            <ListStyle>
-                <BoxTitle>
-                    접속자 [{userList.length}명]
-                </BoxTitle>
-                <BoxContent>
-                    {
-                        userList.map((data, index) => {
-                            return <UserInfo key={index} profile={data.profile !== 'guest' ? data.profile : tempI} level={tempI} name={data.nickname}/>;
-                        })
-                    }
-                </BoxContent>
-            </ListStyle>
-        </>
+        <ListStyle>
+            <BoxTitle>
+                접속자 [{userList.length}명]
+            </BoxTitle>
+            <BoxContent>
+                {
+                    userList.map((data, index) => {
+                        return <UserInfo key={index} profile={data.profile !== 'guest' ? data.profile : tempI}
+                                         level={tempI} name={data.nickname}/>;
+                    })
+                }
+            </BoxContent>
+        </ListStyle>
     );
 };
 

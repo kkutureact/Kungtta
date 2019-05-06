@@ -43,19 +43,17 @@ const RoomBoxStyle = styled.div<{ isMakeRoom: boolean }>`
 
 export const RoomList: React.FC = () => {
     return (
-        <>
-            <ListStyle>
-                <BoxTitle>방 목록 [0개]</BoxTitle>
-                <BoxContent>
-                    <RoomBoxStyle isMakeRoom={true}>
-                        <div>방 만들기</div>
-                    </RoomBoxStyle>
-                    <RoomBoxStyle isMakeRoom={false}>
-                        <div>방 만들기</div>
-                    </RoomBoxStyle>
-                </BoxContent>
-            </ListStyle>
-        </>
+        <ListStyle>
+            <BoxTitle>방 목록 [0개]</BoxTitle>
+            <BoxContent>
+                <RoomBoxStyle isMakeRoom={true}>
+                    <div>방 만들기</div>
+                </RoomBoxStyle>
+                <RoomBoxStyle isMakeRoom={false}>
+                    <div>방 만들기</div>
+                </RoomBoxStyle>
+            </BoxContent>
+        </ListStyle>
     );
 };
 

@@ -1,8 +1,7 @@
-import React, {MouseEventHandler} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import {on} from 'cluster';
 
-const TopButtonStyle = styled.button<{ color: string, isTiny: boolean}>`
+const TopButtonStyle = styled.button<{ color: string, isTiny: boolean }>`
     background-color: ${props => props.color};
     float: left;
     border: none;
@@ -30,13 +29,11 @@ interface Props {
     readonly onClick?: React.MouseEventHandler;
 }
 
-export const TopMenuButton: React.FC<Props> = ({ children, color, isTiny, onClick }) => {
+export const TopMenuButton: React.FC<Props> = ({children, color, isTiny, onClick}) => {
     return (
-        <>
-            <TopButtonStyle color={color} isTiny={isTiny} onClick={onClick}>
-                {children}
-            </TopButtonStyle>
-        </>
+        <TopButtonStyle color={color} isTiny={isTiny} onClick={onClick}>
+            {children}
+        </TopButtonStyle>
     );
 };
 

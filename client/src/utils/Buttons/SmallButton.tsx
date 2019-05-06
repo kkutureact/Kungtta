@@ -17,13 +17,11 @@ interface Props {
 
 export const SmallButton: React.FC<Props> = ({children, href, onClick}) => {
     return (
-        <>
-            <ButtonStyle>
-                <a href={href} onClick={onClick}>
-                    {children}
-                </a>
-            </ButtonStyle>
-        </>
+        <ButtonStyle>
+            <a href={href} onClick={onClick}>
+                {children}
+            </a>
+        </ButtonStyle>
     );
 };
 

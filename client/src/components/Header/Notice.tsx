@@ -17,11 +17,9 @@ export const Notice: React.FC = ({children}) => {
     const [isClosed, setClose] = useState<boolean>(true);
 
     return (
-        <>
-            <BarStyle close={isClosed} onClick={() => setClose(false)}>
-                <div>{children}</div>
-            </BarStyle>
-        </>
+        <BarStyle close={isClosed} onClick={() => setClose(false)}>
+            <div>{children}</div>
+        </BarStyle>
     );
 };
 

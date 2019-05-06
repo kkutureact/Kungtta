@@ -31,16 +31,14 @@ const ImageStyle = styled.div`
 
 export const MyProfile: React.FC = () => {
     return (
-        <>
-            <ContainerStyle>
-                <BoxTitle>내 정보</BoxTitle>
-                <BoxContent>
-                    <ImageStyle>
-                        <img src={Body}></img>
-                    </ImageStyle>
-                </BoxContent>
-            </ContainerStyle>
-        </>
+        <ContainerStyle>
+            <BoxTitle>내 정보</BoxTitle>
+            <BoxContent>
+                <ImageStyle>
+                    <img src={Body}></img>
+                </ImageStyle>
+            </BoxContent>
+        </ContainerStyle>
     );
 };
 

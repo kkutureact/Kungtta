@@ -13,13 +13,11 @@ const TitleStyle = styled.p`
     font-size: 11px;
 `;
 
-export const BoxTitle: React.FC = ({ children }) => {
+export const BoxTitle: React.FC = ({children}) => {
     return (
-        <>
-            <TitleStyle>
-                {children}
-            </TitleStyle>
-        </>
+        <TitleStyle>
+            {children}
+        </TitleStyle>
     );
 };
 

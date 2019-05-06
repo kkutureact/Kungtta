@@ -114,29 +114,27 @@ export const Chat: React.FC = () => {
     }, []);
 
     return (
-        <>
-            <ContainerStyle>
-                <BoxTitle>채팅</BoxTitle>
-                <BoxContent>
-                    <MessagesStyle ref={ref}>
-                        {
-                            chatlog.map((chat, index) => {
-                                if (chat.isNotice) {
-                                    return <Message key={index} nickname={'[공지]'} text={chat.text}
-                                                 time={getTime()} isNotice={true}/>;
-                                } else {
-                                    return <Message key={index} nickname={chat.nickname} text={chat.text}
-                                                 time={getTime()}/>;
-                                }
-                            })
-                        }
-                    </MessagesStyle>
-                    <MessagesInputStyle value={inputValue} onChange={onInputChange} onKeyDown={onEnterKeyPress}
-                                        placeholder={'전송할 메세지를 입력해주세요.'}/>
-                    <MessagesSendStyle onClick={sendChat}>전송</MessagesSendStyle>
-                </BoxContent>
-            </ContainerStyle>
-        </>
+        <ContainerStyle>
+            <BoxTitle>채팅</BoxTitle>
+            <BoxContent>
+                <MessagesStyle ref={ref}>
+                    {
+                        chatlog.map((chat, index) => {
+                            if (chat.isNotice) {
+                                return <Message key={index} nickname={'[공지]'} text={chat.text}
+                                                time={getTime()} isNotice={true}/>;
+                            } else {
+                                return <Message key={index} nickname={chat.nickname} text={chat.text}
+                                                time={getTime()}/>;
+                            }
+                        })
+                    }
+                </MessagesStyle>
+                <MessagesInputStyle value={inputValue} onChange={onInputChange} onKeyDown={onEnterKeyPress}
+                                    placeholder={'전송할 메세지를 입력해주세요.'}/>
+                <MessagesSendStyle onClick={sendChat}>전송</MessagesSendStyle>
+            </BoxContent>
+        </ContainerStyle>
     );
 };
 

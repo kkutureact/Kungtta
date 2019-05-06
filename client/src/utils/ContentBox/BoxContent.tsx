@@ -6,13 +6,11 @@ const ContentStyle = styled.div`
     font-size: 12px;
 `;
 
-export const BoxContent: React.FC = ({ children }) => {
+export const BoxContent: React.FC = ({children}) => {
     return (
-        <>
-            <ContentStyle>
-                {children}
-            </ContentStyle>
-        </>
+        <ContentStyle>
+            {children}
+        </ContentStyle>
     );
 };
 
