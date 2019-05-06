@@ -38,30 +38,25 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
     const user = useUser();
 
     useEffect(() => {
-        BackgroundSound.play()
+        BackgroundSound.play();
     }, []);
 
     useEffect(() => {
-        const onUnload = () => {
+        const makeUserQuit = () => {
             if (user !== undefined) ws.emit('quit', {uuid: user.uuid, vendor: user.vendor});
         };
-        window.addEventListener('unload', onUnload);
+        window.addEventListener('beforeunload', makeUserQuit);
 
-        if (user !== undefined) {
-            ws.emit('join', {uuid: user.uuid, nickname: user.nickname, profile: user.profile});
-        }
-
+        if (user !== undefined) ws.emit('join', {uuid: user.uuid, nickname: user.nickname, profile: user.profile});
         ws.once('ban', () => history.push('/loginban'));
 
         const unlisten = history.listen(() => {
             BackgroundSound.stop();
-            onUnload();
+            makeUserQuit();
             unlisten();
         });
 
-        return () => {
-            window.removeEventListener('unload', onUnload);
-        }
+        return () => window.removeEventListener('beforeunload', makeUserQuit);
     }, [user]);
 
     return (

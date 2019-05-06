@@ -8,6 +8,7 @@ export class QuitSocket implements ISocket {
         const uuid = data[0].uuid;
 
         UserManager.removeUser(uuid);
+        client.close();
 
         ws.clients.forEach(eachClient => {
             if (eachClient.readyState === WebSocket.OPEN) {
