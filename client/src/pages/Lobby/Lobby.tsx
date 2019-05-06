@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../../assets/images/kkutu/short_logo.png';
-import Jjoriping from './Jjoriping';
-import ServerList from './ServerList/ServerList';
-import UpdateLog from './UpdateLog';
-import Banner from './Banner/Banner';
+import Jjoriping from '../../components/Lobby/Jjoriping';
+import ServerList from '../../components/Lobby/ServerList/ServerList';
+import UpdateLog from '../../components/Lobby/UpdateLog';
+import Banner from '../../components/Lobby/Banner/Banner';
 import Container from '../../utils/Container';
 
 const BoxStyle = styled.div`

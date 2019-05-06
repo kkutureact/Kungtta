@@ -4,7 +4,7 @@ import ColorBackground from '../../utils/ColorBackground';
 import Container from '../../utils/Container';
 import SmallButton from '../../utils/Buttons/SmallButton';
 import {useUser} from '../../hooks/useUser';
-import AdminItem from './AdminItem';
+import AdminItem from '../../components/Admin/AdminItem';
 import Axios from 'axios';
 import config from '../../config';
 
