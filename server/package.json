@@ -19,7 +19,7 @@
     "log4js": "^4.0.2",
     "msgpack-lite": "^0.1.26",
     "passport": "^0.4.0",
-    "sequelize": "^4.43.0",
+    "sequelize": "^5.8.5",
     "socket.io": "^2.2.0",
     "ws": "^6.2.0"
   },
