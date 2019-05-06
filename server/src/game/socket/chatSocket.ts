@@ -1,7 +1,7 @@
 import {ISocket} from './ISocket';
 import {ws} from '../../index';
 import WebSocket from 'ws';
-import { FilteringBadWord } from '../filteringBadWord';
+import {FilteringBadWord} from '../chat/filteringBadWord';
 
 export class ChatSocket implements ISocket {
     run(client: any, action: string, data: any): void {

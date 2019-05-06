@@ -23,10 +23,7 @@ export const UserProvider: React.FC = ({children}) => {
             .then((res) => {
                 setUser(res.data.user);
             })
-            .catch((error => {
-                console.log('유저 정보를 불러오지 못했습니다. ' + error);
-                setUser(undefined);
-            }));
+            .catch((error => console.log('유저 정보를 불러오지 못했습니다. ' + error)));
     }, []);
 
     return (
