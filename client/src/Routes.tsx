@@ -1,11 +1,11 @@
 import React from 'react';
 import {Route, Switch, BrowserRouter} from 'react-router-dom';
 import App from './App';
-import Login from './components/Login/Login';
-import LoginError from './components/Login/LoginError';
-import LoginBan from './components/Login/LoginBan';
-import Admin from './components/Admin/Admin';
-import Rooms from './components/Game/Rooms';
+import Login from './pages/Login/Login';
+import LoginError from './pages/Login/LoginError';
+import LoginBan from './pages/Login/LoginBan';
+import Admin from './pages/Admin/Admin';
+import Rooms from './pages/Room/Room';
 import config from './config';
 import {WebSocketProvider} from './index';
 

@@ -1,8 +1,8 @@
 import {Howl} from "howler";
 // @ts-ignore
-import bgm from '../../assets/audios/lobby.mp3';
+import bgm from '../assets/audios/lobby.mp3';
 // @ts-ignore
-import pingEffect from '../../assets/audios/effects/ping.mp3';
+import pingEffect from '../assets/audios/effects/ping.mp3';
 
 export const BackgroundSound = new Howl({
     src: [bgm],

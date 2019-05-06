@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import BoxTitle from '../../../Util/ContentBox/BoxTitle';
-import BoxContent from '../../../Util/ContentBox/BoxContent';
+import BoxTitle from '../../../../utils/ContentBox/BoxTitle';
+import BoxContent from '../../../../utils/ContentBox/BoxContent';
 import tempI from '../../../../assets/images/kkutu/guest_icon.png';
 import UserInfo from './UserInfo';
 import {useWebSocket} from '../../../../index';

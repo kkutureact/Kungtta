@@ -1,20 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MessageStyle = styled.div`
+const MessageStyle = styled.div<{ isNotice?: boolean }>`
     float: left;
     margin: 2px 0px;
     width: 100%;
     overflow: hidden;
+    ${props => props.isNotice ? 'background-color: #CCCCCC;' : ''}
 `;
 
-const MessageHeaderStyle = styled.div`
+const MessageHeaderStyle = styled.div<{ isNotice?: boolean }>`
     float: left;
     margin-right: 9px;
     width: 100px;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
+    ${props => props.isNotice ? 'color: #1767CA;' : ''}
     
     &:hover {
         background-color: #FFF;
@@ -37,15 +39,16 @@ const MessageFooterStyle = styled.div`
 `;
 
 interface Props {
+    readonly isNotice?: boolean;
     readonly nickname: string;
     readonly text: string;
     readonly time: string;
 }
 
-export const Message: React.FC<Props> = ({nickname, text, time}) => {
+export const Message: React.FC<Props> = ({isNotice, nickname, text, time}) => {
     return (
-        <MessageStyle>
-            <MessageHeaderStyle>{nickname}</MessageHeaderStyle>
+        <MessageStyle isNotice={isNotice}>
+            <MessageHeaderStyle isNotice={isNotice}>{nickname}</MessageHeaderStyle>
             <MessageBodyStyle>{text}</MessageBodyStyle>
             <MessageFooterStyle>{time}</MessageFooterStyle>
         </MessageStyle>

@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from "styled-components";
-import {Link} from "react-router-dom";
-import ColorBackground from "../Util/ColorBackground";
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+import ColorBackground from '../../utils/ColorBackground';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBackward} from '@fortawesome/free-solid-svg-icons';
-import Container from '../Util/Container';
+import Container from '../../utils/Container';
 
 const BoxStyle = styled.div`
     text-align: center;
@@ -20,13 +20,13 @@ const BackToLobbyStyle = styled(Link)`
 	color: #EEEEEE;
 `;
 
-export const LoginError: React.FC = () => {
+export const LoginBan: React.FC = () => {
     return (
         <>
             <Container>
                 <BoxStyle>
-                    <TitleStyle>로그인 오류<i>!</i></TitleStyle>
-                    <p>오류로 인하여 로그인에 실패하였습니다. 관리자에게 문의하세요.</p>
+                    <TitleStyle>이용 차단<i>!</i></TitleStyle>
+                    <p>관리자에 의하여 서비스 이용이 차단되었습니다.</p>
 
                     <div>
                         <br/>
@@ -37,6 +37,6 @@ export const LoginError: React.FC = () => {
             <ColorBackground color={'#111111'}/>
         </>
     );
-}
+};
 
-export default LoginError;
+export default LoginBan;

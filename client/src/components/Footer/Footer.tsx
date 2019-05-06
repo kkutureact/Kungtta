@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Container from '../Util/Container';
+import Container from '../../utils/Container';
 
 const FooterStyle = styled.div`
     float: left;

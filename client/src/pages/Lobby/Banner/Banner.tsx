@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ColorButton from '../../Util/Buttons/ColorButton';
+import ColorButton from '../../../utils/Buttons/ColorButton';
 
 const ContainerStyle = styled.div`
     float: right;

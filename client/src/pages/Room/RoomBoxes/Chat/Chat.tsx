@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
-import BoxTitle from '../../../Util/ContentBox/BoxTitle';
-import BoxContent from '../../../Util/ContentBox/BoxContent';
+import BoxTitle from '../../../../utils/ContentBox/BoxTitle';
+import BoxContent from '../../../../utils/ContentBox/BoxContent';
 import {useWebSocket} from '../../../../index';
 import {useUser} from '../../../../hooks/useUser';
 import Message from './Message';
-import {ChatSound} from '../../../Util/Sound';
+import {ChatSound} from '../../../../utils/Sound';
 
 const ContainerStyle = styled.div`
     color: #111111;
@@ -55,6 +55,7 @@ const MessagesSendStyle = styled.button`
 interface ChatDetail {
     readonly nickname: string;
     readonly text: string;
+    readonly isNotice: boolean;
 }
 
 export const Chat: React.FC = () => {
@@ -75,8 +76,8 @@ export const Chat: React.FC = () => {
     };
 
     const sendChat = () => {
-        if (inputValue !== '') {
-            ws.emit('chat', {nickname: user!!.nickname, text: inputValue});
+        if (inputValue !== '' && inputValue !== ' ') {
+            ws.emit('chat', {nickname: user!!.nickname, text: inputValue, isNotice: false});
             setInputValue('');
         }
     };
@@ -97,7 +98,7 @@ export const Chat: React.FC = () => {
 
     useEffect(() => {
         ref.current!!.scrollTop = 99999;
-    });
+    }, [chatlog]);
 
     useEffect(() => {
         const handler = (data: any) => {
@@ -120,9 +121,13 @@ export const Chat: React.FC = () => {
                     <MessagesStyle ref={ref}>
                         {
                             chatlog.map((chat, index) => {
-                                return (
-                                    <Message key={index} nickname={chat.nickname} text={chat.text} time={getTime()}/>
-                                );
+                                if (chat.isNotice) {
+                                    return <Message key={index} nickname={'[공지]'} text={chat.text}
+                                                 time={getTime()} isNotice={true}/>;
+                                } else {
+                                    return <Message key={index} nickname={chat.nickname} text={chat.text}
+                                                 time={getTime()}/>;
+                                }
                             })
                         }
                     </MessagesStyle>

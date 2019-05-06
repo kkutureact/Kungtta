@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import ColorBackground from '../Util/ColorBackground';
-import Container from '../Util/Container';
-import SmallButton from '../Util/Buttons/SmallButton';
+import ColorBackground from '../../utils/ColorBackground';
+import Container from '../../utils/Container';
+import SmallButton from '../../utils/Buttons/SmallButton';
 import {useUser} from '../../hooks/useUser';
 import AdminItem from './AdminItem';
 import Axios from 'axios';

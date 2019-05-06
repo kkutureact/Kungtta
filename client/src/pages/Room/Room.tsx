@@ -2,17 +2,17 @@ import React, {useEffect} from 'react';
 import {RouteComponentProps, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 import backgroundimage from '../../assets/images/kkutu/gamebg.png';
-import NavigationBar from '../Header/NavigationBar';
-import Container from '../Util/Container';
+import NavigationBar from '../../components/Header/NavigationBar';
+import Container from '../../utils/Container';
 import UserList from './RoomBoxes/UserList/UserList';
 import RoomList from './RoomBoxes/RoomList';
 import MyProfile from './RoomBoxes/MyProfile';
 import Chat from './RoomBoxes/Chat/Chat';
 import TopMenus from './TopMenus';
-import Footer from '../Footer/Footer';
+import Footer from '../../components/Footer/Footer';
 import {useWebSocket} from '../../index';
 import {useUser} from '../../hooks/useUser';
-import {BackgroundSound} from '../Util/Sound';
+import {BackgroundSound} from '../../utils/Sound';
 
 const BackgroundStyle = styled.div`
 	position: fixed;
@@ -33,7 +33,7 @@ const BoxStyle = styled.div`
     width: 1010px;
 `;
 
-export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match, history}) => {
+export const Room: React.FC<RouteComponentProps<{ server: string }>> = ({match, history}) => {
     const ws = useWebSocket();
     const user = useUser();
 
@@ -78,4 +78,4 @@ export const Rooms: React.FC<RouteComponentProps<{ server: string }>> = ({match,
     );
 };
 
-export default withRouter(Rooms);
+export default withRouter(Room);

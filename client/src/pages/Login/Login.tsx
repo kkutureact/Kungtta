@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import ColorButton from "../Util/Buttons/ColorButton";
+import ColorButton from "../../utils/Buttons/ColorButton";
 import {Link} from "react-router-dom";
-import ColorBackground from "../Util/ColorBackground";
+import ColorBackground from "../../utils/ColorBackground";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBackward} from '@fortawesome/free-solid-svg-icons';
-import Container from '../Util/Container';
+import Container from '../../utils/Container';
 import config from '../../config';
 
 const BoxStyle = styled.div`

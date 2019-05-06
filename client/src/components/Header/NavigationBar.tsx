@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHome, faSignInAlt, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
-
-import Notice from './Notice';
 import {useUser} from '../../hooks/useUser';
 import config from '../../config';
 
@@ -22,10 +20,7 @@ const MenuButtonStyle = styled(Link)`
 	float: left;
 	padding: 5px 5px 5px 5px;
 	
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-radius: 0px 0px 5px 5px;
 	
 	width: 100px;
 	height: 18px;
@@ -68,23 +63,16 @@ const LoginStyle = styled.div`
 export const NavigationBar: React.FC = () => {
     const user = useUser();
 
-    const AccountButton = () => {
-        if (user !== undefined && user.vendor !== 'guest') {
-            return <a href={`${config.endpointHost}/logout`}><LoginStyle><FontAwesomeIcon
-                icon={faSignOutAlt}/> 환영합니다! {user.nickname}님</LoginStyle></a>;
-        } else {
-            return <Link to={'/login'}><LoginStyle><FontAwesomeIcon icon={faSignInAlt}/> 로그인</LoginStyle></Link>;
-        }
-    };
-
     return (
-        <>
-            <MenuStyle>
-                <MenuButtonStyle to={'/'}><FontAwesomeIcon icon={faHome}/></MenuButtonStyle>
-                <AccountButton/>
-                <Notice>dd</Notice>
-            </MenuStyle>
-        </>
+        <MenuStyle>
+            <MenuButtonStyle to={'/'}><FontAwesomeIcon icon={faHome}/></MenuButtonStyle>
+            {
+                user !== undefined && user.vendor !== 'guest' ?
+                    <a href={`${config.endpointHost}/logout`}><LoginStyle><FontAwesomeIcon
+                        icon={faSignOutAlt}/> 환영합니다! {user.nickname}님</LoginStyle></a> :
+                    <Link to={'/login'}><LoginStyle><FontAwesomeIcon icon={faSignInAlt}/> 로그인</LoginStyle></Link>
+            }
+        </MenuStyle>
     );
 };
 

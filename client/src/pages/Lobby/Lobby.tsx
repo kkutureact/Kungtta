@@ -5,7 +5,7 @@ import Jjoriping from './Jjoriping';
 import ServerList from './ServerList/ServerList';
 import UpdateLog from './UpdateLog';
 import Banner from './Banner/Banner';
-import Container from '../Util/Container';
+import Container from '../../utils/Container';
 
 const BoxStyle = styled.div`
     margin-top: 100px;

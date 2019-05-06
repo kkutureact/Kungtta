@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import BoxTitle from '../../Util/ContentBox/BoxTitle';
-import BoxContent from '../../Util/ContentBox/BoxContent';
+import BoxTitle from '../../../utils/ContentBox/BoxTitle';
+import BoxContent from '../../../utils/ContentBox/BoxContent';
 import Body from '../../../assets/images/character/body.png';
 
 const ContainerStyle = styled.div`

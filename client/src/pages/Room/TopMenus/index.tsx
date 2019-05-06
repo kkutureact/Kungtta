@@ -12,10 +12,10 @@ import {
     faTrophy,
     faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
-import Modal from '../../Util/Modal/Modal';
-import ModalOption from '../../Util/Modal/ModalOption';
-import ModalButton from '../../Util/Modal/ModalButton';
-import {BackgroundSound, ChatSound} from '../../Util/Sound';
+import Modal from '../../../utils/Modal/Modal';
+import ModalOption from '../../../utils/Modal/ModalOption';
+import ModalButton from '../../../utils/Modal/ModalButton';
+import {BackgroundSound, ChatSound} from '../../../utils/Sound';
 
 const TopMenusStyle = styled.div`
     float: left;
