@@ -6,7 +6,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.(ts|tsx)?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
             },
@@ -21,7 +21,7 @@ module.exports = {
     devtool: 'source-map',
 
     resolve: {
-        extensions: [ '.ts', '.js', '.json' ]
+        extensions: [ '.ts', '.js', '.tsx', '.json' ]
     },
 
     output: {

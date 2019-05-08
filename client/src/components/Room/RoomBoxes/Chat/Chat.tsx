@@ -121,7 +121,7 @@ export const Chat: React.FC = () => {
                     {
                         chatlog.map((chat, index) => {
                             if (chat.isNotice) {
-                                return <Message key={index} nickname={'[공지]'} text={chat.text}
+                                return <Message key={index} nickname={chat.nickname} text={chat.text}
                                                 time={getTime()} isNotice={true}/>;
                             } else {
                                 return <Message key={index} nickname={chat.nickname} text={chat.text}

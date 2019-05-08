@@ -3,7 +3,7 @@ import UserManager from '../UserManager';
 
 export class CheckUuidCommand implements Command {
     run(command: string, args: string[], myself: string): void {
-        const data = {'nickname': '당신의 UUID:', 'text': myself, isNotice: false};
+        const data = {'nickname': '당신의 UUID', 'text': myself, isNotice: true};
         UserManager.get(myself).client.send(JSON.stringify({action: 'chat', data: [data]}));
     }
 }
