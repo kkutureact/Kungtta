@@ -1,11 +1,11 @@
 import passport from 'passport';
 import google from 'passport-google-oauth';
 import config from '../config/oauth.json';
-import { onSuccess } from './auth';
+import {onSuccess} from './auth';
 
 const GoogleStrategy = google.OAuth2Strategy;
 
-export default() => {
+export default () => {
     passport.use(new GoogleStrategy({
             clientID: config.google.clientId,
             clientSecret: config.google.clientSecret,

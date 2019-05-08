@@ -3,7 +3,6 @@ import authGoogle from './authGoogle';
 import Users from '../database/Users/index';
 import {logger} from '../index';
 import uuidv4 from 'uuid/v4';
-import {Op} from 'sequelize';
 
 export default () => {
     passport.serializeUser((user, done) => {
