@@ -1,3 +1,3 @@
-export interface ISocket {
+export interface Socket {
     run(client: any, action: string, data: any): void;
 }

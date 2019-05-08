@@ -1,10 +1,10 @@
-import {ISocket} from './ISocket';
+import {Socket} from './socket';
 import Users from '../../database/Users';
 import {logger, ws} from '../../index';
 import WebSocket from 'ws';
 import UserManager from '../UserManager';
 
-export class JoinSocket implements ISocket {
+export class JoinSocket implements Socket {
     run(client: any, action: string, data: any): void {
         const uuid = data[0].uuid;
         const nickname = data[0].nickname;
@@ -22,11 +22,11 @@ export class JoinSocket implements ISocket {
 
             });
 
-        UserManager.addUser(uuid, nickname, profile);
+        UserManager.addUser(uuid, nickname, profile, client);
 
         ws.clients.forEach(eachClient => {
             if (eachClient.readyState === WebSocket.OPEN) {
-                eachClient.send(JSON.stringify({action: 'user', data: [{ users: UserManager.get() }]}));
+                eachClient.send(JSON.stringify({action: 'user', data: [{ users: UserManager.gets() }]}));
             }
         });
     }

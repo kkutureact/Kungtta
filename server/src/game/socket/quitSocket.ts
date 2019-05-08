@@ -1,9 +1,9 @@
-import {ISocket} from './ISocket';
+import {Socket} from './socket';
 import UserManager from '../UserManager';
 import {ws} from '../../index';
 import WebSocket from 'ws';
 
-export class QuitSocket implements ISocket {
+export class QuitSocket implements Socket {
     run(client: any, action: string, data: any): void {
         const uuid = data[0].uuid;
 
@@ -12,7 +12,7 @@ export class QuitSocket implements ISocket {
 
         ws.clients.forEach(eachClient => {
             if (eachClient.readyState === WebSocket.OPEN) {
-                eachClient.send(JSON.stringify({action: 'user', data: [{ users: UserManager.get() }]}));
+                eachClient.send(JSON.stringify({action: 'user', data: [{ users: UserManager.gets() }]}));
             }
         });
     }

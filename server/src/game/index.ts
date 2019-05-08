@@ -1,9 +1,9 @@
 import {logger, ws} from '../index';
 import msgpack from 'msgpack-lite';
-import {ISocket} from './socket/ISocket';
+import {Socket} from './socket/socket';
 import {ChatSocket, JoinSocket, QuitSocket} from './socket/index';
 
-const socketHandleList: { [k: string]: ISocket } = {};
+const socketHandleList: { [k: string]: Socket } = {};
 socketHandleList.join = new JoinSocket();
 socketHandleList.chat = new ChatSocket();
 socketHandleList.quit = new QuitSocket();
@@ -15,7 +15,7 @@ export const Game = () => {
             const action = json.action;
             const data = json.data;
 
-            logger.info(`[WebSocket] ${action} : ${JSON.stringify(data)}`);
+            logger.info(`[From-Client] ${action} : ${JSON.stringify(data)}`);
             socketHandleList[action].run(client, action, data);
         });
     });
