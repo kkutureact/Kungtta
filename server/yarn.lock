@@ -120,10 +120,10 @@
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
   integrity sha512-ewFXqrQHlFsgc09MK5jP5iR7vumV/BYayNC6PgJO2LPe8vrnNFyjQjSppfEngITi0qvfKtzFvgKymGheFM9UOA==
 
-"@types/sequelize@^4.27.41":
-  version "4.27.49"
-  resolved "https://registry.yarnpkg.com/@types/sequelize/-/sequelize-4.27.49.tgz#f110db2a3c533971e051c3f5f106656dfdf34cd0"
-  integrity sha512-l+giWSYELBg7uJUtYWYrgn5+FIrvVPzX9QiRayfkh85gGGtVHMy/C0jbl3qdZoQc1c1GVB3l4MDnJy8eZ9spKQ==
+"@types/sequelize@4.27.41":
+  version "4.27.41"
+  resolved "https://registry.yarnpkg.com/@types/sequelize/-/sequelize-4.27.41.tgz#28190fb72f48a9a5d713d583b917110a623a522d"
+  integrity sha512-B5iJA4L3pfs3w1GbSdwVRHnWeNZ8Mu0Jg4wU6iPhJD1HcG/5/9hD4khxM/8ikINEZiiN0Js2NqVv9BlhDih9NA==
   dependencies:
     "@types/bluebird" "*"
     "@types/continuation-local-storage" "*"
@@ -3437,7 +3437,7 @@ sequelize-pool@^1.0.2:
   dependencies:
     bluebird "^3.5.3"
 
-sequelize@5.8.5:
+sequelize@^5.8.5:
   version "5.8.5"
   resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-5.8.5.tgz#3bb63b5e5b65eedc46d57fc69bb251b8af1bd73a"
   integrity sha512-FvI3ceqYnNmgbBDeMvD7kdPFAnqelchiMavM+v+1SC+J19M4NThLSxrYL+yJWUJCSe++dHTyv2MEe7OBDVL6mw==

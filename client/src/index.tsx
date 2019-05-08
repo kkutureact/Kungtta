@@ -5,7 +5,7 @@ import {BinaryType, createWebSocket} from 'use-ws';
 import msgpack from 'msgpack-lite';
 import Routes from './Routes';
 
-export const {WebSocketProvider, useWebSocket, useHeartbeat} = createWebSocket({
+export const {WebSocketProvider, useWebSocket} = createWebSocket({
     binaryType: BinaryType.ArrayBuffer,
     serialize(action, ...data) {
         return msgpack.encode({action: action, data: data});

@@ -1,7 +1,9 @@
 import Sequelize from 'sequelize';
-import db from '../index';
+import sequelize from '../index';
 
-const User = {
+class User extends Sequelize.Model{}
+
+User.init({
     uuid: {
         type: Sequelize.UUID,
         primaryKey: true,
@@ -36,7 +38,7 @@ const User = {
     isAdmin: {
         type: Sequelize.BOOLEAN,
         allowNull: false
-    },
-};
+    }
+}, { sequelize, modelName: 'user', timestamps: false });
 
-export default db.define('User', User, {timestamps: false});
+export default User;

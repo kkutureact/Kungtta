@@ -3,6 +3,7 @@ import authGoogle from './authGoogle';
 import Users from '../database/Users/index';
 import {logger} from '../index';
 import uuidv4 from 'uuid/v4';
+import {Op} from 'sequelize';
 
 export default () => {
     passport.serializeUser((user, done) => {
@@ -29,15 +30,15 @@ export const onSuccess = (vendor: string, email: string, nickname: string, profi
             isMuted: false,
             isAdmin: false
         }
-    }).spread((user: any, created) => {
-        const uuid = user.dataValues.uuid;
+    }).then(([user, created]) => {
+        const uuid = user.get('uuid') as string;
 
         if (created) {
             logger.info(`${uuid} 사용자가 새로 가입하였습니다.`);
             done(null, user);
         } else {
             Users.findOne({where: {uuid: uuid}})
-                .then((data: any) => {
+                .then(() => {
                     logger.info(`${uuid} 사용자가 로그인하였습니다.`);
                     done(null, user);
                 });
