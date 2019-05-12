@@ -101,15 +101,21 @@ export const Chat: React.FC = () => {
     }, [chatlog]);
 
     useEffect(() => {
-        const handler = (data: any) => {
+        const onReceiveChat = (data: any) => {
             setChatLog(chatlog => [...chatlog, data]);
             ChatSound.play();
         };
 
-        ws.addListener('chat', handler);
+        const onReceiveClearChat = () => {
+            setChatLog([]);
+        };
+
+        ws.addListener('chat', onReceiveChat);
+        ws.addListener('clearchat', onReceiveClearChat);
 
         return () => {
-            ws.removeListener('chat', handler);
+            ws.removeListener('chat', onReceiveChat);
+            ws.removeListener('clearchat', onReceiveClearChat);
         };
     }, []);
 
