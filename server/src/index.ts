@@ -15,6 +15,8 @@ export const app = express();
 export const logger = log4js.getLogger();
 const port = 8080;
 
+log4js.configure(__dirname + '/config/log4js.json');
+
 const httpServer = http.createServer(app);
 export const ws = new WebSocket.Server({ server: httpServer });
 

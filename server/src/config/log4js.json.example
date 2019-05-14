@@ -1,0 +1,18 @@
+{
+  "appenders": {
+    "console": {
+      "type": "console"
+    },
+    "default": {
+      "type": "file",
+      "filename": "logs/kkutu.log",
+      "pattern": "-yyyy-MM-dd",
+      "maxLogSize": 524288,
+      "backups": 10,
+      "compress": true
+    }
+  },
+  "categories": {
+    "default": { "appenders": [ "default", "console" ], "level": "DEBUG" }
+  }
+}

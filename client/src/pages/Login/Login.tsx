@@ -29,7 +29,7 @@ export const Login: React.FC = () => {
                     <LoginTitleStyle>로그인하기</LoginTitleStyle>
                     <p>소셜서비스를 이용하여 끄투에 로그인 해보세요!</p>
 
-                    <ColorButton color={'#00C73C'}>네이버</ColorButton>
+                    <ColorButton color={'#00C73C'} href={`${config.endpointHost}/auth/naver`}>네이버</ColorButton>
                     <br/>
                     <ColorButton color={'#ea4335'} href={`${config.endpointHost}/auth/google`}>구글</ColorButton>
                     <br/>

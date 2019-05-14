@@ -6,4 +6,6 @@ server/dist
 
 server/src/config/*.json
 
+server/logs
+
 client/src/config.ts

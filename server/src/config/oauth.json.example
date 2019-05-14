@@ -2,5 +2,9 @@
     "google": {
         "clientId": "",
         "clientSecret": ""
+    },
+    "naver": {
+        "clientId": "",
+        "clientSecret": ""
     }
 }

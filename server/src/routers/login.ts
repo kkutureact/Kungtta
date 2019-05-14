@@ -62,4 +62,13 @@ router.get('/auth/google/callback', passport.authenticate('google',
     }
 ));
 
+router.get('/auth/naver', passport.authenticate('naver'));
+
+router.get('/auth/naver/callback', passport.authenticate('naver',
+    {
+        successRedirect: config.webserver_host,
+        failureRedirect: `${config.webserver_host}/loginerror`
+    }
+));
+
 export default router;
