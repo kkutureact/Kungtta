@@ -3,10 +3,10 @@ import naver from 'passport-naver';
 import config from '../config/oauth.json';
 import {onSuccess} from './auth';
 
-const NaverStrategy = naver.Strategy;
+const Strategy = naver.Strategy;
 
 export default () => {
-    passport.use(new NaverStrategy({
+    passport.use(new Strategy({
             clientID: config.naver.clientId,
             clientSecret: config.naver.clientSecret,
             callbackURL: '/oauth/naver/callback'

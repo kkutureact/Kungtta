@@ -3,10 +3,10 @@ import google from 'passport-google-oauth';
 import config from '../config/oauth.json';
 import {onSuccess} from './auth';
 
-const GoogleStrategy = google.OAuth2Strategy;
+const Strategy = google.OAuth2Strategy;
 
 export default () => {
-    passport.use(new GoogleStrategy({
+    passport.use(new Strategy({
             clientID: config.google.clientId,
             clientSecret: config.google.clientSecret,
             callbackURL: '/oauth/google/callback'

@@ -1,9 +1,11 @@
 import passport from 'passport';
-import authGoogle from './authGoogle';
 import Users from '../database/Users/index';
 import {logger} from '../index';
 import uuidv4 from 'uuid/v4';
+import authGoogle from './authGoogle';
 import authNaver from './authNaver';
+import authDiscord from './authDiscord';
+import authGitHub from './authGitHub';
 
 export default () => {
     passport.serializeUser((user, done) => {
@@ -16,6 +18,8 @@ export default () => {
 
     authGoogle();
     authNaver();
+    authDiscord();
+    authGitHub();
 }
 
 export const onSuccess = (vendor: string, email: string, nickname: string, profileUrl: string, done: (error: any, user?: any) => void) => {

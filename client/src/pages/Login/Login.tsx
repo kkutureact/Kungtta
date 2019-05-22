@@ -35,9 +35,9 @@ export const Login: React.FC = () => {
                     <br/>
                     <ColorButton color={'#3b5998'} href={`${config.endpointHost}/oauth/google`}>페이스북</ColorButton>
                     <br/>
-                    <ColorButton color={'#7289da'} href={`${config.endpointHost}/oauth/google`}>디스코드</ColorButton>
+                    <ColorButton color={'#7289da'} href={`${config.endpointHost}/oauth/discord`}>디스코드</ColorButton>
                     <br/>
-                    <ColorButton color={'#333'} href={`${config.endpointHost}/oauth/google`}>GitHub</ColorButton>
+                    <ColorButton color={'#333'} href={`${config.endpointHost}/oauth/github`}>GitHub</ColorButton>
 
                     <div>
                         <br/>
