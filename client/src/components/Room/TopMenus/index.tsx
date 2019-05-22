@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import TopMenuButton from './TopMenuButton';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -15,7 +15,8 @@ import {
 import Modal from '../../../utils/Modal/Modal';
 import ModalOption from '../../../utils/Modal/ModalOption';
 import ModalButton from '../../../utils/Modal/ModalButton';
-import {BackgroundSound, ChatSound} from '../../../utils/Sound';
+import {SoundManager} from '../../../utils/Sound';
+import Cookies from 'universal-cookie';
 
 const TopMenusStyle = styled.div`
     float: left;
@@ -25,8 +26,16 @@ const TopMenusStyle = styled.div`
 
 export const TopMenus: React.FC = () => {
     const [options, setOptions] = useState(false);
-    const [volume, setVolume] = useState(5);
-    const [effectVolume, setEffectVolume] = useState(5);
+    const [volume, setVolume] = useState<number>(5);
+    const [effectVolume, setEffectVolume] = useState<number>(5);
+    const cookies = new Cookies();
+
+    useEffect(() => {
+        if(cookies.get('backgroundsound') !== undefined && cookies.get('soundeffect') !== undefined) {
+            setVolume(cookies.get('backgroundsound') / 0.1);
+            setEffectVolume(cookies.get('soundeffect') / 0.1);
+        }
+    }, []);
 
     return (
         <TopMenusStyle>
@@ -41,9 +50,12 @@ export const TopMenus: React.FC = () => {
                 </ModalOption>
 
                 <ModalButton onClick={() => {
-                    BackgroundSound.volume(volume*0.1);
-                    ChatSound.volume(effectVolume*0.1);
+                    SoundManager.setBackgroundVolume(volume*0.1);
+                    SoundManager.setSoundEffectVolume(effectVolume*0.1);
                     setOptions(false);
+
+                    SoundManager.setBackgroundCookie(volume*0.1);
+                    SoundManager.setSoundEffectCookie(effectVolume*0.1);
                 }}>적용</ModalButton>
             </Modal>
             <TopMenuButton color={'#daa9ff'} isTiny={true}><FontAwesomeIcon icon={faUserFriends}/></TopMenuButton>
