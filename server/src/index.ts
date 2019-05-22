@@ -3,6 +3,7 @@ import log4js from 'log4js';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import LoginRouter from './routers/login';
+import OAuthRouter from './routers/oauth';
 import auth from './auth/auth';
 import passport from 'passport';
 import config from './config/main.json';
@@ -36,6 +37,7 @@ app.use(passport.session());
 
 auth();
 app.use(LoginRouter);
+app.use(OAuthRouter);
 
 Game();
 

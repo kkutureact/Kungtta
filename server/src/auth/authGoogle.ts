@@ -9,7 +9,7 @@ export default () => {
     passport.use(new GoogleStrategy({
             clientID: config.google.clientId,
             clientSecret: config.google.clientSecret,
-            callbackURL: '/auth/google/callback'
+            callbackURL: '/oauth/google/callback'
         }, (accessToken, refreshToken, profile, done) => {
             const email = profile.emails![0].value;
             const nickname = profile.displayName;
