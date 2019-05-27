@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {RouteComponentProps, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 import backgroundimage from '../../assets/images/kkutu/gamebg.png';
-import NavigationBar from '../../components/Header/NavigationBar';
 import Container from '../../utils/Container';
 import UserList from '../../components/Room/RoomBoxes/UserList/UserList';
 import RoomList from '../../components/Room/RoomBoxes/RoomList';
@@ -13,6 +12,7 @@ import Footer from '../../components/Footer/Footer';
 import {useWebSocket} from '../../index';
 import {useUser} from '../../hooks/useUser';
 import {BackgroundSound} from '../../utils/Sound';
+import Header from '../../components/Header/Header';
 
 const BackgroundStyle = styled.div`
 	position: fixed;
@@ -61,7 +61,7 @@ export const Room: React.FC<RouteComponentProps<{ server: string }>> = ({match, 
 
     return (
         <>
-            <NavigationBar/>
+            <Header/>
             <Container>
                 <BoxStyle>
                     <TopMenus/>

@@ -1,12 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import styled, {keyframes} from "styled-components";
-
+import styled, {keyframes} from 'styled-components';
+import backgroundimage from './assets/images/kkutu/gamebg.png';
 import Lobby from './pages/Lobby/Lobby';
-import NavigationBar from "./components/Header/NavigationBar";
-
-import backgroundimage from "./assets/images/kkutu/gamebg.png";
 import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
 
 const BackgroundScrollAnimation = keyframes`
     from {
@@ -35,12 +32,12 @@ const Background = styled.div`
 export const App: React.FC = () => {
     return (
         <>
-            <NavigationBar/>
+            <Header/>
             <Lobby/>
             <Footer/>
             <Background/>
         </>
     );
-}
+};
 
 export default App;

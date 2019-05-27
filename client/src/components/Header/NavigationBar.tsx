@@ -6,15 +6,6 @@ import {faHome, faSignInAlt, faSignOutAlt} from '@fortawesome/free-solid-svg-ico
 import {useUser} from '../../hooks/useUser';
 import config from '../../config';
 
-const MenuStyle = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-	width: 100%;
-	height: 30px;
-	box-shadow: 0px 2px 2px #111111;
-	background-color: #7CC4F8;
-`;
 
 const MenuButtonStyle = styled(Link)`
 	float: left;
@@ -64,7 +55,7 @@ export const NavigationBar: React.FC = () => {
     const user = useUser();
 
     return (
-        <MenuStyle>
+        <>
             <MenuButtonStyle to={'/'}><FontAwesomeIcon icon={faHome}/></MenuButtonStyle>
             {
                 user !== undefined && user.vendor !== 'guest' ?
@@ -72,7 +63,7 @@ export const NavigationBar: React.FC = () => {
                         icon={faSignOutAlt}/> 환영합니다! {user.nickname}님</LoginStyle></a> :
                     <Link to={'/login'}><LoginStyle><FontAwesomeIcon icon={faSignInAlt}/> 로그인</LoginStyle></Link>
             }
-        </MenuStyle>
+        </>
     );
 };
 

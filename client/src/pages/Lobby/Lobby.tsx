@@ -7,9 +7,9 @@ import UpdateLog from '../../components/Lobby/UpdateLog';
 import Banner from '../../components/Lobby/Banner/Banner';
 import Container from '../../utils/Container';
 
-const BoxStyle = styled.div`
+const BoxStyle = styled.div`    
     margin-top: 100px;
-    
+
     @media (max-width: 600px) {
         margin-top: 50px;
     }
@@ -18,7 +18,6 @@ const BoxStyle = styled.div`
 const TopStyle = styled.div`
     float: left;
     width: 100%;
-
 `;
 
 const StartBannerStyle = styled.div`
