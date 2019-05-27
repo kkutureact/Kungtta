@@ -16,6 +16,12 @@ export class ChatSocket implements Socket {
             return;
         }
 
+        if(data[0].mute){
+            const data = {'nickname': '채팅 금지!', 'text': '당신은 현재 채팅 금지 상태입니다.', isNotice: true};
+            client.send(JSON.stringify({action: 'chat', data: [data]}));
+            return;
+        }
+
         ws.clients.forEach(eachClient => {
             if (eachClient.readyState === WebSocket.OPEN) {
                 eachClient.send(JSON.stringify({action: 'chat', data: [editedData]}));

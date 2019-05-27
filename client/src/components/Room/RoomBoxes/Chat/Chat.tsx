@@ -77,7 +77,11 @@ export const Chat: React.FC = () => {
 
     const sendChat = () => {
         if (inputValue !== '' && inputValue !== ' ') {
-            ws.emit('chat', {uuid: user!!.uuid, nickname: user!!.nickname, text: inputValue, isNotice: false});
+            if(user!!.isMuted) {
+                ws.emit('chat', {uuid: user!!.uuid, nickname: user!!.nickname, text: inputValue, mute: true});
+            } else {
+                ws.emit('chat', {uuid: user!!.uuid, nickname: user!!.nickname, text: inputValue, mute: false});
+            }
             setInputValue('');
         }
     };
