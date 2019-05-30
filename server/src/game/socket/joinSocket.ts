@@ -18,8 +18,8 @@ export class JoinSocket implements Socket {
                     return;
                 }
             })
-            .catch(() => {
-
+            .catch((error) => {
+                logger.error(`사용자 밴 상태 확인 중에 오류가 발생하였습니다 \nError: ${error}`)
             });
 
         UserManager.addUser(uuid, nickname, profile, client);

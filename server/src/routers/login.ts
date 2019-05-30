@@ -4,6 +4,7 @@ import google from 'passport-google-oauth';
 import config from '../config/main.json';
 import Users from '../database/Users/index';
 import uuidv4 from 'uuid/v4';
+import {logger} from '../index';
 
 const router = express.Router();
 
@@ -28,18 +29,17 @@ router.get('/auth/profile', (req, res) => {
 });
 
 router.get('/auth/profile/:uuid', (req, res) => {
-    if (req.isAuthenticated()) {
-        if (req.user.isAdmin) {
-            const {uuid} = req.params;
+    if (req.isAuthenticated() && req.user.isAdmin) {
+        const {uuid} = req.params;
 
-            Users.findOne({where: {uuid: uuid}})
-                .then((data: any) => {
-                    res.json(data.dataValues);
-                })
-                .catch(() => {
-                    res.send('존재하지 않는 사용자입니다.');
-                });
-        }
+        Users.findOne({where: {uuid: uuid}})
+            .then((data: any) => {
+                res.json(data.dataValues);
+                logger.info(`관리자가 ${uuid} 사용자 정보를 조회하였습니다.`);
+            })
+            .catch(() => {
+                res.send('존재하지 않는 사용자입니다.');
+            });
     } else {
         res.status(401).send('Login required.');
     }

@@ -2,14 +2,17 @@ import express from 'express';
 import log4js from 'log4js';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
-import LoginRouter from './routers/login';
-import OAuthRouter from './routers/oauth';
-import auth from './auth/auth';
 import passport from 'passport';
-import config from './config/main.json';
 import cors from 'cors';
 import WebSocket from 'ws';
 import http from 'http';
+
+import LoginRouter from './routers/login';
+import OAuthRouter from './routers/oauth';
+import AdminRouter from './routers/admin';
+
+import Auth from './auth/auth';
+import config from './config/main.json';
 import { Game } from './Game/index';
 
 export const app = express();
@@ -25,6 +28,7 @@ logger.level = 'ALL';
 
 app.use(cors({ origin: config.webserver_host, credentials: true }));
 
+app.use(express.json());
 app.use(cookieParser());
 app.use(session({
     secret: config.session_secret,
@@ -35,9 +39,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-auth();
+Auth();
 app.use(LoginRouter);
 app.use(OAuthRouter);
+app.use(AdminRouter);
 
 Game();
 
