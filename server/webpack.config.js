@@ -1,3 +1,5 @@
+const nodeExternals = require('webpack-node-externals');
+
 module.exports = {
     target: 'node',
 
@@ -9,11 +11,6 @@ module.exports = {
                 test: /\.(ts|tsx)?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
-            },
-            {
-                test: /\.json$/,
-                use: 'json-loader',
-                exclude: /node_modules/
             }
         ]
     },
@@ -24,8 +21,10 @@ module.exports = {
         extensions: [ '.ts', '.js', '.tsx', '.json' ]
     },
 
+    externals: ['pg', 'pg-hstore', nodeExternals()],
+
     output: {
         filename: 'main.bundle.js',
         path: __dirname + '/dist'
     }
-}
+};

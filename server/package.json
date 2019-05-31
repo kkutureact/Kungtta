@@ -19,7 +19,7 @@
     "log4js": "^4.0.2",
     "msgpack-lite": "^0.1.26",
     "passport": "^0.4.0",
-    "sequelize": "^5.8.5",
+    "sequelize": "^5.8.7",
     "socket.io": "^2.2.0",
     "ws": "^6.2.0"
   },
@@ -46,11 +46,13 @@
     "passport-github2": "^0.1.11",
     "passport-google-oauth": "^1.0.0",
     "passport-naver": "^1.0.6",
+    "raw-loader": "^2.0.0",
     "ts-loader": "^5.3.3",
     "tslint": "^5.12.1",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
   }
 }
