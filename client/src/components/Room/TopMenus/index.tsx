@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import TopMenuButton from './TopMenuButton';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -12,11 +12,7 @@ import {
     faTrophy,
     faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
-import Modal from '../../../utils/Modal/Modal';
-import ModalOption from '../../../utils/Modal/ModalOption';
-import ModalButton from '../../../utils/Modal/ModalButton';
-import {SoundManager} from '../../../utils/Sound';
-import Cookies from 'universal-cookie';
+import Setting from '../../Dialogs/Setting';
 
 const TopMenusStyle = styled.div`
     float: left;
@@ -26,38 +22,12 @@ const TopMenusStyle = styled.div`
 
 export const TopMenus: React.FC = () => {
     const [options, setOptions] = useState(false);
-    const [volume, setVolume] = useState<number>(5);
-    const [effectVolume, setEffectVolume] = useState<number>(5);
-    const cookies = new Cookies();
-
-    useEffect(() => {
-        if(cookies.get('backgroundsound') !== undefined && cookies.get('soundeffect') !== undefined) {
-            setVolume(cookies.get('backgroundsound') / 0.1);
-            setEffectVolume(cookies.get('soundeffect') / 0.1);
-        }
-    }, []);
 
     return (
         <TopMenusStyle>
             <TopMenuButton color={'#cccccc'} isTiny={true} onClick={() => setOptions(!options)}><FontAwesomeIcon icon={faCog}/></TopMenuButton>
-            <Modal title={'설정'} isOpen={options} setBeOpen={setOptions}>
-                <ModalOption title={'배경음악 음량'}>
-                    <input type={'range'} min={0} max={10} value={volume} onChange={(evt) => setVolume(parseInt(evt.target.value))}></input>
-                </ModalOption>
+            <Setting isOpen={options} setBeOpen={setOptions}/>
 
-                <ModalOption title={'효과음 음량'}>
-                    <input type={'range'} min={0} max={10} value={effectVolume} onChange={(evt) => setEffectVolume(parseInt(evt.target.value))}></input>
-                </ModalOption>
-
-                <ModalButton onClick={() => {
-                    SoundManager.setBackgroundVolume(volume*0.1);
-                    SoundManager.setSoundEffectVolume(effectVolume*0.1);
-                    setOptions(false);
-
-                    SoundManager.setBackgroundCookie(volume*0.1);
-                    SoundManager.setSoundEffectCookie(effectVolume*0.1);
-                }}>적용</ModalButton>
-            </Modal>
             <TopMenuButton color={'#daa9ff'} isTiny={true}><FontAwesomeIcon icon={faUserFriends}/></TopMenuButton>
             <TopMenuButton color={'#8ec0f3'} isTiny={false}><FontAwesomeIcon className={'fa-fw'} icon={faDiceThree}/> 방 만들기</TopMenuButton>
             <TopMenuButton color={'#b0d2f3'} isTiny={false}><FontAwesomeIcon className={'fa-fw'} icon={faPlay}/> 빠른시작</TopMenuButton>

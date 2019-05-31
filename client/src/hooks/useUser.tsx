@@ -2,7 +2,7 @@ import React, {createContext, useContext, useEffect, useState} from 'react';
 import Axios from 'axios';
 import config from '../config';
 
-interface UserData {
+export interface UserDataType {
     readonly uuid: string;
     readonly vendor: string;
     readonly email: string;
@@ -13,10 +13,10 @@ interface UserData {
     readonly isAdmin: boolean;
 }
 
-const context = createContext<UserData | undefined>(undefined);
+const context = createContext<UserDataType | undefined>(undefined);
 
 export const UserProvider: React.FC = ({children}) => {
-    const [user, setUser] = useState<UserData | undefined>(undefined);
+    const [user, setUser] = useState<UserDataType | undefined>(undefined);
 
     useEffect(() => {
         Axios.get(`${config.endpointHost}/auth/profile`, {'withCredentials': true})
