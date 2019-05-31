@@ -5,8 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "npm run lint && nodemon --watch src --delay 1 --exec ts-node src/index.ts",
-    "start": "npm run lint && node dist/main.bundle.js",
-    "build": "webpack --mode production",
+    "start": "node dist/main.bundle.js",
+    "build": "npm run lint && webpack --mode production",
     "lint": "tslint -p ."
   },
   "author": "",
