@@ -1,6 +1,6 @@
 import passport from 'passport';
 import Users from '../database/Users/index';
-import {logger} from '../index';
+import { logger } from '../index';
 import uuidv4 from 'uuid/v4';
 import authGoogle from './authGoogle';
 import authNaver from './authNaver';
@@ -24,7 +24,7 @@ export default () => {
 
 export const onSuccess = (vendor: string, email: string, nickname: string, profileUrl: string, done: (error: any, user?: any) => void) => {
     Users.findOrCreate({
-        where: {email: email},
+        where: { email: email },
         defaults: {
             uuid: uuidv4(),
             vendor: vendor,
@@ -42,7 +42,7 @@ export const onSuccess = (vendor: string, email: string, nickname: string, profi
             logger.info(`${vendor} 소셜서비스를 통해 ${uuid} 사용자가 새로 가입하였습니다.`);
             done(null, user);
         } else {
-            Users.findOne({where: {uuid: uuid}})
+            Users.findOne({ where: { uuid: uuid } })
                 .then(() => {
                     logger.info(`${vendor} 소셜서비스를 통해 ${uuid} 사용자가 로그인하였습니다.`);
                     done(null, user);

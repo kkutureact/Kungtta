@@ -1,15 +1,15 @@
 import express from 'express';
 import Users from '../database/Users/index';
-import {logger} from '../index';
+import { logger } from '../index';
 
 const router = express.Router();
 
 router.put('/admin/ban/:uuid', (req, res) => {
     if (req.isAuthenticated() && req.user.isAdmin) {
-        const {uuid} = req.params;
-        const {status} = req.body;
+        const { uuid } = req.params;
+        const { status } = req.body;
 
-        Users.update({isBanned: status}, {
+        Users.update({ isBanned: status }, {
             where: {
                 uuid: uuid
             }
@@ -27,10 +27,10 @@ router.put('/admin/ban/:uuid', (req, res) => {
 
 router.put('/admin/mute/:uuid', (req, res) => {
     if (req.isAuthenticated() && req.user.isAdmin) {
-        const {uuid} = req.params;
-        const {status} = req.body;
+        const { uuid } = req.params;
+        const { status } = req.body;
 
-        Users.update({isMuted: status}, {
+        Users.update({ isMuted: status }, {
             where: {
                 uuid: uuid
             }

@@ -1,7 +1,7 @@
 import passport from 'passport';
 import discord from 'passport-discord';
 import config from '../config/oauth.json';
-import {onSuccess} from './auth';
+import { onSuccess } from './auth';
 
 const Strategy = discord.Strategy;
 

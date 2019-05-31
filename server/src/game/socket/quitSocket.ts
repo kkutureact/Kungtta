@@ -1,6 +1,6 @@
-import {Socket} from './socket';
+import { Socket } from './socket';
 import UserManager from '../UserManager';
-import {ws} from '../../index';
+import { ws } from '../../index';
 import WebSocket from 'ws';
 
 export class QuitSocket implements Socket {
@@ -12,7 +12,7 @@ export class QuitSocket implements Socket {
 
         ws.clients.forEach(eachClient => {
             if (eachClient.readyState === WebSocket.OPEN) {
-                eachClient.send(JSON.stringify({action: 'user', data: [{ users: UserManager.gets() }]}));
+                eachClient.send(JSON.stringify({ action: 'user', data: [{ users: UserManager.gets() }] }));
             }
         });
     }

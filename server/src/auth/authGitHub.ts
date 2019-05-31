@@ -1,7 +1,7 @@
 import passport from 'passport';
 import github from 'passport-github2';
 import config from '../config/oauth.json';
-import {onSuccess} from './auth';
+import { onSuccess } from './auth';
 
 const Strategy = github.Strategy;
 

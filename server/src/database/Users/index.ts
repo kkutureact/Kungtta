@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import sequelize from '../index';
 
-class User extends Sequelize.Model{}
+class User extends Sequelize.Model {}
 
 User.init({
     uuid: {

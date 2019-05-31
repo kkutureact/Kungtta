@@ -1,2 +1,2 @@
-export {CheckUuidCommand} from './checkUuidCommand';
-export {ClearChatCommand} from './clearChatCommand'
+export { CheckUuidCommand } from './checkUuidCommand';
+export { ClearChatCommand } from './clearChatCommand'

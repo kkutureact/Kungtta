@@ -4,9 +4,10 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon --watch src --delay 1 --exec ts-node src/index.ts",
-    "start": "node dist/main.bundle.js",
-    "build": "webpack --mode production"
+    "dev": "npm run lint && nodemon --watch src --delay 1 --exec ts-node src/index.ts",
+    "start": "npm run lint && node dist/main.bundle.js",
+    "build": "webpack --mode production",
+    "lint": "tslint -p ."
   },
   "author": "",
   "license": "ISC",
@@ -46,6 +47,8 @@
     "passport-google-oauth": "^1.0.0",
     "passport-naver": "^1.0.6",
     "ts-loader": "^5.3.3",
+    "tslint": "^5.12.1",
+    "tslint-config-standard": "^8.0.1",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"

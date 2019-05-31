@@ -1,7 +1,7 @@
 import passport from 'passport';
 import google from 'passport-google-oauth';
 import config from '../config/oauth.json';
-import {onSuccess} from './auth';
+import { onSuccess } from './auth';
 
 const Strategy = google.OAuth2Strategy;
 
