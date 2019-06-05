@@ -17,14 +17,16 @@ KKutuReact는 구성요소를 3가지로 구별합니다.
 
 ### GameServer
 - TypeScript
-- Passport.js
-- Sequelize.js
 - Express
+- Sequelize.js
 - ws
 - TSLint
 
 ### API Server
-- 작성 중
+- TypeScript
+- Passport.js
+- Sequelize.js
+- TSLint
 
 
 ## License
