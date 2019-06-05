@@ -27,11 +27,12 @@ interface Props {
     readonly profile: string;
     readonly level: string;
     readonly name: any;
+    readonly onClick?: React.MouseEventHandler;
 }
 
-export const UserInfo: React.FC<Props> = ({ profile, level, name }) => {
+export const UserInfo: React.FC<Props> = ({ profile, level, name, onClick }) => {
     return (
-        <User>
+        <User onClick={onClick}>
             <UserIconStyle url={profile}/>
             <UserIconStyle url={level}/>
             <UserNameStyle>{name}</UserNameStyle>

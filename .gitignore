@@ -3,9 +3,11 @@
 */node_modules
 
 server/dist
-
 server/src/config/*.json
-
 server/logs
+
+api/dist
+api/src/config/*.json
+api/logs
 
 client/src/config.ts

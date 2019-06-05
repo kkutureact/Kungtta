@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import BoxTitle from '../../../utils/ContentBox/BoxTitle';
-import BoxContent from '../../../utils/ContentBox/BoxContent';
-import Body from '../../../assets/images/character/body.png';
+import BoxTitle from '../../../../utils/ContentBox/BoxTitle';
+import BoxContent from '../../../../utils/ContentBox/BoxContent';
+import Body from '../../../../assets/images/character/body.png';
 
 const ContainerStyle = styled.div`
     color: #111111;

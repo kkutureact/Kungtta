@@ -1,0 +1,11 @@
+{
+  "database": {
+    "host": "",
+    "port": 3306,
+    "database": "",
+    "username": "",
+    "password": ""
+  },
+  "webserver_host": "http://example.example",
+  "session_secret": ""
+}

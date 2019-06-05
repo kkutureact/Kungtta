@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import backgroundimage from '../../assets/images/kkutu/gamebg.png';
 import Container from '../../utils/Container';
 import UserList from '../../components/Room/RoomBoxes/UserList/UserList';
-import RoomList from '../../components/Room/RoomBoxes/RoomList';
-import MyProfile from '../../components/Room/RoomBoxes/MyProfile';
+import RoomList from '../../components/Room/RoomBoxes/RoomList/RoomList';
+import MyProfile from '../../components/Room/RoomBoxes/MyProfile/MyProfile';
 import Chat from '../../components/Room/RoomBoxes/Chat/Chat';
 import TopMenus from '../../components/Room/TopMenus';
 import Footer from '../../components/Footer/Footer';
@@ -13,6 +13,7 @@ import {useWebSocket} from '../../index';
 import {useUser} from '../../hooks/useUser';
 import {BackgroundSound} from '../../utils/Sound';
 import Header from '../../components/Header/Header';
+import Shop from '../../components/Room/RoomBoxes/Shop/Shop';
 
 const BackgroundStyle = styled.div`
 	position: fixed;

@@ -49,8 +49,10 @@ export const UserList: React.FC = () => {
             <BoxContent>
                 {
                     userList.map((data, index) => {
-                        return <UserInfo key={index} profile={data.profile !== 'guest' ? data.profile : tempI}
-                                         level={tempI} name={data.nickname}/>;
+                        return (
+                            <UserInfo key={index} profile={data.profile !== 'guest' ? data.profile : tempI}
+                                      level={tempI} name={data.nickname}/>
+                        );
                     })
                 }
             </BoxContent>

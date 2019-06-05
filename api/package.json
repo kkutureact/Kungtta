@@ -1,0 +1,50 @@
+{
+  "name": "kkutureact-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "npm run lint && nodemon --watch src --delay 1 --exec ts-node src/index.ts",
+    "start": "node dist/main.bundle.js",
+    "build": "npm run lint && webpack --mode production",
+    "lint": "tslint -p ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
+    "express-session": "^1.16.1",
+    "log4js": "^4.1.0",
+    "passport": "^0.4.0",
+    "sequelize": "^5.8.7"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.1",
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.1",
+    "@types/express-session": "^1.15.12",
+    "@types/node": "^12.0.2",
+    "@types/passport": "^1.0.0",
+    "@types/passport-discord": "^0.1.3",
+    "@types/passport-github2": "^1.2.4",
+    "@types/passport-google-oauth": "^1.0.40",
+    "@types/passport-naver": "^0.2.0",
+    "@types/sequelize": "^4.27.47",
+    "@types/uuid": "^3.4.4",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.18.11",
+    "passport-discord": "^0.1.3",
+    "passport-github2": "^0.1.11",
+    "passport-google-oauth": "^2.0.0",
+    "passport-naver": "^1.0.6",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.12.1",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.4.5",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
