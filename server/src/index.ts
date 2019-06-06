@@ -3,12 +3,13 @@ import log4js from 'log4js';
 import cookieParser from 'cookie-parser';
 import WebSocket from 'ws';
 import http from 'http';
+import config from './config/main.json';
 
 import { Game } from './Game/index';
 
 export const app = express();
 export const logger = log4js.getLogger();
-const port = 8081;
+const port = config.port;
 
 log4js.configure(__dirname + '/config/log4js.json');
 
