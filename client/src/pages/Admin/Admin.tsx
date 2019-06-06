@@ -40,7 +40,7 @@ export const Admin: React.FC = () => {
         }
     };
     const findUser = () => {
-        Axios.get(`${config.endpointHost}/auth/profile/${uuid}`, {'withCredentials': true})
+        Axios.get(`${config.endpointAPI}/auth/profile/${uuid}`, {'withCredentials': true})
             .then(res => {
                 setData(res.data);
             })
@@ -48,7 +48,7 @@ export const Admin: React.FC = () => {
     };
 
     const banUser = (status: boolean) => {
-        Axios.put(`${config.endpointHost}/admin/ban/${banUuid}`, { 'status': status },{'withCredentials': true})
+        Axios.put(`${config.endpointAPI}/admin/ban/${banUuid}`, { 'status': status },{'withCredentials': true})
             .then(() => {
                 alert('처리 완료! 현재 상태: ' + status);
             })
@@ -56,7 +56,7 @@ export const Admin: React.FC = () => {
     };
 
     const muteUser = (status: boolean) => {
-        Axios.put(`${config.endpointHost}/admin/mute/${muteUuid}`, { 'status': status }, {'withCredentials': true})
+        Axios.put(`${config.endpointAPI}/admin/mute/${muteUuid}`, { 'status': status }, {'withCredentials': true})
             .then(() => {
                 alert('처리 완료! 현재 상태: ' + status);
             })

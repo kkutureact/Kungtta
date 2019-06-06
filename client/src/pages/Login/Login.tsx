@@ -29,15 +29,15 @@ export const Login: React.FC = () => {
                     <LoginTitleStyle>로그인하기</LoginTitleStyle>
                     <p>소셜서비스를 이용하여 끄투에 로그인 해보세요!</p>
 
-                    <ColorButton color={'#00C73C'} href={`${config.endpointHost}/oauth/naver`}>네이버</ColorButton>
+                    <ColorButton color={'#00C73C'} href={`${config.endpointAPI}/oauth/naver`}>네이버</ColorButton>
                     <br/>
-                    <ColorButton color={'#ea4335'} href={`${config.endpointHost}/oauth/google`}>구글</ColorButton>
+                    <ColorButton color={'#ea4335'} href={`${config.endpointAPI}/oauth/google`}>구글</ColorButton>
                     <br/>
-                    <ColorButton color={'#3b5998'} href={`${config.endpointHost}/oauth/google`}>페이스북</ColorButton>
+                    <ColorButton color={'#3b5998'} href={`${config.endpointAPI}/oauth/google`}>페이스북</ColorButton>
                     <br/>
-                    <ColorButton color={'#7289da'} href={`${config.endpointHost}/oauth/discord`}>디스코드</ColorButton>
+                    <ColorButton color={'#7289da'} href={`${config.endpointAPI}/oauth/discord`}>디스코드</ColorButton>
                     <br/>
-                    <ColorButton color={'#333'} href={`${config.endpointHost}/oauth/github`}>GitHub</ColorButton>
+                    <ColorButton color={'#333'} href={`${config.endpointAPI}/oauth/github`}>GitHub</ColorButton>
 
                     <div>
                         <br/>

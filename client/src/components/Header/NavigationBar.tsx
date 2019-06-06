@@ -59,7 +59,7 @@ export const NavigationBar: React.FC = () => {
             <MenuButtonStyle to={'/'}><FontAwesomeIcon icon={faHome}/></MenuButtonStyle>
             {
                 user !== undefined && user.vendor !== 'guest' ?
-                    <a href={`${config.endpointHost}/logout`}><LoginStyle><FontAwesomeIcon
+                    <a href={`${config.endpointAPI}/logout`}><LoginStyle><FontAwesomeIcon
                         icon={faSignOutAlt}/> 환영합니다! {user.nickname}님</LoginStyle></a> :
                     <Link to={'/login'}><LoginStyle><FontAwesomeIcon icon={faSignInAlt}/> 로그인</LoginStyle></Link>
             }

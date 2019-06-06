@@ -19,7 +19,7 @@ export const UserProvider: React.FC = ({children}) => {
     const [user, setUser] = useState<UserDataType | undefined>(undefined);
 
     useEffect(() => {
-        Axios.get(`${config.endpointHost}/auth/profile`, {'withCredentials': true})
+        Axios.get(`${config.endpointAPI}/auth/profile`, {'withCredentials': true})
             .then((res) => {
                 setUser(res.data.user);
             })

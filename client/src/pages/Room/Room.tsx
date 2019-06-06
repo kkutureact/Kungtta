@@ -34,7 +34,7 @@ const BoxStyle = styled.div`
     width: 1010px;
 `;
 
-export const Room: React.FC<RouteComponentProps<{ server: string }>> = ({match, history}) => {
+export const Room: React.FC<RouteComponentProps> = ({ history }) => {
     const ws = useWebSocket();
     const user = useUser();
 

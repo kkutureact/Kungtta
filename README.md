@@ -24,6 +24,7 @@ KKutuReact는 구성요소를 3가지로 구별합니다.
 
 ### API Server
 - TypeScript
+- Express
 - Passport.js
 - Sequelize.js
 - TSLint
