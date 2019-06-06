@@ -5,7 +5,7 @@ import { FilteringBadWord } from '../chat/filteringBadWord';
 import { CommandHandler } from '../commands/commandHandler';
 
 export class ChatSocket implements Socket {
-    run(client: any, action: string, data: any): void {
+    run (client: any, action: string, data: any): void {
         const editedData = data[0];
         editedData.text = FilteringBadWord(data[0].text);
 
@@ -16,7 +16,7 @@ export class ChatSocket implements Socket {
             return;
         }
 
-        if(data[0].mute) {
+        if (data[0].mute) {
             const data = { 'nickname': '채팅 금지!', 'text': '당신은 현재 채팅 금지 상태입니다.', isNotice: true };
             client.send(JSON.stringify({ action: 'chat', data: [data] }));
             return;

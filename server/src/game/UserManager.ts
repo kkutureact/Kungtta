@@ -7,17 +7,20 @@ interface Data {
 const users: { [uuid: string]: Data } = {};
 
 const manager = {
-    addUser(key: string, nickname: string, profile: string, client: WebSocket) {
+    addUser (key: string, nickname: string, profile: string, client: WebSocket): void {
         users[key] = { nickname: nickname, profile: profile, client: client };
     },
-    removeUser(uuid: string) {
+    removeUser (uuid: string): void {
         delete users[uuid];
     },
-    gets() {
+    gets (): object {
         return users;
     },
-    get(uuid: string) {
+    get (uuid: string): object {
         return users[uuid];
+    },
+    size (): number {
+        return Object.keys(users).length;
     }
 };
 

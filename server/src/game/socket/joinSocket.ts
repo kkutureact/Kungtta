@@ -5,7 +5,7 @@ import WebSocket from 'ws';
 import UserManager from '../UserManager';
 
 export class JoinSocket implements Socket {
-    run(client: any, action: string, data: any): void {
+    run (client: any, action: string, data: any): void {
         const uuid = data[0].uuid;
         const nickname = data[0].nickname;
         const profile = data[0].profile;
@@ -21,7 +21,7 @@ export class JoinSocket implements Socket {
                 }
             })
             .catch((error) => {
-                logger.error(`사용자 밴 상태 확인 중에 오류가 발생하였습니다 \nError: ${error}`)
+                logger.error(`사용자 밴 상태 확인 중에 오류가 발생하였습니다 \nError: ${error}`);
             });
 
         UserManager.addUser(uuid, nickname, profile, client);

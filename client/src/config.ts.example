@@ -1,6 +1,25 @@
 export default {
     endpointAPI: '',
     gameServers: [
-        ''
+        {
+            url: '',
+            name: '가람'
+        },
+        {
+            url: '',
+            name: '나래'
+        },
+        {
+            url: '',
+            name: '다옴'
+        },
+        {
+            url: '',
+            name: '솔길'
+        },
+        {
+            url: '',
+            name: '한울'
+        }
     ]
 };

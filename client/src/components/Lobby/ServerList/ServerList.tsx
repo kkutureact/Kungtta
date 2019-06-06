@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Server from './Server';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faSyncAlt} from '@fortawesome/free-solid-svg-icons';
 
 const ListStyle = styled.div`
     float: right;
@@ -37,24 +37,25 @@ const IconStyle = styled(FontAwesomeIcon)`
 `;
 
 export const ServerList: React.FC = () => {
+
     return (
         <ListStyle>
             <ListBoxStyle>
                 <ListTitleStyle>
                     <IconStyle icon={faSyncAlt}/>
-                    <label>서버 목록</label>
-                    <CountPeopleStyle>&nbsp; 총 0명</CountPeopleStyle>
+                    <label>채널 목록</label>
+                    <CountPeopleStyle>&nbsp; 입장 할 채널을 선택해주세요.</CountPeopleStyle>
                 </ListTitleStyle>
                 <div>
-                    <Server name={"테스트1"} isOnline={true} size={5}/>
-                    <Server name={"테스트2"} isOnline={true} size={10}/>
-                    <Server name={"테스트3"} isOnline={true} size={15}/>
-                    <Server name={"테스트4"} isOnline={true} size={20}/>
-                    <Server name={"테스트5"} isOnline={true} size={25}/>
+                    <Server name={'가람'} isOnline={true} size={5}/>
+                    <Server name={'나래'} isOnline={true} size={10}/>
+                    <Server name={'다옴'} isOnline={true} size={15}/>
+                    <Server name={'솔길'} isOnline={true} size={20}/>
+                    <Server name={'한울'} isOnline={true} size={25}/>
                 </div>
             </ListBoxStyle>
         </ListStyle>
     );
-}
+};
 
 export default ServerList;

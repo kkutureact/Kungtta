@@ -66,7 +66,7 @@ export const Server: React.FC<Props> = ({ name, isOnline, size }) => {
             <StatusNameStyle>{name}</StatusNameStyle>
             <StatusGraphStyle>
                 <GraphStyle width={size}/>
-                <label>{isOnline ? '현재인원/전체인원' : '-'}</label>
+                <label>{isOnline ? `${size}/500` : '-'}</label>
             </StatusGraphStyle>
             <StatusEnterStyle>{isOnline ? '접속' : '-'}</StatusEnterStyle>
         </ContainerStyle>

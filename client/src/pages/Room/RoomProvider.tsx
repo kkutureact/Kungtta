@@ -6,7 +6,7 @@ import Room from './Room';
 import {Link} from 'react-router-dom';
 
 export const RoomProvider: React.FC<RouteComponentProps<{ channel: string }>> = ({match}) => {
-    const gameServerWS = config.gameServers[parseInt(match.params.channel)];
+    const gameServerWS = config.gameServers[parseInt(match.params.channel)].url;
 
     if (gameServerWS == undefined) {
         alert('Error! 존재하지 않는 채널입니다.');
