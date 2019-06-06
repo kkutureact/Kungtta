@@ -9,15 +9,20 @@ export const RoomProvider: React.FC<RouteComponentProps<{ channel: string }>> = 
     const gameServerWS = config.gameServers[parseInt(match.params.channel)];
 
     if (gameServerWS == undefined) {
-        alert('Error! 존재하지 않는 채널입니다.');
-        return(<Link to={'/'}><button>로비로 돌아가기</button></Link>);
+        alert('존재하지 않는 채널입니다.');
+        return (
+            <Link to={'/'}>
+                <button>로비로 돌아가기</button>
+            </Link>
+        );
     }
 
     return (
         <WebSocketProvider
             url={gameServerWS.url}
-            onError={(event: any) => {
-                console.log(`WebSocket Error! ${JSON.stringify(event)}`);
+            onError={() => {
+                console.log('WebSocket Error!');
+                alert(`채널 연결이 끊겼습니다.`);
             }}>
             <Room/>
         </WebSocketProvider>
