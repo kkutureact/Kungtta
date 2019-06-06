@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from "styled-components";
-import blue from "../../../assets/images/blue_gauge.png";
+import styled from 'styled-components';
+import blue from '../../../assets/images/blue_gauge.png';
+import {Link} from 'react-router-dom';
 
 const ContainerStyle = styled.div`
     float: left;
@@ -9,9 +10,14 @@ const ContainerStyle = styled.div`
     height: 16px;
     font-size: 13px;
     cursor: pointer;
+    color: #EEEEEE;
     
     &>div {
         float: left;
+    }
+      
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.1);
     }
 `;
 
@@ -57,20 +63,23 @@ interface Props {
     readonly name: string;
     readonly isOnline: boolean;
     readonly size: number;
+    readonly channel: number;
 }
 
-export const Server: React.FC<Props> = ({ name, isOnline, size }) => {
-    return(
-        <ContainerStyle>
-            <StatusIconStyle isOnline={isOnline}/>
-            <StatusNameStyle>{name}</StatusNameStyle>
-            <StatusGraphStyle>
-                <GraphStyle width={size}/>
-                <label>{isOnline ? `${size}/500` : '-'}</label>
-            </StatusGraphStyle>
-            <StatusEnterStyle>{isOnline ? '접속' : '-'}</StatusEnterStyle>
-        </ContainerStyle>
+export const Server: React.FC<Props> = ({name, isOnline, size, channel}) => {
+    return (
+        <Link to={`/rooms/${channel}`}>
+            <ContainerStyle>
+                <StatusIconStyle isOnline={isOnline}/>
+                <StatusNameStyle>{name}</StatusNameStyle>
+                <StatusGraphStyle>
+                    <GraphStyle width={size}/>
+                    <label>{isOnline ? `${size}/500` : '-'}</label>
+                </StatusGraphStyle>
+                <StatusEnterStyle>{isOnline ? '접속' : '-'}</StatusEnterStyle>
+            </ContainerStyle>
+        </Link>
     );
-}
+};
 
 export default Server;

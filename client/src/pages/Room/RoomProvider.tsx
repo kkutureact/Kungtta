@@ -6,7 +6,7 @@ import Room from './Room';
 import {Link} from 'react-router-dom';
 
 export const RoomProvider: React.FC<RouteComponentProps<{ channel: string }>> = ({match}) => {
-    const gameServerWS = config.gameServers[parseInt(match.params.channel)].url;
+    const gameServerWS = config.gameServers[parseInt(match.params.channel)];
 
     if (gameServerWS == undefined) {
         alert('Error! 존재하지 않는 채널입니다.');
@@ -15,7 +15,7 @@ export const RoomProvider: React.FC<RouteComponentProps<{ channel: string }>> = 
 
     return (
         <WebSocketProvider
-            url={gameServerWS}
+            url={gameServerWS.url}
             onError={(event: any) => {
                 console.log(`WebSocket Error! ${JSON.stringify(event)}`);
             }}>

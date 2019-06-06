@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Server from './Server';
+import config from '../../../config';
+import Axios from 'axios';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSyncAlt} from '@fortawesome/free-solid-svg-icons';
@@ -47,11 +49,14 @@ export const ServerList: React.FC = () => {
                     <CountPeopleStyle>&nbsp; 입장 할 채널을 선택해주세요.</CountPeopleStyle>
                 </ListTitleStyle>
                 <div>
-                    <Server name={'가람'} isOnline={true} size={5}/>
-                    <Server name={'나래'} isOnline={true} size={10}/>
-                    <Server name={'다옴'} isOnline={true} size={15}/>
-                    <Server name={'솔길'} isOnline={true} size={20}/>
-                    <Server name={'한울'} isOnline={true} size={25}/>
+
+
+                    <Server name={"가람"} isOnline={true} size={5} channel={0}/>
+                    <Server name={"나래"} isOnline={true} size={10} channel={1}/>
+                    <Server name={"다옴"} isOnline={true} size={15} channel={2}/>
+                    <Server name={"솔길"} isOnline={true} size={20} channel={3}/>
+                    <Server name={"한울"} isOnline={true} size={25} channel={4}/>
+
                 </div>
             </ListBoxStyle>
         </ListStyle>
