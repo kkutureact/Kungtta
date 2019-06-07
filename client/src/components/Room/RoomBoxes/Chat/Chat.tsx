@@ -140,7 +140,7 @@ export const Chat: React.FC = () => {
                         })
                     }
                 </MessagesStyle>
-                <MessagesInputStyle value={inputValue} onChange={onInputChange} onKeyDown={onEnterKeyPress}
+                <MessagesInputStyle value={inputValue} onChange={onInputChange} onKeyPress={onEnterKeyPress}
                                     placeholder={'전송할 메세지를 입력해주세요.'}/>
                 <MessagesSendStyle onClick={sendChat}>전송</MessagesSendStyle>
             </BoxContent>

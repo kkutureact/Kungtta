@@ -1,14 +1,14 @@
-interface Data {
+interface UserManagerType {
     readonly nickname: string;
     readonly profile: string;
     readonly client: WebSocket;
 }
 
-const users: { [uuid: string]: Data } = {};
+const users: { [uuid: string]: UserManagerType } = {};
 
 const manager = {
-    addUser (key: string, nickname: string, profile: string, client: WebSocket): void {
-        users[key] = { nickname: nickname, profile: profile, client: client };
+    addUser (uuid: string, nickname: string, profile: string, client: WebSocket): void {
+        users[uuid] = { nickname: nickname, profile: profile, client: client };
     },
     removeUser (uuid: string): void {
         delete users[uuid];
@@ -16,7 +16,7 @@ const manager = {
     gets (): object {
         return users;
     },
-    get (uuid: string): object {
+    get (uuid: string): UserManagerType {
         return users[uuid];
     },
     size (): number {
