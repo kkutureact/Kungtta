@@ -1,9 +1,10 @@
 import Sequelize from 'sequelize';
 import sequelize from '../index';
+import BanList from '../Banlist';
 
-class User extends Sequelize.Model {}
+class Users extends Sequelize.Model {}
 
-User.init({
+Users.init({
     uuid: {
         type: Sequelize.UUID,
         primaryKey: true,
@@ -39,6 +40,9 @@ User.init({
         type: Sequelize.BOOLEAN,
         allowNull: false
     }
-}, { sequelize, modelName: 'user', timestamps: false });
+}, { sequelize, modelName: 'users', timestamps: false });
 
-export default User;
+Users.hasOne(BanList, { foreignKey: 'uuid' });
+BanList.belongsTo(Users);
+
+export default Users;

@@ -1,11 +1,11 @@
 import Sequelize from 'sequelize';
 import sequelize from '../index';
 
-class Ipbans extends Sequelize.Model {}
+class BanList extends Sequelize.Model {}
 
-Ipbans.init({
-    ip: {
-        type: Sequelize.CHAR(45),
+BanList.init({
+    uuid: {
+        type: Sequelize.UUID,
         primaryKey: true,
         unique: true,
         allowNull: false
@@ -18,6 +18,6 @@ Ipbans.init({
         type: Sequelize.INTEGER,
         allowNull: false
     }
-}, { sequelize, modelName: 'ipbans', timestamps: false });
+}, { sequelize, modelName: 'banlist', timestamps: false });
 
-export default Ipbans;
+export default BanList;
