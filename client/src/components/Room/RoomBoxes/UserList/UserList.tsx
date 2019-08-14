@@ -52,6 +52,7 @@ export const UserList: React.FC = () => {
                         return (
                             <UserInfo key={index} profile={data.profile !== 'guest' ? data.profile : tempI}
                                       level={tempI} name={data.nickname}/>
+
                         );
                     })
                 }

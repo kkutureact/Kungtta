@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import UserProfileDialog from '../../../Dialogs/UserProfileDialog';
 
 const User = styled.div`
     width: 190px;
@@ -27,16 +28,21 @@ interface Props {
     readonly profile: string;
     readonly level: string;
     readonly name: any;
-    readonly onClick?: React.MouseEventHandler;
 }
 
-export const UserInfo: React.FC<Props> = ({ profile, level, name, onClick }) => {
+export const UserInfo: React.FC<Props> = ({profile, level, name}) => {
+    const [isOpen, setBeOpen] = useState<boolean>(false);
+
+    const data = { nickname: name, profile: profile };
     return (
-        <User onClick={onClick}>
-            <UserIconStyle url={profile}/>
-            <UserIconStyle url={level}/>
-            <UserNameStyle>{name}</UserNameStyle>
-        </User>
+        <>
+            <User onClick={() => setBeOpen(!isOpen)}>
+                <UserIconStyle url={profile}/>
+                <UserIconStyle url={level}/>
+                <UserNameStyle>{name}</UserNameStyle>
+            </User>
+            <UserProfileDialog User={data} isOpen={isOpen} setBeOpen={setBeOpen}/>
+        </>
     );
 };
 

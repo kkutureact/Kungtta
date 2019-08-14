@@ -1,7 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 import Modal from '../../utils/Modal/Modal';
 import ModalOption from '../../utils/Modal/ModalOption';
 import ModalButton from '../../utils/Modal/ModalButton';
+import Moremi from '../Moremi/Moremi';
+
+const ProfileStyle = styled.div`
+    float: left;
+`;
 
 interface UserType {
     readonly nickname: string;
@@ -14,12 +20,15 @@ interface Props{
     readonly setBeOpen: any;
 }
 
-export const UserProfile: React.FC<Props> = ({ User, isOpen, setBeOpen }) => {
-
+export const UserProfileDialog: React.FC<Props> = ({ User, isOpen, setBeOpen }) => {
     const nickname = User!!.nickname;
 
     return (
-        <Modal title={`${nickname}님의 프로필`} isOpen={isOpen} setBeOpen={setBeOpen}>
+        <Modal title={`${nickname}님의 프로필`} isOpen={isOpen} setBeOpen={setBeOpen} width={'300px'}>
+            <ProfileStyle>
+                <Moremi/>
+            </ProfileStyle>
+
             <ModalOption title={'테스트'}>
 
             </ModalOption>
@@ -29,4 +38,4 @@ export const UserProfile: React.FC<Props> = ({ User, isOpen, setBeOpen }) => {
     );
 };
 
-export default UserProfile;
+export default UserProfileDialog;

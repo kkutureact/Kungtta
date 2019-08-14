@@ -12,7 +12,7 @@ import {
     faTrophy,
     faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
-import Setting from '../../Dialogs/Setting';
+import SettingDialog from '../../Dialogs/SettingDialog';
 
 const TopMenusStyle = styled.div`
     float: left;
@@ -26,7 +26,7 @@ export const TopMenus: React.FC = () => {
     return (
         <TopMenusStyle>
             <TopMenuButton color={'#cccccc'} isTiny={true} onClick={() => setOptions(!options)}><FontAwesomeIcon icon={faCog}/></TopMenuButton>
-            <Setting isOpen={options} setBeOpen={setOptions}/>
+            <SettingDialog isOpen={options} setBeOpen={setOptions}/>
 
             <TopMenuButton color={'#daa9ff'} isTiny={true}><FontAwesomeIcon icon={faUserFriends}/></TopMenuButton>
             <TopMenuButton color={'#8ec0f3'} isTiny={false}><FontAwesomeIcon className={'fa-fw'} icon={faDiceThree}/> 방 만들기</TopMenuButton>

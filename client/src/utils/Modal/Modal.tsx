@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Draggable from 'react-draggable';
 
-const ModalStyle = styled.div<{ isOpen: boolean }>`
+const ModalStyle = styled.div<{ isOpen: boolean, width?: string, height?: string }>`
     display: ${props => props.isOpen ? 'block' : 'none'};
     position: fixed;
     padding: 5px;
+    width: ${props => props.width !== undefined ? props.width : 'auto'};
+    height: ${props => props.height !== undefined ? props.height : 'auto'};
     border-radius: 10px;
     color: #111111;
     box-shadow: 0px 1px 1px #141414;
@@ -52,12 +54,14 @@ interface Props {
     readonly isOpen: boolean;
     readonly setBeOpen: React.Dispatch<React.SetStateAction<boolean>>
     readonly title: string;
+    readonly width?: string;
+    readonly height?: string;
 }
 
-export const Modal: React.FC<Props> = ({isOpen, setBeOpen, title, children}) => {
+export const Modal: React.FC<Props> = ({isOpen, setBeOpen, title, width, height, children}) => {
     return (
         <Draggable defaultPosition={{x: 200, y: 200}} handle={'.ModalDraggable'}>
-            <ModalStyle isOpen={isOpen}>
+            <ModalStyle isOpen={isOpen} width={width} height={height}>
                 <ModalHeadStyle className={'ModalDraggable'}>
                     <TitleStyle>{title}</TitleStyle>
                     <CloseButtonStyle onClick={() => setBeOpen(false)}/>

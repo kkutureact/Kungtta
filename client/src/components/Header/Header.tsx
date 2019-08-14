@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
     return(
       <MenuStyle>
           <NavigationBar/>
-          <Notice>ㅇㅇ</Notice>
+          <Notice>TEST</Notice>
       </MenuStyle>
     );
 };

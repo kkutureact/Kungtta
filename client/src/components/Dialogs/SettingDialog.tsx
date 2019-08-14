@@ -10,7 +10,7 @@ interface Props {
     readonly setBeOpen: any;
 }
 
-export const Setting: React.FC<Props> = ({isOpen, setBeOpen}) => {
+export const SettingDialog: React.FC<Props> = ({isOpen, setBeOpen}) => {
     const [volume, setVolume] = useState<number>(5);
     const [effectVolume, setEffectVolume] = useState<number>(5);
     const cookies = new Cookies();
@@ -23,7 +23,7 @@ export const Setting: React.FC<Props> = ({isOpen, setBeOpen}) => {
     }, []);
 
     return (
-        <Modal title={'설정'} isOpen={isOpen} setBeOpen={setBeOpen}>
+        <Modal title={'설정'} isOpen={isOpen} setBeOpen={setBeOpen} width={'350px'}>
             <ModalOption title={'배경음악 음량'}>
                 <input type={'range'} min={0} max={10} value={volume}
                        onChange={(evt) => setVolume(parseInt(evt.target.value))}></input>
@@ -46,4 +46,4 @@ export const Setting: React.FC<Props> = ({isOpen, setBeOpen}) => {
     );
 };
 
-export default Setting;
+export default SettingDialog;
