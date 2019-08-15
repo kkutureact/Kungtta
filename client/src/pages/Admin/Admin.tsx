@@ -39,31 +39,16 @@ export const Admin: React.FC = () => {
         }
     }, [user]);
 
-    const onInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-        const id = evt.target.id;
-        const value = evt.target.value;
-
-        switch (id) {
-            case 'finduser':
-                setUuid(value);
-                break;
-            case 'banuuid':
-                setBanUuid(value);
-                break;
-            case 'banreason':
-                setBanReason(value);
-                break;
-            case 'banexp':
-                setBanExp(parseInt(value));
-                break;
-            case 'muteuuid':
-                setMuteUuid(value);
-                break;
-            case 'muteexp':
-                setMuteExp(parseInt(value));
-                break;
-        }
+    const inputStateFunctions: any = {
+        finduser: (v: string) => setUuid(v),
+        banuuid: (v: string) => setBanUuid(v),
+        banreason: (v: string) => setBanReason(v),
+        banexp: (v: number) => setBanExp(v),
+        muteuuid: (v: string) => setMuteUuid(v),
+        muteexp: (v: number) => setMuteExp(v)
     };
+
+    const onInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => inputStateFunctions[evt.target.name](evt.target.value);
 
     const FindUserInputEnterKeyPress = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') {
@@ -121,7 +106,7 @@ export const Admin: React.FC = () => {
                         변환기]</UnixTimeLinkStyle></h2>
 
                     <AdminItem name={'유저 조회'}>
-                        <InputStyle id={'finduser'} value={uuid} onChange={onInputChange}
+                        <InputStyle name={'finduser'} value={uuid} onChange={onInputChange}
                                     onKeyPress={FindUserInputEnterKeyPress}
                                     placeholder={'UUID 입력 (공백 시 자신의 정보를 조회합니다.)'}/>
                         <SmallButton onClick={findUser}>조회하기</SmallButton>
@@ -129,20 +114,20 @@ export const Admin: React.FC = () => {
                     </AdminItem>
 
                     <AdminItem name={'유저 밴'}>
-                        <InputStyle id={'banuuid'} value={banUuid} onChange={onInputChange}
+                        <InputStyle name={'banuuid'} value={banUuid} onChange={onInputChange}
                                     placeholder={'UUID 입력'}/>
-                        <InputStyle id={'banreason'} value={banReason} onChange={onInputChange}
+                        <InputStyle name={'banreason'} value={banReason} onChange={onInputChange}
                                     placeholder={'사유'}/>
-                        <InputStyle id={'banexp'} value={banExp} onChange={onInputChange}
+                        <InputStyle name={'banexp'} value={banExp} onChange={onInputChange}
                                     placeholder={'해제일 (UnixTime)'}/>
                         <SmallButton onClick={banUser}>처리하기</SmallButton>
                         <SmallButton onClick={unbanUser}>풀어주기</SmallButton>
                         <p>* 처리 시 해당 플레이어는 로그아웃 됩니다.</p>
                     </AdminItem>
                     <AdminItem name={'유저 뮤트'}>
-                        <InputStyle id={'muteuuid'} value={muteUuid} onChange={onInputChange}
+                        <InputStyle name={'muteuuid'} value={muteUuid} onChange={onInputChange}
                                     placeholder={'UUID 입력'}/>
-                        <InputStyle id={'muteexp'} value={muteExp} onChange={onInputChange}
+                        <InputStyle name={'muteexp'} value={muteExp} onChange={onInputChange}
                                     placeholder={'해제일 (UnixTime)'}/>
                         <SmallButton onClick={muteUser}>처리하기</SmallButton>
                         <SmallButton onClick={unmuteUser}>풀어주기</SmallButton>
