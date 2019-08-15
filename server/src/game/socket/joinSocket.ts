@@ -3,6 +3,7 @@ import Users from '../../database/Users';
 import { logger, ws } from '../../index';
 import WebSocket from 'ws';
 import UserManager from '../UserManager';
+import BanList from '../../database/Banlist';
 
 export class JoinSocket implements Socket {
     run (client: any, action: string, data: any): void {
@@ -10,9 +11,10 @@ export class JoinSocket implements Socket {
         const nickname = data[0].nickname;
         const profile = data[0].profile;
 
-        Users.findOne({ where: { uuid: uuid } })
+        BanList.findOne({ where: { uuid: uuid } })
             .then((data: any) => {
-                if (profile !== 'guest' && data.dataValues.isBanned) {
+                logger.debug(data);
+                if (profile !== 'guest' && data !== null) {
                     logger.info(`접근 차단된 ${uuid} 사용자가 접속을 시도하였습니다.`);
                     client.send(JSON.stringify({ action: 'ban', data: [{ reason: '당신은 관리자에 의하여 차단된 사용자입니다.' }] }));
                     return;

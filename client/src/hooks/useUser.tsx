@@ -8,15 +8,15 @@ export interface UserDataType {
     readonly email: string;
     readonly nickname: string;
     readonly profile: string;
-    readonly isBanned: boolean;
     readonly isMuted: boolean;
+    readonly mute_exp_date: number;
     readonly isAdmin: boolean;
 }
 
-const context = createContext<UserDataType | undefined>(undefined);
+const context = createContext<UserDataType>({} as UserDataType);
 
 export const UserProvider: React.FC = ({ children }) => {
-    const [user, setUser] = useState<UserDataType | undefined>(undefined);
+    const [user, setUser] = useState<UserDataType>();
 
     useEffect(() => {
         Axios.get(`${config.endpointAPI}/auth/profile`, { 'withCredentials': true })
@@ -27,7 +27,7 @@ export const UserProvider: React.FC = ({ children }) => {
     }, []);
 
     return (
-        <context.Provider value={user}>
+        <context.Provider value={user!}>
             {children}
         </context.Provider>
     );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ColorBackground from '../../utils/ColorBackground';
 import Container from '../../utils/Container';
@@ -15,23 +15,54 @@ const InputStyle = styled.input`
     width: 500px;
 `;
 
+const UnixTimeLinkStyle = styled.a`
+    font-size: 15px;
+    text-decoration: none;
+    color: #FFFFFF;
+`;
+
 export const Admin: React.FC = () => {
+    const [isAdmin, setBeAdmin] = useState<boolean>(false);
     const [data, setData] = useState<string>('');
     const [uuid, setUuid] = useState<string>('');
     const [banUuid, setBanUuid] = useState<string>('');
+    const [banReason, setBanReason] = useState<string>('');
+    const [banExp, setBanExp] = useState<number>(0);
     const [muteUuid, setMuteUuid] = useState<string>('');
+    const [muteExp, setMuteExp] = useState<number>(0);
 
     const user = useUser();
-    const isAdmin = user !== undefined ? user.isAdmin : false;
 
-    const onFindUserInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-        setUuid(evt.target.value);
-    };
-    const onBanUserInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-        setBanUuid(evt.target.value);
-    };
-    const onMuteUserInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-        setMuteUuid(evt.target.value);
+    useEffect(() => {
+        if (user !== undefined && user.isAdmin) {
+            setBeAdmin(true);
+        }
+    }, [user]);
+
+    const onInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+        const id = evt.target.id;
+        const value = evt.target.value;
+
+        switch (id) {
+            case 'finduser':
+                setUuid(value);
+                break;
+            case 'banuuid':
+                setBanUuid(value);
+                break;
+            case 'banreason':
+                setBanReason(value);
+                break;
+            case 'banexp':
+                setBanExp(parseInt(value));
+                break;
+            case 'muteuuid':
+                setMuteUuid(value);
+                break;
+            case 'muteexp':
+                setMuteExp(parseInt(value));
+                break;
+        }
     };
 
     const FindUserInputEnterKeyPress = (e: React.KeyboardEvent) => {
@@ -47,18 +78,37 @@ export const Admin: React.FC = () => {
             .catch(err => setData('Error ' + err));
     };
 
-    const banUser = (status: boolean) => {
-        Axios.put(`${config.endpointAPI}/admin/ban/${banUuid}`, { 'status': status }, { 'withCredentials': true })
+    const banUser = () => {
+        Axios.post(`${config.endpointAPI}/admin/ban/${banUuid}`, {
+            'reason': banReason,
+            'exp': banExp
+        }, { 'withCredentials': true })
             .then(() => {
-                alert('처리 완료! 현재 상태: ' + status);
+                alert('밴 완료!');
             })
             .catch(err => alert(err));
     };
 
-    const muteUser = (status: boolean) => {
-        Axios.put(`${config.endpointAPI}/admin/mute/${muteUuid}`, { 'status': status }, { 'withCredentials': true })
+    const unbanUser = () => {
+        Axios.delete(`${config.endpointAPI}/admin/unban/${banUuid}`, { 'withCredentials': true })
             .then(() => {
-                alert('처리 완료! 현재 상태: ' + status);
+                alert('밴 해제 완료!');
+            })
+            .catch(err => alert(err));
+    };
+
+    const muteUser = () => {
+        Axios.put(`${config.endpointAPI}/admin/mute/${muteUuid}`, { 'exp': muteExp }, { 'withCredentials': true })
+            .then(() => {
+                alert('뮤트 완료!');
+            })
+            .catch(err => alert(err));
+    };
+
+    const unmuteUser = () => {
+        Axios.put(`${config.endpointAPI}/admin/unmute/${muteUuid}`, { 'exp': 0 }, { 'withCredentials': true })
+            .then(() => {
+                alert('뮤트 해제 완료!');
             })
             .catch(err => alert(err));
     };
@@ -67,10 +117,11 @@ export const Admin: React.FC = () => {
         return (
             <>
                 <Container>
-                    <h2>끄투 관리자패널</h2>
+                    <h2>끄투 관리자패널<UnixTimeLinkStyle href='http://chongmoa.com/unixtime' target='_blank'> [UnixTime
+                        변환기]</UnixTimeLinkStyle></h2>
 
                     <AdminItem name={'유저 조회'}>
-                        <InputStyle value={uuid} onChange={onFindUserInputChange}
+                        <InputStyle id={'finduser'} value={uuid} onChange={onInputChange}
                                     onKeyPress={FindUserInputEnterKeyPress}
                                     placeholder={'UUID 입력 (공백 시 자신의 정보를 조회합니다.)'}/>
                         <SmallButton onClick={findUser}>조회하기</SmallButton>
@@ -78,17 +129,23 @@ export const Admin: React.FC = () => {
                     </AdminItem>
 
                     <AdminItem name={'유저 밴'}>
-                        <InputStyle value={banUuid} onChange={onBanUserInputChange}
+                        <InputStyle id={'banuuid'} value={banUuid} onChange={onInputChange}
                                     placeholder={'UUID 입력'}/>
-                        <SmallButton onClick={() => banUser(true)}>처리하기</SmallButton>
-                        <SmallButton onClick={() => banUser(false)}>풀어주기</SmallButton>
+                        <InputStyle id={'banreason'} value={banReason} onChange={onInputChange}
+                                    placeholder={'사유'}/>
+                        <InputStyle id={'banexp'} value={banExp} onChange={onInputChange}
+                                    placeholder={'해제일 (UnixTime)'}/>
+                        <SmallButton onClick={banUser}>처리하기</SmallButton>
+                        <SmallButton onClick={unbanUser}>풀어주기</SmallButton>
                         <p>* 처리 시 해당 플레이어는 로그아웃 됩니다.</p>
                     </AdminItem>
                     <AdminItem name={'유저 뮤트'}>
-                        <InputStyle value={muteUuid} onChange={onMuteUserInputChange}
+                        <InputStyle id={'muteuuid'} value={muteUuid} onChange={onInputChange}
                                     placeholder={'UUID 입력'}/>
-                        <SmallButton onClick={() => muteUser(true)}>처리하기</SmallButton>
-                        <SmallButton onClick={() => muteUser(false)}>풀어주기</SmallButton>
+                        <InputStyle id={'muteexp'} value={muteExp} onChange={onInputChange}
+                                    placeholder={'해제일 (UnixTime)'}/>
+                        <SmallButton onClick={muteUser}>처리하기</SmallButton>
+                        <SmallButton onClick={unmuteUser}>풀어주기</SmallButton>
                         <p>* 처리 시 해당 플레이어는 로그아웃 됩니다.</p>
                     </AdminItem>
 
@@ -97,6 +154,7 @@ export const Admin: React.FC = () => {
             </>
         );
     }
+
     return (
         <>
             <h1>관리자 전용 페이지입니다.</h1>

@@ -28,12 +28,12 @@ Users.init({
         type: Sequelize.STRING(150),
         allowNull: true
     },
-    isBanned: {
+    isMuted: {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
-    isMuted: {
-        type: Sequelize.BOOLEAN,
+    mute_exp_date: {
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     isAdmin: {
@@ -43,6 +43,6 @@ Users.init({
 }, { sequelize, modelName: 'users', timestamps: false });
 
 Users.hasOne(BanList, { foreignKey: 'uuid' });
-BanList.belongsTo(Users);
+BanList.belongsTo(Users, { foreignKey: 'uuid' });
 
 export default Users;

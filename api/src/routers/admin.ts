@@ -1,20 +1,41 @@
 import express from 'express';
 import Users from '../database/Users/index';
 import { logger } from '../index';
+import BanList from '../database/Banlist';
 
 const router = express.Router();
 
-router.put('/admin/ban/:uuid', (req, res) => {
+router.post('/admin/ban/:uuid', (req, res) => {
     if (req.isAuthenticated() && req.user.isAdmin) {
         const { uuid } = req.params;
-        const { status } = req.body;
+        const { reason, exp } = req.body;
 
-        Users.update({ isBanned: status }, {
+        BanList.create({
+            uuid: uuid,
+            reason: reason,
+            exp_date: exp
+        }).then(() => {
+            logger.info(`@${req.ip} 관리자가 ${uuid} 사용자를 밴 하였습니다.`);
+        }).catch((error) => {
+            logger.error(`@${req.ip} 사용자 밴 과정에서 오류가 발생하였습니다. \nError: ${error}`);
+        });
+
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(401);
+    }
+});
+
+router.delete('/admin/unban/:uuid', (req, res) => {
+    if (req.isAuthenticated() && req.user.isAdmin) {
+        const { uuid } = req.params;
+
+        BanList.destroy({
             where: {
                 uuid: uuid
             }
         }).then(() => {
-            logger.info(`@${req.ip} 관리자가 ${uuid} 사용자의 밴 상태를 ${status}(으)로 변경하였습니다.`);
+            logger.info(`@${req.ip} 관리자가 ${uuid} 사용자를 밴 해제 하였습니다.`);
         }).catch((error) => {
             logger.error(`@${req.ip} 사용자 밴 과정에서 오류가 발생하였습니다. \nError: ${error}`);
         });
@@ -28,14 +49,35 @@ router.put('/admin/ban/:uuid', (req, res) => {
 router.put('/admin/mute/:uuid', (req, res) => {
     if (req.isAuthenticated() && req.user.isAdmin) {
         const { uuid } = req.params;
-        const { status } = req.body;
+        const { exp } = req.body;
 
-        Users.update({ isMuted: status }, {
+        Users.update({ isMuted: true, mute_exp_date: exp }, {
             where: {
                 uuid: uuid
             }
         }).then(() => {
-            logger.info(`@${req.ip} 관리자가 ${uuid} 사용자의 뮤트 상태를 ${status}(으)로 변경하였습니다.`);
+            logger.info(`@${req.ip} 관리자가 ${uuid} 사용자를 뮤트 하였습니다.`);
+        }).catch((error) => {
+            logger.error(`@${req.ip} 사용자 뮤트 과정에서 오류가 발생하였습니다. \nError: ${error}`);
+        });
+
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(401);
+    }
+});
+
+router.put('/admin/unmute/:uuid', (req, res) => {
+    if (req.isAuthenticated() && req.user.isAdmin) {
+        const { uuid } = req.params;
+        const { exp } = req.body;
+
+        Users.update({ isMuted: false, mute_exp_date: exp }, {
+            where: {
+                uuid: uuid
+            }
+        }).then(() => {
+            logger.info(`@${req.ip} 관리자가 ${uuid} 사용자를 뮤트 해제 하였습니다.`);
         }).catch((error) => {
             logger.error(`@${req.ip} 사용자 뮤트 과정에서 오류가 발생하였습니다. \nError: ${error}`);
         });

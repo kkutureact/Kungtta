@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 import sequelize from '../index';
+import BanList from '../Banlist';
 
 class Users extends Sequelize.Model {}
 
@@ -27,12 +28,12 @@ Users.init({
         type: Sequelize.STRING(150),
         allowNull: true
     },
-    isBanned: {
+    isMuted: {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
-    isMuted: {
-        type: Sequelize.BOOLEAN,
+    mute_exp_date: {
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     isAdmin: {
@@ -40,5 +41,8 @@ Users.init({
         allowNull: false
     }
 }, { sequelize, modelName: 'users', timestamps: false });
+
+Users.hasOne(BanList, { foreignKey: 'uuid' });
+BanList.belongsTo(Users, { foreignKey: 'uuid' });
 
 export default Users;

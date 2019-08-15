@@ -31,8 +31,8 @@ export const onSuccess = (vendor: string, email: string, nickname: string, profi
             email: email,
             nickname: nickname,
             profile: profileUrl,
-            isBanned: false,
             isMuted: false,
+            mute_exp_date: 0,
             isAdmin: false
         }
     }).then(([user, created]) => {
