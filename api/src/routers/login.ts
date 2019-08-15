@@ -35,7 +35,7 @@ router.get('/auth/profile/:uuid', (req, res) => {
         Users.findOne({ where: { uuid: uuid } })
             .then((data: any) => {
                 res.json(data.dataValues);
-                logger.info(`관리자가 ${uuid} 사용자 정보를 조회하였습니다.`);
+                logger.info(`@${req.ip} 관리자가 ${uuid} 사용자 정보를 조회하였습니다.`);
             })
             .catch(() => {
                 res.send('존재하지 않는 사용자입니다.');

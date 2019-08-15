@@ -10,8 +10,6 @@ export class JoinSocket implements Socket {
         const nickname = data[0].nickname;
         const profile = data[0].profile;
 
-        logger.debug(client._socket.remoteAddress);
-
         Users.findOne({ where: { uuid: uuid } })
             .then((data: any) => {
                 if (profile !== 'guest' && data.dataValues.isBanned) {
