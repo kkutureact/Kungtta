@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BoxTitle from '../../../../utils/ContentBox/BoxTitle';
 import BoxContent from '../../../../utils/ContentBox/BoxContent';
 import tempI from '../../../../assets/images/kkutu/guest_icon.png';
 import UserInfo from './UserInfo';
-import {useWebSocket} from '../../../../index';
+import { useWebSocket } from '../../../../index';
 
 const ListStyle = styled.div`
     color: #111111;
@@ -14,7 +14,7 @@ const ListStyle = styled.div`
     padding: 5px;
     width: 200px;
     height: 360px;
-    
+
     div {
         float: left;
     }

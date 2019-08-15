@@ -15,7 +15,7 @@ interface Props {
     readonly color: string;
 }
 
-export const ColorBackground: React.FC<Props> = ({color}) => {
+export const ColorBackground: React.FC<Props> = ({ color }) => {
     return (
         <DivStyle color={color}/>
     );

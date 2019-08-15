@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from "styled-components";
-import ColorButton from "../../utils/Buttons/ColorButton";
-import {Link} from "react-router-dom";
-import ColorBackground from "../../utils/ColorBackground";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBackward} from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
+import ColorButton from '../../utils/Buttons/ColorButton';
+import { Link } from 'react-router-dom';
+import ColorBackground from '../../utils/ColorBackground';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBackward } from '@fortawesome/free-solid-svg-icons';
 import Container from '../../utils/Container';
 import config from '../../config';
 
@@ -52,6 +52,6 @@ export const Login: React.FC = () => {
             <ColorBackground color={'#111111'}/>
         </>
     );
-}
+};
 
 export default Login;

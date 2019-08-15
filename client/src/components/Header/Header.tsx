@@ -14,11 +14,11 @@ const MenuStyle = styled.div`
 `;
 
 export const Header: React.FC = () => {
-    return(
-      <MenuStyle>
-          <NavigationBar/>
-          <Notice>TEST</Notice>
-      </MenuStyle>
+    return (
+        <MenuStyle>
+            <NavigationBar/>
+            <Notice>TEST</Notice>
+        </MenuStyle>
     );
 };
 

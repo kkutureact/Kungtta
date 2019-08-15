@@ -1,9 +1,9 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
-import backgroundimage from './assets/images/kkutu/gamebg.png';
-import Lobby from './pages/Lobby/Lobby';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import styled, { keyframes } from 'styled-components';
+import backgroundimage from '../../assets/images/kkutu/gamebg.png';
+import Lobby from '../../components/Lobby';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
 
 const BackgroundScrollAnimation = keyframes`
     from {
@@ -25,11 +25,11 @@ const Background = styled.div`
 
 	background-size: 200px 200px;
 	background-image: url(${backgroundimage});
-	
+
 	animation: ${BackgroundScrollAnimation} 4s linear infinite;
 `;
 
-export const App: React.FC = () => {
+export const Main: React.FC = () => {
     return (
         <>
             <Header/>
@@ -40,4 +40,4 @@ export const App: React.FC = () => {
     );
 };
 
-export default App;
+export default Main;

@@ -8,13 +8,13 @@ const TopButtonStyle = styled.button<{ color: string, isTiny: boolean }>`
     border-radius: 10px 10px 0px 0px;
     width: ${props => props.isTiny ? '20px' : '98px'};
     height: 20px;
-    
+
     box-sizing: inherit;
     font-family: inherit;
     font-size: 12px;
     padding: 5px;
     cursor: pointer;
-    
+
     transition: all 200ms ease;
 
     &:hover {
@@ -29,7 +29,7 @@ interface Props {
     readonly onClick?: React.MouseEventHandler;
 }
 
-export const TopMenuButton: React.FC<Props> = ({children, color, isTiny, onClick}) => {
+export const TopMenuButton: React.FC<Props> = ({ children, color, isTiny, onClick }) => {
     return (
         <TopButtonStyle color={color} isTiny={isTiny} onClick={onClick}>
             {children}

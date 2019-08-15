@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {RouteComponentProps, withRouter} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import backgroundimage from '../assets/images/kkutu/gamebg.png';
 import Container from '../utils/Container';
@@ -8,9 +8,9 @@ import MyProfile from '../components/Room/RoomBoxes/MyProfile/MyProfile';
 import Chat from '../components/Room/RoomBoxes/Chat/Chat';
 import TopMenus from '../components/Room/TopMenus';
 import Footer from '../components/Footer/Footer';
-import {useWebSocket} from '../index';
-import {useUser} from '../hooks/useUser';
-import {BackgroundSound} from '../utils/Sound';
+import { useWebSocket } from '../index';
+import { useUser } from '../hooks/useUser';
+import { BackgroundSound } from '../utils/Sound';
 import Header from '../components/Header/Header';
 
 const BackgroundStyle = styled.div`
@@ -32,7 +32,7 @@ const BoxStyle = styled.div`
     width: 1010px;
 `;
 
-export const RoomLayout: React.FC<RouteComponentProps> = ({history, children}) => {
+export const RoomLayout: React.FC<RouteComponentProps> = ({ history, children }) => {
     const ws = useWebSocket();
     const user = useUser();
 
@@ -42,11 +42,11 @@ export const RoomLayout: React.FC<RouteComponentProps> = ({history, children}) =
 
     useEffect(() => {
         const makeUserQuit = () => {
-            if (user !== undefined) ws.emit('quit', {uuid: user.uuid, vendor: user.vendor});
+            if (user !== undefined) ws.emit('quit', { uuid: user.uuid, vendor: user.vendor });
         };
         window.addEventListener('beforeunload', makeUserQuit);
 
-        if (user !== undefined) ws.emit('join', {uuid: user.uuid, nickname: user.nickname, profile: user.profile});
+        if (user !== undefined) ws.emit('join', { uuid: user.uuid, nickname: user.nickname, profile: user.profile });
         ws.once('ban', () => history.push('/loginban'));
 
         const unlisten = history.listen(() => {

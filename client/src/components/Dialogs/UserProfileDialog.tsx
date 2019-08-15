@@ -14,7 +14,7 @@ interface UserType {
     readonly profile: string;
 }
 
-interface Props{
+interface Props {
     readonly User: UserType;
     readonly isOpen: boolean;
     readonly setBeOpen: any;
@@ -29,9 +29,7 @@ export const UserProfileDialog: React.FC<Props> = ({ User, isOpen, setBeOpen }) 
                 <Moremi/>
             </ProfileStyle>
 
-            <ModalOption title={'테스트'}>
-
-            </ModalOption>
+            <ModalOption title={'테스트'}/>
 
             <ModalButton>Button</ModalButton>
         </Modal>

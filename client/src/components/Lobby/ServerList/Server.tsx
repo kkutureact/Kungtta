@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import blue from '../../../assets/images/blue_gauge.png';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ContainerStyle = styled.div`
     float: left;
@@ -11,11 +11,11 @@ const ContainerStyle = styled.div`
     font-size: 13px;
     cursor: pointer;
     color: #EEEEEE;
-    
+
     &>div {
         float: left;
     }
-      
+
     &:hover{
         background-color: rgba(255, 255, 255, 0.1);
     }
@@ -37,7 +37,7 @@ const StatusGraphStyle = styled.div`
     width: 190px;
     height: 100%;
     box-shadow: 0px 1px 1px #141414;
-    
+
     &>label {
         position: relative;
         display: block;
@@ -66,7 +66,7 @@ interface Props {
     readonly channel: number;
 }
 
-export const Server: React.FC<Props> = ({name, isOnline, size, channel}) => {
+export const Server: React.FC<Props> = ({ name, isOnline, size, channel }) => {
     return (
         <Link to={`/rooms/${channel}`}>
             <ContainerStyle>

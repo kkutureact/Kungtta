@@ -40,7 +40,7 @@ const CloseButtonStyle = styled.div`
     height: 12px;
     background-color: #EE5555;
     cursor: auto;
-    
+
     &:hover {
       background-color: #EE7777;
     }
@@ -58,9 +58,9 @@ interface Props {
     readonly height?: string;
 }
 
-export const Modal: React.FC<Props> = ({isOpen, setBeOpen, title, width, height, children}) => {
+export const Modal: React.FC<Props> = ({ isOpen, setBeOpen, title, width, height, children }) => {
     return (
-        <Draggable defaultPosition={{x: 200, y: 200}} handle={'.ModalDraggable'}>
+        <Draggable defaultPosition={{ x: 200, y: 200 }} handle={'.ModalDraggable'}>
             <ModalStyle isOpen={isOpen} width={width} height={height}>
                 <ModalHeadStyle className={'ModalDraggable'}>
                     <TitleStyle>{title}</TitleStyle>

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../../assets/images/kkutu/short_logo.png';
-import Jjoriping from '../../components/Lobby/Jjoriping';
-import ServerList from '../../components/Lobby/ServerList/ServerList';
-import UpdateLog from '../../components/Lobby/UpdateLog';
-import Banner from '../../components/Lobby/Banner/Banner';
+import Jjoriping from './Jjoriping';
+import ServerList from './ServerList/ServerList';
+import UpdateLog from './UpdateLog';
+import Banner from './Banner/Banner';
 import Container from '../../utils/Container';
 
-const BoxStyle = styled.div`    
+const BoxStyle = styled.div`
     margin-top: 100px;
 
     @media (max-width: 600px) {
@@ -46,7 +46,7 @@ export const Lobby: React.FC = () => {
                 <TopStyle>
                     <StartBannerStyle>
                         <TitleStyle>글자로 놀자! 끄투온라인</TitleStyle>
-                        <KKutuLogoStyle src={logo}></KKutuLogoStyle>
+                        <KKutuLogoStyle src={logo}/>
                     </StartBannerStyle>
                     <Jjoriping/>
                     <ServerList/>

@@ -11,7 +11,7 @@ const ListStyle = styled.div`
     padding: 5px;
     width: 790px;
     height: 360px;
-    
+
     div {
         float: left;
     }
@@ -27,7 +27,7 @@ const RoomBoxStyle = styled.div<{ isMakeRoom: boolean }>`
     box-shadow: 0px 1px 1px #777777;
     cursor: pointer;
     transition: all 300ms ease;
-    
+
     div {
         float: none;
         padding: 20px 0px;
@@ -35,7 +35,7 @@ const RoomBoxStyle = styled.div<{ isMakeRoom: boolean }>`
         font-size: 15px;
         font-weight: bold;
     }
-    
+
     &:hover {
         background-color: ${props => props.isMakeRoom ? '#AADDFF' : '#F4F4F4'};
     }

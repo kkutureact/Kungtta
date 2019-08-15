@@ -8,7 +8,7 @@ const ContainerStyle = styled.div`
     width: 960px;
 `;
 
-export const Container: React.FC = ({children}) => {
+export const Container: React.FC = ({ children }) => {
     return (
         <ContainerStyle>
             {children}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ReactTooltip from 'react-tooltip';
 
@@ -14,12 +14,12 @@ const BarStyle = styled.div<{ close: boolean }>`
     z-index: 100;
 `;
 
-export const Notice: React.FC = ({children}) => {
+export const Notice: React.FC = ({ children }) => {
     const [isClosed, setClose] = useState<boolean>(false);
 
     return (
         <>
-            <BarStyle close={isClosed} onClick={() => setClose(true)} data-tip data-for={'notice'}>
+            <BarStyle close={isClosed} onClick={() => setClose(true)} data-tip={true} data-for={'notice'}>
                 <div>{children}</div>
             </BarStyle>
 

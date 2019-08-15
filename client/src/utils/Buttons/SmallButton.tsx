@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ButtonStyle = styled.button`    
+const ButtonStyle = styled.button`
     display: block;
-    
+
     background-color: #EEEEEE;
     border: none;
 	border-radius: 5px;
@@ -15,7 +15,7 @@ interface Props {
     readonly onClick?: React.MouseEventHandler;
 }
 
-export const SmallButton: React.FC<Props> = ({children, href, onClick}) => {
+export const SmallButton: React.FC<Props> = ({ children, href, onClick }) => {
     return (
         <ButtonStyle>
             <a href={href} onClick={onClick}>

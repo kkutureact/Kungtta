@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import UserProfileDialog from '../../../Dialogs/UserProfileDialog';
 
 const User = styled.div`
     width: 190px;
-        
+
     &:hover {
         cursor: pointer;
         background-color: #F4F4F4;
@@ -30,7 +30,7 @@ interface Props {
     readonly name: any;
 }
 
-export const UserInfo: React.FC<Props> = ({profile, level, name}) => {
+export const UserInfo: React.FC<Props> = ({ profile, level, name }) => {
     const [isOpen, setBeOpen] = useState<boolean>(false);
 
     const data = { nickname: name, profile: profile };

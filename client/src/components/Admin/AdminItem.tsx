@@ -4,7 +4,7 @@ interface Props {
     readonly name: string
 }
 
-export const AdminItem: React.FC<Props> = ({children, name}) => {
+export const AdminItem: React.FC<Props> = ({ children, name }) => {
     return (
         <fieldset>
             <legend>{name}</legend>

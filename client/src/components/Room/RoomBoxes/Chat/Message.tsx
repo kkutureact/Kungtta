@@ -17,7 +17,7 @@ const MessageHeaderStyle = styled.div<{ isNotice?: boolean }>`
     text-align: center;
     cursor: pointer;
     ${props => props.isNotice ? 'color: #1767CA;' : ''}
-    
+
     &:hover {
         background-color: #FFF;
     }
@@ -45,7 +45,7 @@ interface Props {
     readonly time: string;
 }
 
-export const Message: React.FC<Props> = ({isNotice, nickname, text, time}) => {
+export const Message: React.FC<Props> = ({ isNotice, nickname, text, time }) => {
     return (
         <MessageStyle isNotice={isNotice}>
             <MessageHeaderStyle isNotice={isNotice}>{nickname}</MessageHeaderStyle>

@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/index.tsx",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "lint": "tslint -p .",
+    "dev": "npm run lint && react-scripts start",
+    "build": "npm run lint && react-scripts build",
     "test": "react-scripts test"
   },
   "author": "",
@@ -37,6 +38,9 @@
     "@types/react-tooltip": "^3.9.2",
     "@types/styled-components": "^4.1.10",
     "react-scripts": "2.1.5",
+    "tslint": "^5.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.3.3333"
   },
   "eslintConfig": {

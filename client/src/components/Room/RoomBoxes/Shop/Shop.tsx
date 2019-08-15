@@ -11,7 +11,7 @@ const ListStyle = styled.div`
     padding: 5px;
     width: 790px;
     height: 360px;
-    
+
     div {
         float: left;
     }
@@ -21,9 +21,7 @@ export const Shop: React.FC = () => {
     return (
         <ListStyle>
             <BoxTitle>상점</BoxTitle>
-            <BoxContent>
-
-            </BoxContent>
+            <BoxContent/>
         </ListStyle>
     );
 };

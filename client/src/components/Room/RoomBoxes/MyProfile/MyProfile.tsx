@@ -13,7 +13,7 @@ const ContainerStyle = styled.div`
     padding: 5px;
     width: 200px;
     height: 190px;
-    
+
     div {
         float: left;
     }
@@ -22,7 +22,7 @@ const ContainerStyle = styled.div`
 const LevelStyle = styled.div<{ a: string }>`
     background-image: url(${props => props.a});
     background-size: 100%;
-  
+
     margin: 1px;
     width: 18px;
     height: 18px;
@@ -31,7 +31,7 @@ const LevelStyle = styled.div<{ a: string }>`
 const NameStyle = styled.div`
     padding-top: 3px;
     padding-left: 4px;
-    font-weight: bold;    
+    font-weight: bold;
 `;
 
 const OtherTextStyle = styled.div`

@@ -41,6 +41,6 @@ export const Banner: React.FC = () => {
             </BorderStyle>
         </ContainerStyle>
     );
-}
+};
 
 export default Banner;

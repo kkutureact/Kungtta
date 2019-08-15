@@ -5,13 +5,13 @@ const ModalBarStyle = styled.div`
     float: left;
     margin: 3px 0px;
     width: 100%;
-    
+
     p {
         float: left;
         width: 100px;
         text-align: center;
     }
-    
+
     input {
         width: auto;
         float: left;

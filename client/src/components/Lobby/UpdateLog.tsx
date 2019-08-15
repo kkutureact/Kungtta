@@ -8,7 +8,7 @@ const UpdateStyle = styled.div`
     background-color: #DEAF56;
     border: 2px solid #000000;
     border-radius: 10px;
-    
+
     @media (max-width: 600px) {
         width: 35%;
     }
@@ -32,10 +32,10 @@ export const UpdateLog: React.FC = () => {
     return (
         <UpdateStyle>
             <BorderStyle>
-                <IframeStyle src={'/updatelog.html'}></IframeStyle>
+                <IframeStyle src={'/updatelog.html'}/>
             </BorderStyle>
         </UpdateStyle>
     );
-}
+};
 
 export default UpdateLog;

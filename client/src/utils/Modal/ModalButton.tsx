@@ -7,11 +7,11 @@ const ButtonStyle = styled.button`
     height: 20px;
     padding: 5px;
     margin-right: 5px;
-    
+
     font-family: inherit;
     font-size: 12px;
     box-sizing: inherit;
-   
+
     border: 1px solid #AAAAAA;
     border-radius: 10px;
     background-color: #EEEEEE;

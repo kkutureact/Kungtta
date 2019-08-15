@@ -1,11 +1,11 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import BoxTitle from '../../../../utils/ContentBox/BoxTitle';
 import BoxContent from '../../../../utils/ContentBox/BoxContent';
-import {useWebSocket} from '../../../../index';
-import {useUser} from '../../../../hooks/useUser';
+import { useWebSocket } from '../../../../index';
+import { useUser } from '../../../../hooks/useUser';
 import Message from './Message';
-import {ChatSound} from '../../../../utils/Sound';
+import { ChatSound } from '../../../../utils/Sound';
 
 const ContainerStyle = styled.div`
     color: #111111;
@@ -28,7 +28,7 @@ const MessagesInputStyle = styled.input`
     margin-top: 5px;
     width: calc(100% - 85px);
     height: 20px;
-    
+
     font-family: inherit;
     padding: 5px;
     border: 1px solid #AAAAAA;
@@ -77,10 +77,10 @@ export const Chat: React.FC = () => {
 
     const sendChat = () => {
         if (inputValue !== '' && inputValue !== ' ') {
-            if(user!!.isMuted) {
-                ws.emit('chat', {uuid: user!!.uuid, nickname: user!!.nickname, text: inputValue, mute: true});
+            if (user!!.isMuted) {
+                ws.emit('chat', { uuid: user!!.uuid, nickname: user!!.nickname, text: inputValue, mute: true });
             } else {
-                ws.emit('chat', {uuid: user!!.uuid, nickname: user!!.nickname, text: inputValue, mute: false});
+                ws.emit('chat', { uuid: user!!.uuid, nickname: user!!.nickname, text: inputValue, mute: false });
             }
             setInputValue('');
         }
