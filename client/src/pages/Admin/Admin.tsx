@@ -113,6 +113,7 @@ export const Admin: React.FC = () => {
                         <pre>{JSON.stringify(data, null, '\t')}</pre>
                     </AdminItem>
 
+                    <p>* 해제일 0은 영구 처벌</p>
                     <AdminItem name={'유저 밴'}>
                         <InputStyle name={'banuuid'} value={banUuid} onChange={onInputChange}
                                     placeholder={'UUID 입력'}/>

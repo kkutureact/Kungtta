@@ -15,7 +15,14 @@ router.get('/logout', (req, res) => {
 
 router.get('/auth/profile', (req, res) => {
     if (req.isAuthenticated()) {
-        res.json({ user: req.user });
+        Users.findOne({ where: { uuid: req.user.uuid } })
+            .then((data: any) => {
+                res.status(200).json({ 'user': data.dataValues });
+            })
+            .catch((err) => {
+                logger.error(`@${req.ip} 사용자 뮤트 과정에서 오류가 발생하였습니다. \nError: ${err}`);
+                res.sendStatus(500);
+            });
     } else {
         res.json({
             user: {

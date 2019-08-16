@@ -38,14 +38,21 @@ export const onSuccess = (vendor: string, email: string, nickname: string, profi
     }).then(([user, created]) => {
         const uuid = user.get('uuid') as string;
 
+        const u: any = user;
+
+        const data = {
+            uuid: u.uuid,
+            isAdmin: u.isAdmin
+        };
+
         if (created) {
             logger.info(`${vendor} 소셜서비스를 통해 ${uuid} 사용자가 새로 가입하였습니다.`);
-            done(null, user);
+            done(null, data);
         } else {
             Users.findOne({ where: { uuid: uuid } })
                 .then(() => {
                     logger.info(`${vendor} 소셜서비스를 통해 ${uuid} 사용자가 로그인하였습니다.`);
-                    done(null, user);
+                    done(null, data);
                 });
         }
     });
