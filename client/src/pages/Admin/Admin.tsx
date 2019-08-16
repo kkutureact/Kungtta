@@ -60,7 +60,13 @@ export const Admin: React.FC = () => {
             .then(res => {
                 setData(res.data);
             })
-            .catch(err => setData('Error ' + err));
+            .catch((err) => {
+                if (err.response.status === 404) {
+                    setData(err.response.data);
+                } else {
+                    setData('Error ' + err);
+                }
+            });
     };
 
     const banUser = () => {
