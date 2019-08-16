@@ -13,8 +13,11 @@ export class JoinSocket implements Socket {
         BanList.findOne({ where: { uuid: uuid } })
             .then((data: any) => {
                 if (profile !== 'guest' && data !== null) {
-                    logger.info(`접근 차단된 ${uuid} 사용자가 접속을 시도하였습니다.`);
-                    client.send(JSON.stringify({ action: 'ban', data: [{ reason: '당신은 관리자에 의하여 차단된 사용자입니다.' }] }));
+                    const nowUnixtime = Math.floor(Date.now() / 1000);
+                    if (data.exp_date === 0 || nowUnixtime <= data.exp_date) {
+                        logger.info(`접근 차단된 ${uuid} 사용자가 접속을 시도하였습니다.`);
+                        client.send(JSON.stringify({ action: 'ban', data: [{ reason: data.reason, exp: data.exp_date }] }));
+                    }
                     return;
                 }
             })

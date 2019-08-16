@@ -14,7 +14,7 @@ const Routes: React.FC = () => {
                 <Route exact={true} path='/' component={Main}/>
                 <Route exact={true} path='/login' component={Login}/>
                 <Route exact={true} path='/loginerror' component={LoginError}/>
-                <Route exact={true} path='/loginban' component={LoginBan}/>
+                <Route exact={true} path='/loginban/:reason/:exp' component={LoginBan}/>
                 <Route exact={true} path='/admin' component={Admin}/>
                 <Route exact={true} path='/rooms/:channel' component={RoomProvider}/>
             </Switch>

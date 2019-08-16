@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
 import ColorBackground from '../../utils/ColorBackground';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward } from '@fortawesome/free-solid-svg-icons';
@@ -20,13 +20,16 @@ const BackToLobbyStyle = styled(Link)`
 	color: #EEEEEE;
 `;
 
-export const LoginBan: React.FC = () => {
+export const LoginBan: React.FC<RouteComponentProps<{ reason: string, exp: string }>> = ({ match }) => {
+    const nowDate = new Date(parseInt(match.params.exp) * 1000).toLocaleString();
     return (
         <>
             <Container>
                 <BoxStyle>
                     <TitleStyle>이용 차단<i>!</i></TitleStyle>
                     <p>관리자에 의하여 서비스 이용이 차단되었습니다.</p>
+                    <p>사유: {match.params.reason}</p>
+                    <p>해제일: {parseInt(match.params.exp) === 0 ? '영구' : nowDate}</p>
 
                     <div>
                         <br/>
@@ -39,4 +42,4 @@ export const LoginBan: React.FC = () => {
     );
 };
 
-export default LoginBan;
+export default withRouter(LoginBan);

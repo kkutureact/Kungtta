@@ -26,7 +26,7 @@ export const Admin: React.FC = () => {
     const [data, setData] = useState<string>('');
     const [uuid, setUuid] = useState<string>('');
     const [banUuid, setBanUuid] = useState<string>('');
-    const [banReason, setBanReason] = useState<string>('');
+    const [banReason, setBanReason] = useState<string>('당신은 관리자에 의하여 차단된 사용자입니다.');
     const [banExp, setBanExp] = useState<number>(0);
     const [muteUuid, setMuteUuid] = useState<string>('');
     const [muteExp, setMuteExp] = useState<number>(0);
@@ -108,8 +108,7 @@ export const Admin: React.FC = () => {
         return (
             <>
                 <Container>
-                    <h2>끄투 관리자패널<UnixTimeLinkStyle href='http://chongmoa.com/unixtime' target='_blank'> [UnixTime
-                        변환기]</UnixTimeLinkStyle></h2>
+                    <h2>끄투 관리자패널<UnixTimeLinkStyle href='https://www.toolfk.com/lang_ko_convert-unixtime' target='_blank'> [UnixTime 변환기]</UnixTimeLinkStyle></h2>
 
                     <AdminItem name={'유저 조회'}>
                         <InputStyle name={'finduser'} value={uuid} onChange={onInputChange}

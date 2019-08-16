@@ -47,7 +47,9 @@ export const RoomLayout: React.FC<RouteComponentProps> = ({ history, children })
         window.addEventListener('beforeunload', makeUserQuit);
 
         if (user !== undefined) ws.emit('join', { uuid: user.uuid, nickname: user.nickname, profile: user.profile });
-        ws.once('ban', () => history.push('/loginban'));
+        ws.once('ban', (data) => {
+            history.push(`/loginban/${data.reason}/${data.exp}`);
+        });
 
         const unlisten = history.listen(() => {
             BackgroundSound.stop();
