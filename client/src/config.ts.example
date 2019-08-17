@@ -2,23 +2,28 @@ export default {
     endpointAPI: '',
     gameServers: [
         {
-            url: '',
+            http: 'http://'
+            url: 'ws://',
             name: '가람'
         },
         {
-            url: '',
+            http: 'http://'
+            url: 'ws://',
             name: '나래'
         },
         {
-            url: '',
+            http: 'http://'
+            url: 'ws://',
             name: '다옴'
         },
         {
-            url: '',
+            http: 'http://'
+            url: 'ws://',
             name: '솔길'
         },
         {
-            url: '',
+            http: 'http://'
+            url: 'ws://',
             name: '한울'
         }
     ]
