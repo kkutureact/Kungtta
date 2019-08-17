@@ -1,8 +1,8 @@
 import { Socket } from './socket';
 import { logger, ws } from '../../index';
 import WebSocket from 'ws';
-import UserManager from '../UserManager';
 import BanList from '../../database/Banlist';
+import UserManager from '../../UserManager';
 
 export class JoinSocket implements Socket {
     run (client: any, action: string, data: any): void {

@@ -1,5 +1,5 @@
 import { Command } from './command';
-import UserManager from '../UserManager';
+import UserManager from '../../UserManager';
 
 export class WhisperCommand implements Command {
     run (command: string, args: string[], myuuid: string, myclient: WebSocket): void {

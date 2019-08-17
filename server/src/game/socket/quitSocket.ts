@@ -1,7 +1,7 @@
 import { Socket } from './socket';
-import UserManager from '../UserManager';
 import { ws } from '../../index';
 import WebSocket from 'ws';
+import UserManager from '../../UserManager';
 
 export class QuitSocket implements Socket {
     run(client: any, action: string, data: any): void {

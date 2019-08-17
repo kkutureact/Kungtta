@@ -1,5 +1,5 @@
 import express from 'express';
-import UserManager from './game/UserManager';
+import UserManager from './UserManager';
 
 const router = express.Router();
 

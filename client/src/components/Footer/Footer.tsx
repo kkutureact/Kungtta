@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../../utils/Container';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const FooterStyle = styled.div`
     float: left;
@@ -44,13 +44,16 @@ export const Footer: React.FC = () => {
                     <FooterTextStyle>Copyright &copy; 2019 SkyLightQP.</FooterTextStyle>
                     <FooterTextStyle>
                         KKutuReact 이용 시&nbsp;
-                        <b><FooterAStyle href={termsOfService}>이용약관</FooterAStyle> &middot; <FooterAStyle href={privacyPolicy}>개인정보처리방침</FooterAStyle></b>
+                        <b><FooterAStyle href={termsOfService}>이용약관</FooterAStyle> &middot; <FooterAStyle
+                            href={privacyPolicy}>개인정보처리방침</FooterAStyle></b>
                         에 동의하는 것으로 간주합니다.
                     </FooterTextStyle>
                     <FooterTextStyle>
                         해당 서비스는 Internet Explorer 및 모바일 환경을 지원하지 않습니다. <br/>
                         원활한 사용을 위해
-                        <b><FooterAStyle href={'https://www.google.co.kr/chrome/'}> Chrome</FooterAStyle></b>, <b><FooterAStyle href={'https://www.mozilla.org/ko/'}>Firefox </FooterAStyle></b>
+                        <b><FooterAStyle
+                            href={'https://www.google.co.kr/chrome/'}> Chrome</FooterAStyle></b>, <b><FooterAStyle
+                        href={'https://www.mozilla.org/ko/'}>Firefox </FooterAStyle></b>
                         또는 PC 환경을 사용해주세요.
                     </FooterTextStyle>
                     <FooterTextStyle>
