@@ -26,9 +26,9 @@ export const SoundManager = {
         ChatSound.volume(v);
     },
     setBackgroundCookie (v: number) {
-        cookies.set('backgroundsound', v, { path: '/rooms' });
+        cookies.set('backgroundsound', v, { path: '/' });
     },
     setSoundEffectCookie (v: number) {
-        cookies.set('soundeffect', v, { path: '/rooms' });
+        cookies.set('soundeffect', v, { path: '/' });
     }
 };
