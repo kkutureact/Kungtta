@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BoxTitle from '../../../../utils/ContentBox/BoxTitle';
 import BoxContent from '../../../../utils/ContentBox/BoxContent';
+import { useWebSocket } from '../../../../index';
+import { useUser } from '../../../../hooks/useUser';
 
 const ListStyle = styled.div`
     color: #111111;
@@ -41,15 +43,53 @@ const RoomBoxStyle = styled.div<{ isMakeRoom: boolean }>`
     }
 `;
 
+interface RoomDetail {
+    readonly title: string;
+    readonly users: any[];
+    readonly type: string;
+    readonly isStarted: boolean;
+    readonly max: number;
+}
+
 export const RoomList: React.FC = () => {
+    const ws = useWebSocket();
+    const user = useUser();
+    const [rooms, setRooms] = useState<RoomDetail[]>([]);
+
+    const addRoom = () => {
+        const id = Math.floor(Math.random() * 999) + 1;
+        if (user !== undefined) ws.emit('makeroom', { id: id, owner: user.uuid, title: '테스트'+id, type: 'test', max: 10 });
+    };
+
+    useEffect(() => {
+        ws.emit('room');
+
+        const onRoomReceive = (data: any) => {
+            setRooms(Object.values(Object.values(data)[0]));
+        };
+
+        ws.addListener('room', onRoomReceive);
+
+        return () => {
+            ws.removeListener('room', onRoomReceive);
+        };
+    }, []);
+
     return (
         <ListStyle>
-            <BoxTitle>방 목록 [0개]</BoxTitle>
+            <BoxTitle>방 목록 [{rooms.length}개]</BoxTitle>
             <BoxContent>
-                <RoomBoxStyle isMakeRoom={true}>
-                    <div>방 만들기</div>
-                </RoomBoxStyle>
-                <RoomBoxStyle isMakeRoom={false}>
+                {
+                    rooms.map((data, index) => {
+                        return (
+                            <RoomBoxStyle key={index} isMakeRoom={false}>
+                                <div>방이름: {data.title} 최대인원: {data.max} 방장:{data.users[0].nickname}</div>
+                            </RoomBoxStyle>
+                        );
+                    })
+                }
+
+                <RoomBoxStyle isMakeRoom={true} onClick={addRoom}>
                     <div>방 만들기</div>
                 </RoomBoxStyle>
             </BoxContent>

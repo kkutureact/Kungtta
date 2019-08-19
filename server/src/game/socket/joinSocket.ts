@@ -3,6 +3,7 @@ import { logger, ws } from '../../index';
 import WebSocket from 'ws';
 import BanList from '../../database/Banlist';
 import UserManager from '../../UserManager';
+import msgpack from 'msgpack-lite';
 
 export class JoinSocket implements Socket {
     run (client: any, action: string, data: any): void {
@@ -16,7 +17,7 @@ export class JoinSocket implements Socket {
                     const nowUnixtime = Math.floor(Date.now() / 1000);
                     if (data.exp_date === 0 || nowUnixtime <= data.exp_date) {
                         logger.info(`접근 차단된 ${uuid} 사용자가 접속을 시도하였습니다.`);
-                        client.send(JSON.stringify({ action: 'ban', data: [{ reason: data.reason, exp: data.exp_date }] }));
+                        client.send(msgpack.encode({ action: 'ban', data: [{ reason: data.reason, exp: data.exp_date }] }));
                     }
                     return;
                 }
@@ -29,7 +30,7 @@ export class JoinSocket implements Socket {
 
         ws.clients.forEach(eachClient => {
             if (eachClient.readyState === WebSocket.OPEN) {
-                eachClient.send(JSON.stringify({ action: 'user', data: [{ users: UserManager.gets() }] }));
+                eachClient.send(msgpack.encode({ action: 'user', data: [{ users: UserManager.gets() }] }));
             }
         });
     }

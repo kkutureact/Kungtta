@@ -3,6 +3,7 @@ import { ws } from '../../index';
 import WebSocket from 'ws';
 import { FilteringBadWord } from '../chat/filteringBadWord';
 import { CommandHandler } from '../commands/commandHandler';
+import msgpack from 'msgpack-lite';
 
 export class ChatSocket implements Socket {
     run (client: any, action: string, data: any): void {
@@ -24,14 +25,14 @@ export class ChatSocket implements Socket {
             const nowUnixtime = Math.floor(Date.now() / 1000);
             if (data[0].mute_exp === 0 || nowUnixtime <= data[0].mute_exp) {
                 const data = { 'uuid': '', 'nickname': '채팅 금지!', 'text': '당신은 현재 채팅 금지 상태입니다.', isNotice: true };
-                client.send(JSON.stringify({ action: 'chat', data: [data] }));
+                client.send(msgpack.encode({ action: 'chat', data: [data] }));
                 return;
             }
         }
 
         ws.clients.forEach(eachClient => {
             if (eachClient.readyState === WebSocket.OPEN) {
-                eachClient.send(JSON.stringify({ action: 'chat', data: [editedData] }));
+                eachClient.send(msgpack.encode({ action: 'chat', data: [editedData] }));
             }
         });
     }
