@@ -7,7 +7,7 @@ import msgpack from 'msgpack-lite';
 
 export class MakeRoomSocket implements Socket {
     run (client: any, action: string, data: any): void {
-        const id = data[0].id;
+        const id = parseInt(data[0].id, 10);
         const owner = data[0].owner;
         const title = data[0].title;
         const type = data[0].type;

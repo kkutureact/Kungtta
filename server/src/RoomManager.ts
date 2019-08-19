@@ -1,6 +1,7 @@
 import User from './User';
 
 interface RoomManagerType {
+    readonly id: number;
     readonly title: string;
     readonly users: User[];
     readonly type: string;
@@ -8,7 +9,7 @@ interface RoomManagerType {
     readonly max: number;
 }
 
-const rooms: { [roomId: string]: RoomManagerType } = {};
+const rooms: { [roomId: number]: RoomManagerType } = {};
 let instance: any;
 
 class RoomManager {
@@ -18,11 +19,11 @@ class RoomManager {
         instance = this;
     }
 
-    addRoom (id: string, title: string, users: User[], type: string, max: number) {
-        rooms[id] = { title: title, users: users, type: type, isStarted: false, max: max };
+    addRoom (id: number, title: string, users: User[], type: string, max: number) {
+        rooms[id] = { id: id, title: title, users: users, type: type, isStarted: false, max: max };
     }
 
-    removeRoom (id: string) {
+    removeRoom (id: number) {
         delete rooms[id];
     }
 
@@ -30,7 +31,7 @@ class RoomManager {
         return rooms;
     }
 
-    get (id: string): RoomManagerType {
+    get (id: number): RoomManagerType {
         return rooms[id];
     }
 
