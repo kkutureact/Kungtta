@@ -1,10 +1,6 @@
-interface UserManagerType {
-    readonly nickname: string;
-    readonly profile: string;
-    readonly client: WebSocket;
-}
+import User from './User';
 
-const users: { [uuid: string]: UserManagerType } = {};
+const users: { [uuid: string]: User } = {};
 let instance: any;
 
 class UserManager {
@@ -14,11 +10,11 @@ class UserManager {
         instance = this;
     }
 
-    addUser (uuid: string, nickname: string, profile: string, client: WebSocket): void {
-        users[uuid] = { nickname: nickname, profile: profile, client: client };
+    addUser (uuid: string, nickname: string, profile: string, client: WebSocket) {
+        users[uuid] = new User(nickname, profile, client);
     }
 
-    removeUser (uuid: string): void {
+    removeUser (uuid: string)  {
         delete users[uuid];
     }
 
@@ -26,7 +22,7 @@ class UserManager {
         return users;
     }
 
-    get (uuid: string): UserManagerType {
+    get (uuid: string): User {
         return users[uuid];
     }
 
