@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BoxTitle from '../../../../utils/ContentBox/BoxTitle';
 import BoxContent from '../../../../utils/ContentBox/BoxContent';
-import Moremi from '../../../Moremi/Moremi';
+import Moremi from '../../../Moremi';
 import a from '../../../../assets/images/kkutu/guest_icon.png';
 
 const ContainerStyle = styled.div`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Modal from '../../utils/Modal/Modal';
 import ModalOption from '../../utils/Modal/ModalOption';
 import ModalButton from '../../utils/Modal/ModalButton';
-import Moremi from '../Moremi/Moremi';
+import Moremi from '../Moremi';
 
 const ProfileStyle = styled.div`
     float: left;
