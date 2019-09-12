@@ -7,11 +7,11 @@ import UserList from '../components/Room/RoomBoxes/UserList/UserList';
 import MyProfile from '../components/Room/RoomBoxes/MyProfile/MyProfile';
 import Chat from '../components/Room/RoomBoxes/Chat/Chat';
 import TopMenus from '../components/Room/TopMenus';
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/Footer';
 import { useWebSocket } from '../index';
 import { useUser } from '../hooks/useUser';
 import { BackgroundSound } from '../utils/Sound';
-import Header from '../components/Header/Header';
+import Header from '../components/Header';
 
 const BackgroundStyle = styled.div`
 	position: fixed;

@@ -4,7 +4,7 @@ import logo from '../../assets/images/kkutu/short_logo.png';
 import Jjoriping from './Jjoriping';
 import ServerList from './ServerList';
 import UpdateLog from './UpdateLog';
-import Banner from './Banner/Banner';
+import Banner from './Banner';
 import Container from '../../utils/Container';
 
 const BoxStyle = styled.div`

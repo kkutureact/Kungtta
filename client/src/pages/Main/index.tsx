@@ -2,8 +2,8 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import backgroundimage from '../../assets/images/kkutu/gamebg.png';
 import Lobby from '../../components/Lobby';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 
 const BackgroundScrollAnimation = keyframes`
     from {
