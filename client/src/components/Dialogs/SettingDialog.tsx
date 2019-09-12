@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Modal from '../../utils/Modal/Modal';
+import Modal from '../../utils/Modal';
 import ModalOption from '../../utils/Modal/ModalOption';
 import ModalButton from '../../utils/Modal/ModalButton';
 import { SoundManager } from '../../utils/Sound';

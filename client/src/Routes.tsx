@@ -4,7 +4,7 @@ import Main from './pages/Main';
 import Login from './pages/Login/Login';
 import LoginError from './pages/Login/LoginError';
 import LoginBan from './pages/Login/LoginBan';
-import Admin from './pages/Admin/Admin';
+import Admin from './pages/Admin';
 import { RoomProvider } from './pages/Room/RoomProvider';
 
 const Routes: React.FC = () => {

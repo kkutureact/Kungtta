@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Modal from '../../utils/Modal/Modal';
+import Modal from '../../utils/Modal';
 import ModalOption from '../../utils/Modal/ModalOption';
 import ModalButton from '../../utils/Modal/ModalButton';
 import Moremi from '../Moremi';

@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { WebSocketProvider } from '../../index';
 import config from '../../config';
-import Room from './Room';
+import Room from './index';
 import { Link } from 'react-router-dom';
 
 export const RoomProvider: React.FC<RouteComponentProps<{ channel: string }>> = ({ match }) => {
