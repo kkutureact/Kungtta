@@ -1,7 +1,7 @@
 import { logger, ws } from '../index';
 import msgpack from 'msgpack-lite';
 import { Socket } from './socket/socket';
-import {ChatSocket, JoinSocket, MakeRoomSocket, QuitSocket, RoomSocket} from './socket/index';
+import { ChatSocket, JoinSocket, MakeRoomSocket, QuitSocket, RoomSocket } from './socket/index';
 
 const socketHandleList: { [k: string]: Socket } = {};
 socketHandleList.join = new JoinSocket();

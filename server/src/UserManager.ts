@@ -14,7 +14,7 @@ class UserManager {
         users[uuid] = new User(nickname, profile, client);
     }
 
-    removeUser (uuid: string)  {
+    removeUser (uuid: string) {
         delete users[uuid];
     }
 
