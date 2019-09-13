@@ -1,5 +1,6 @@
 import { Command } from './command';
 import UserManager from '../../UserManager';
+import msgpack from 'msgpack-lite';
 
 export class WhisperCommand implements Command {
     run (command: string, args: string[], myuuid: string, myclient: WebSocket): void {
@@ -13,11 +14,11 @@ export class WhisperCommand implements Command {
             const data = { 'nickname': `From @${senderNickname}`, 'text': text, isNotice: false };
             const senderData = { 'nickname': `To @${targetNickname}`, 'text': text, isNotice: false };
 
-            targetUser.client.send(JSON.stringify({ action: 'chat', data: [data] }));
-            myclient.send(JSON.stringify({ action: 'chat', data: [senderData] }));
+            targetUser.client.send(msgpack.encode({ action: 'chat', data: [data] }));
+            myclient.send(msgpack.encode({ action: 'chat', data: [senderData] }));
         } else {
             const data = { 'nickname': `귓속말`, 'text': '존재하지 않는 사용자입니다. (닉네임은 대소문자를 구분합니다.)', isNotice: true };
-            myclient.send(JSON.stringify({ action: 'chat', data: [data] }));
+            myclient.send(msgpack.encode({ action: 'chat', data: [data] }));
         }
     }
 }

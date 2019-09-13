@@ -1,4 +1,5 @@
 import { Command } from './command';
+import msgpack from 'msgpack-lite';
 
 export class HelpCommand implements Command {
     run (command: string, args: string[], myuuid: string, myclient: WebSocket): void {
@@ -10,7 +11,7 @@ export class HelpCommand implements Command {
         ];
 
         msg.forEach((v) => {
-            myclient.send(JSON.stringify({
+            myclient.send(msgpack.encode({
                 action: 'chat',
                 data: [{ 'nickname': '도움말', 'text': v, isNotice: true }]
             }));
