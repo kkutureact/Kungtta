@@ -45,7 +45,7 @@ export const Lobby: React.FC = () => {
                 <br/>
                 <TopStyle>
                     <StartBannerStyle>
-                        <TitleStyle>글자로 놀자! 끄투온라인</TitleStyle>
+                        <TitleStyle>쿵따 Kungtta</TitleStyle>
                         <KKutuLogoStyle src={logo}/>
                     </StartBannerStyle>
                     <Jjoriping/>

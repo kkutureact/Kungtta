@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
         <Container>
             <FooterStyle>
                 <Container>
-                    <FooterTextStyle>KKutuReact은(는) JJoriping의 KKutu을(를) 모티브로 하여 SkyLightQP이(가)
+                    <FooterTextStyle>쿵따는 JJoriping의 KKutu을(를) 모티브로 하여 SkyLightQP이(가)
                         제작하였습니다.</FooterTextStyle>
                     <FooterTextStyle>
                         이 프로그램은 제품에 대한 어떠한 형태의 보증도 제공되지 않으며 배포 규정을 만족시키는 조건 아래 자유롭게 재배포할 수 있습니다. <br/>
