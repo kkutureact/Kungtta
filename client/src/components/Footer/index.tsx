@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
                     </FooterTextStyle>
                     <FooterTextStyle>Copyright &copy; 2019 SkyLightQP.</FooterTextStyle>
                     <FooterTextStyle>
-                        KKutuReact 이용 시&nbsp;
+                        쿵따 이용 시&nbsp;
                         <b><FooterAStyle href={termsOfService}>이용약관</FooterAStyle> &middot; <FooterAStyle
                             href={privacyPolicy}>개인정보처리방침</FooterAStyle></b>
                         에 동의하는 것으로 간주합니다.
